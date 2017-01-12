@@ -1,0 +1,17 @@
+/*
+Copyright (c) 2016
+------------------------------------------------------------------
+[Master Stylesheet]
+
+Project:
+Version:	1.0.0
+Assigned to:	Themeforest
+-------------------------------------------------------------------*/
+@import url("bootstrap.css");
+@import url("fonts.css");
+@import url("font-awesome.css");
+@import url("animate.css");
+@import url("dataTables.bootstrap.min.css");
+@import url("morris.css");
+@import url("admin_style.css");
+@import url("admin_responsive.css");

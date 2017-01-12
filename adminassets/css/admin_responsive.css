@@ -1,0 +1,386 @@
+/*
+Copyright (c) 2016 Himanshu Softtech.
+------------------------------------------------------------------
+[Master Stylesheet]
+Project:	
+Version:	1.0.0
+Assigned to:	Themeforest
+-------------------------------------------------------------------*/
+/* Large desktop */
+@media (min-width: 1200px) {
+.th_icon {
+    margin-right: 10px;
+}
+.th_status strong {
+    font-size: 17px;
+}
+.th_status_wrapper {
+    padding: 20px 12px;
+}
+}
+@media (min-width:992px) and (max-width:1199px) {
+.th_gallery_wrapper {
+    width: 19.2%;
+}
+.th_icon {
+    width: 45px;
+    height: 45px;
+    line-height: 45px;
+    font-size: 18px;
+    margin-right: 0;
+    float: none;
+    margin-bottom: 10px;
+}
+.th_status {
+    float: left;
+    width: 100%;
+}
+.th_status strong {
+    font-size: 15px;
+}
+.th_status_wrapper {
+    padding: 20px 12px;
+}
+}
+@media (min-width:768px) and (max-width: 991px) {
+/* chart */
+div#theme_line_chart {
+    width: 500px;
+}
+div#theme_line_chart svg {
+    width: 500px;
+}
+/* chart */
+.th_status_wrapper {
+    width: 25%;
+    margin-bottom: 10px;
+    text-align: center;
+}
+.th_status strong {
+    font-size: 17px;
+}
+.th_icon {
+    float: none;
+    margin-right: 0;
+    margin-bottom: 10px;
+}
+.th_status {
+    display: block;
+}
+.th_gallery_wrapper {
+    width: 24%;
+}
+.th_one_fifth {
+    float: left;
+    width: 25%;
+}
+}
+@media (max-width:767px) {
+.th_menu_container {
+    width: 300px;
+}
+.slide_wrapper .main_body {
+	width: 100%;
+    -webkit-transform: none;
+    -ms-transform: none;
+    -moz-transform: none;
+    -o-transform: none;
+    transform: none;
+}
+.slide_wrapper .th_top_header {
+	width: 100%;
+    -webkit-transform: none;
+    -ms-transform: none;
+    -moz-transform: none;
+    -o-transform: none;
+    transform: none;
+}
+.dataTables_wrapper {
+    float: left;
+}
+.theme_modal .modal-body {
+    padding: 5px;
+}
+.th_add_user {
+    padding: 10px 0;
+}
+.ts_img_div {
+    float: left;
+}
+textarea {
+    min-height: 150px;
+}
+.th_user_profile {
+    margin-left: -15px;
+	width: 150px;
+}
+/* chart */
+div#theme_chart svg {
+    width: 100%;
+}
+div#theme_bar_chart, div#theme_bar_chart svg {
+    width: 100%;
+}
+div#theme_line_chart {
+    width: 500px;
+}
+div#theme_line_chart svg {
+    width: 500px;
+}
+/* chart */
+.th_status_wrapper {
+    text-align: center;
+}
+.th_icon {
+    float: none;
+    margin-right: 0;
+    margin-bottom: 15px;
+}
+.th_status {
+    display: block;
+}
+.th_status_wrapper {
+    width: 33.3%;
+    margin-bottom: 10px;
+}
+.th_status strong {
+    font-size: 17px;
+}
+.th_form_wrapper{
+	width: 90%;
+}
+.th_gallery_wrapper {
+    width: 32%;
+}
+.th_datepicker .datepicker {
+    min-width: 150px;
+    margin: 2px;
+    width: 150px;
+}
+.th_filter_wrapper .btn {
+    margin: 4px;
+}
+.th_one_fifth {
+    float: left;
+    width: 33.3%;
+}
+.th_top_header .logo_section {
+    width: 35%;
+    float: left;
+}
+.th_top_header .wallet_section, .th_top_header .login_section {
+    width: 30%;
+    float: left;
+}
+.th_top_header .th_wallet_section {
+    text-align: left;
+    text-indent: -63px;
+    overflow: hidden;
+}
+}
+@media (max-width:667px) {	
+.th_top_header {
+    padding: 15px 25px;
+	text-align: center;
+}
+.logo_wrapper img {
+    width: 100%;
+}
+.user_login_detail {
+    float: right;
+}
+.user_login_detail .user_name {
+    font-size: 14px;
+	line-height: 24px;
+}
+.user_login_detail .user_name span {
+    font-size: 16px;
+}
+.th_manage_user a {
+    margin-left: 10px;
+} 
+.th_user_profile {
+    margin-left: -20px;
+} 
+/* chart */
+div#theme_line_chart {
+    width: 400px;
+}
+div#theme_line_chart svg {
+    width: 400px;
+}
+/* chart */
+.th_status_wrapper {
+    width: 50%;
+}
+.th_gallery_wrapper {
+    width: 48%;
+} 
+} 
+@media (max-width:600px) {
+.th_status_wrapper {
+    width: 50%;
+}
+.th_gallery_wrapper {
+    width: 45%;
+}
+/* .th_filter_wrapper .btn {
+	float: left;
+}
+.th_filter {
+    margin-bottom: 5px;
+} */
+.th_datepicker .datepicker {
+    min-width: 100px;
+    width: 100px;
+}
+.th_one_fifth {
+    float: left;
+    width: 50%;
+}
+}
+@media (max-width:578px) {
+}
+@media (max-width:480px) {
+.logo_wrapper {
+    width: 40%;
+}
+.th_user_login {
+    width: 100%;
+}
+.main_body .container-fluid {
+    padding: 0;
+}
+.panel-title {
+    font-size: 14px;
+}
+.theme_panel_section .panel-title a {
+    padding: 15px 10px;
+}
+/* chart */
+.th_chart_content {
+	padding: 15px 0;
+}
+div#theme_chart, div#theme_bar_chart, div#theme_line_chart {
+    width: 300px;
+}
+div#theme_chart svg, div#theme_bar_chart svg, div#theme_line_chart svg {
+    width: 300px;
+}
+/* chart */
+.th_status_wrapper {
+	width: 80%;
+    margin: 0px auto;
+    margin-bottom: 10px;
+    float: none;
+}
+.th_user_login .theme_btn {
+    margin-left: 30px;
+}
+.th_form_wrapper {
+	width: 90%;
+}
+.th_gallery_wrapper {
+    width: 100%;
+	margin: 5px 0;
+} 
+.th_datepicker {
+    float: left;
+    clear: both;
+}
+.th_one_fifth {
+    float: left;
+    width: 100%;
+}
+.th_top_header .logo_section {
+    width: 100%;
+}
+.th_top_header .wallet_section, .th_top_header .login_section {
+    width: 50%;
+    float: left;
+}
+.th_top_header .th_wallet_section {
+	padding-left: 30px;
+}
+}
+@media (max-width:375px) {
+/* chart */
+div#theme_chart, div#theme_bar_chart, div#theme_line_chart {
+    width: 200px;
+}
+div#theme_chart svg, div#theme_bar_chart svg, div#theme_line_chart svg {
+    width: 180px;
+}
+/* chart */	
+}
+@media (max-width:320px) {
+.th_user_profile {
+    width: 150px;
+    margin-left: -20px;	
+}
+.menu_toggle {
+    left: 10px;
+    top: 10px;
+}
+.menu_toggle:after {
+    top: -180px;
+    left: -180px;
+}
+.th_menu_container {
+    -webkit-transform: translate3d(-87%, -60%, 0px) rotate(45deg);
+    -moz-transform: translate3d(-87%, -60%, 0px) rotate(45deg);
+    -ms-transform: translate3d(-87%, -60%, 0px) rotate(45deg);
+    -o-transform: translate3d(-87%, -60%, 0px) rotate(45deg);
+    transform: translate3d(-87%, -60%, 0px) rotate(45deg);
+}
+.panel-title {
+    font-size: 11px;
+}
+.theme_panel_section .panel-title a:after {
+    width: 25px;
+    height: 25px;
+    line-height: 25px;
+    right: 10px;
+    margin-top: -12.5px;
+}
+.theme_panel_section .panel-title a:before {
+    right: 17px;
+    font-size: 18px;
+    line-height: 32px;
+}
+.theme_panel_section .panel-title a.collapsed:before {
+    line-height: 28px;
+}
+.th_upload_text input[type="file"] {
+    width: 90px;
+}
+.ts_img_div {
+    min-width: 100%;
+}
+.ts_logo_img {
+    width: 100%;
+}
+.th_status_wrapper {
+	width: 100%;
+}
+div.table .file-row.dz-image-preview > div:last-child {
+    text-align: right;
+}
+div.table .file-row.dz-image-preview > div .btn {
+    margin-bottom: 5px;
+}
+}
+@media (max-width:240px) {
+/* chart */
+.th_chart_content {
+    margin-left: -15px;
+    width: 115%;
+}	
+div#theme_chart, div#theme_bar_chart, div#theme_line_chart {
+    width: 200px;
+}
+div#theme_chart svg, div#theme_bar_chart svg, div#theme_line_chart svg {
+    width: 200px;
+}
+/* chart */
+}

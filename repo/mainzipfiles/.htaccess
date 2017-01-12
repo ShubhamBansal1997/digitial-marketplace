@@ -1,0 +1,4 @@
+<Files ~ "\.zip$">
+Order allow,deny
+Deny from all
+</Files>
