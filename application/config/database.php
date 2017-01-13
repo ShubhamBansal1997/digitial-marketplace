@@ -75,9 +75,9 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => '127.0.0.1',
-	'username' => 'root',
-	'password' => 'root',
+	'hostname' => 'designminister.cwp3kqoxthdw.us-east-1.rds.amazonaws.com',
+	'username' => 'designmaster123',
+	'password' => 'qwerty.21',
 	'database' => 'designminister',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
