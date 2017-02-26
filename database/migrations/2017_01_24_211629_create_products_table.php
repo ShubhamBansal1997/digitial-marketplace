@@ -36,7 +36,7 @@ class CreateProductsTable extends Migration
             $table->text('prod_tags');
             $table->text('prod_descrption');
             $table->text('prod_demourl')->nullable();
-            $table->json('prod_categories');
+            $table->text('prod_categories');
             $table->integer('prod_price');
             $table->integer('prod_customize_price');
             $table->boolean('prod_status')->default('1');
