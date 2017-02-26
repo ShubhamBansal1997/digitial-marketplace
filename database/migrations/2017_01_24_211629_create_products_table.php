@@ -18,6 +18,8 @@ class CreateProductsTable extends Migration
             $table->string('prod_name');
             $table->string('prod_slug');
             $table->string('prod_image');
+            $table->text('prod_meta_descrption');
+            $table->string('prod_meta_title');
             $table->string('prod_image_alt');
             $table->string('prod_image1')->nullable();
             $table->string('prod_image_alt1')->nullable();
@@ -33,15 +35,17 @@ class CreateProductsTable extends Migration
             $table->string('prod_image_alt6')->nullable();
             $table->text('prod_tags');
             $table->text('prod_descrption');
-            $table->text('prod_demourl');
-            $table->text('prod_categories');
+            $table->text('prod_demourl')->nullable();
+            $table->json('prod_categories');
             $table->integer('prod_price');
             $table->integer('prod_customize_price');
-            $table->boolean('prod_status')->default('0');
+            $table->boolean('prod_status')->default('1');
             $table->boolean('prod_delete')->default('0');
             $table->integer('prod_vendor_id');
+            $table->string('prod_file');
             $table->integer('prod_download')->default('0');
             $table->boolean('prod_featured')->default('0');
+            $table->boolean('is_service')->default('0');
             $table->timestamps();
         });
     }

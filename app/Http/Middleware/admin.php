@@ -17,7 +17,7 @@ class admin
      */
     public function handle($request, Closure $next)
     {
-        if(Session::get('user_type')=='admin')
+        if(Session::get('login_type')=='admin')
         {
             return $next($request);
         }

@@ -10,16 +10,14 @@
 | to using a Closure or controller method. Build something great!
 |
 */
-
+use App\Products;
+use App\Users;
 Route::get('/', function () {
-    return view('welcome');
-});
-Route::get('/login',function() {
-	return view('pages.login');
+    return view('pages.home');
 });
 Route::post('/login','LoginRegisterController@login')->middleware('web');
 
-Route::group(['namespace' => 'Admin', 'prefix' => 'admin', ['middleware' => 'admin']], function () {
+Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'admin'], function () {
 	
 		Route::get('/dashboard',function() {
 			return view('admin.pages.home');
@@ -52,6 +50,14 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', ['middleware' => 'adm
 		Route::get('/deleteproduct/{id}','ProductController@deleteproduct');
 		Route::post('/addeditproduct','ProductController@addeditproduct')->middleware('web');
 
+		Route::get('/coupon',function() {
+			return view('admin.pages.coupon');
+		});
+		Route::get('/activeinactivecoupon/{id}','PaymentController@activeinactivecoupon');
+		Route::get('/addeditcoupon/{id?}','PaymentController@viewaddeditcoupon');
+		Route::get('/deletecoupon/{id}','PaymentController@deletecoupon');
+		Route::post('/addeditcoupon','PaymentController@addeditcoupon')->middleware('web');
+
 		Route::post('/makepayout','PaymentController@makepayout');
 		Route::get('/sale',function() {
 			return view('admin.pages.sale');
@@ -62,9 +68,60 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', ['middleware' => 'adm
 		Route::get('/coupon',function(){
 			return view('admin.pages.coupon');
 		});
+		Route::get('/users',function(){
+			return view('admin.pages.users');
+		});
+		Route::get('/subscribers',function(){
+			return view('admin.pages.subscribers');
+		});
+		Route::get('/activeinactiveuser/{id}','UserController@activeinactiveuser');
+		Route::get('/blockunblockuser/{id}','UserController@blockunblockuser');
+		
 
 
 	
 	
 });
+Route::get('user/account','HomeController@account')->middleware('user');
+Route::post('user/updateprofile','HomeController@updateprofile')->middleware(['web','user']);
+Route::post('user/updatepassword','HomeController@updatepassword')->middleware(['web','user']);
+
+Route::get('/product/{productnameslug}/{productid}','HomeController@product');
+
+
+Route::get('/home',function(){
+	return view('pages.home');
+});
+Route::post('/login','LoginRegisterController@login')->middleware('web');
+Route::post('/register','LoginRegisterController@register')->middleware('web');
+Route::get('/redirect', 'LoginRegisterController@redirect');
+Route::get('/callback', 'LoginRegisterController@callback');
+
+Route::post('subscribe','HomeController@subscribe')->middleware('web');
 //Route::get('admin')
+// testing routes
+Route::get('products',function(){
+	$products = Products::where('prod_delete',false)->where('prod_status',true)->where('is_service',false)->get();
+	$name = 'All Products';
+	return view('pages.products',compact('name','products'));
+});
+Route::get('services',function(){
+	$products = Products::where('prod_delete',false)->where('prod_status',true)->where('is_service',true)->get();
+	$name = 'All Services';
+	return view('pages.products',compact('name','products'));
+});
+Route::get('category/{categoryname}/{subcatname}','HomeController@category');
+Route::get('/vendor/{vendorname}/{id}','HomeController@vendor');
+Route::get('/addtocart/{id}','HomeController@addtocart');
+Route::get('/removefromcart/{id}','HomeController@removefromcart');
+Route::get('/directcheckout/{id}','HomeController@directcheckout');
+Route::get('/cart',function(){
+	return view('pages.cart');
+});
+Route::get('/checkout',function(){
+	return view('pages.checkout');
+});
+
+Route::get('product',function(){
+	return view('pages.product');
+});

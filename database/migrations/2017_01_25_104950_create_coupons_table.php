@@ -21,7 +21,7 @@ class CreateCouponsTable extends Migration
             $table->string('coupon_type');
             $table->string('coupon_category');
             $table->integer('coupon_minimumamount')->default('0');
-            $table->integer('coupon_number');
+            //$table->integer('coupon_number');
             $table->datetime('coupon_valid_date');
             $table->boolean('coupon_active')->default('0');
             $table->boolean('coupon_delete')->default('0');

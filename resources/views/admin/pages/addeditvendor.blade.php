@@ -37,7 +37,7 @@
                 </div>
                 @endif
 
-              <form role="form" action="{{ URL::to('admin/addeditvendor') }}" method="post"> 
+              <form role="form" action="{{ URL::to('admin/addeditvendor') }}" method="post"  enctype="multipart/form-data"> 
                 <!-- text input -->
                 {{ csrf_field() }}
                 
@@ -50,6 +50,10 @@
                 <div class="form-group">
                   <label>Last Name</label>
                   <input type="text" class="form-control" name="l_name" value="{{ isset($ved->id)?$ved->user_lname: null }}" placeholder="Enter Last Name">
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputFile">Vendor Image</label>
+                  <input type="file" id="exampleInputFile" name="profile_image">
                 </div>
                 <div class="form-group">
                   <label>Email</label>

@@ -48,8 +48,20 @@
                   <input type="text" class="form-control" name="prod_name" value="{{ isset($prod->id)?$prod->prod_name: null }}" placeholder="Enter Product Name" required>
                 </div>
                 <div class="form-group">
+                  <label>Slug</label>
+                  <input type="text" class="form-control" name="prod_slug" value="{{ isset($prod->id)?$prod->prod_slug: null }}" placeholder="Enter Product Slug" required>
+                </div>
+                <div class="form-group">
+                  <label>Meta Title</label>
+                  <input type="text" class="form-control" name="prod_meta_title" value="{{ isset($prod->id)?$prod->prod_meta_title: null }}" placeholder="Enter Meta Title" required>
+                </div>
+                <div class="form-group">
+                  <label>Meta Descrption</label>
+                  <input type="text" class="form-control" name="prod_meta_descrption" value="{{ isset($prod->id)?$prod->prod_meta_descrption: null }}" placeholder="Enter Meta Descrption" required>
+                </div>
+                <div class="form-group">
                   <label for="exampleInputFile">Product Image 1</label>
-                  <input type="file" id="exampleInputFile" name="prod_image">
+                  <input type="file" id="exampleInputFile" name="prod_image" required>
                   <input type="text" class="form-control" name="prod_image_alt" value="{{ isset($prod->id)?$prod->prod_image_alt: null }}">
                 </div>
                  <div class="form-group">
@@ -84,11 +96,11 @@
                 </div>
                 <div class="form-group">
                   <label>Tags (seperated by commas...)</label>
-                  <textarea class="form-control" rows="4" name="prod_tags">{{ isset($prod->id)?$prod_tags: null }}</textarea>
+                  <textarea class="form-control" rows="4" name="prod_tags">{{ isset($prod->id)?$prod->prod_tags: null }}</textarea>
                 </div>
                 <div class="form-group">
                   <label>Descrption</label>
-                  <textarea id="editor" class="form-control" rows="4" name="prod_descrption">{{ isset($prod->id)?$prod_descrption: null }}</textarea>
+                  <textarea id="editor" class="form-control" rows="4" name="prod_descrption">{{ isset($prod->id)?$prod->prod_descrption: null }}</textarea>
                 </div>
                 <div class="form-group">
                   <label>Demo Url</label>
@@ -132,16 +144,40 @@
                     {
                       <option selected="selected" value="{{ $prod->prod_featured}}">
                       @if($prod->prod_featured==TRUE)
-                      {
+                      
                         {{"YES"}}
-                      }
+                      
                       @else
-                      {
+                      
                         {{"NO"}}
-                      }
+                      
                       @endif
                       </option>
                     }
+                    @endif
+                    <option value="1">YES</option>
+                    <option value="0">NO</option>
+                    
+                  </select>
+                  
+                </div>
+                <div class="form-group">
+                  <label>Service</label>
+                  <select class="form-control select2" style="width: 100%;" name="is_service">
+                    @if(isset($prod->id))
+                    
+                      <option selected="selected" value="{{ $prod->is_service}}">
+                      @if($prod->is_service==TRUE)
+                      
+                        {{"YES"}}
+                      
+                      @else
+                      
+                        {{"NO"}}
+                      
+                      @endif
+                      </option>
+                    
                     @endif
                     <option value="1">YES</option>
                     <option value="0">NO</option>

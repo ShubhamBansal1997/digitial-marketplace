@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Payments extends Model
 {
     protected $table_name = 'payments';
-	public $timestamps = true;
+    public $timestamps = true;
     /**
      * The attributes that are mass assignable.
      *

@@ -29,6 +29,7 @@
                 <thead>
                 <tr>
                   <th>S.No</th>
+                  <th>Vendor Image</th>
                   <th>Vendor Name</th>
                   <th>Vendor Email</th>
                   <th>Active</th>
@@ -41,6 +42,7 @@
                 @foreach(\App\Users::where('user_delete',FALSE)->where('user_accesslevel','2')->get() as $i => $vendor)
                 <tr>
                   <td>{{ ++$i }}</td>
+                  <td><img src="{{ \App\Users::profile_image($vendor->user_profile_image) }}" height="30px" width="30px" /></td>
                   <td>{{ $vendor->user_fname }} {{ $vendor->user_lname }}
                   </td>
                   <td>{{ $vendor->user_email }}</td>

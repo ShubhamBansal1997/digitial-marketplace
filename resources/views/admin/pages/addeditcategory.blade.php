@@ -36,6 +36,33 @@
                   <label>Category Name</label>
                   <input type="text" class="form-control" name="category_name" value="{{ isset($cat->id)?$cat->category_name: null }}" placeholder="Enter New Category">
                 </div>
+                <div class="form-group">
+                  <label>Category To Be Displayed in the menu or not </label>
+                  <select class="form-control select2" style="width: 100%;" name="category_menu">
+                    @if(isset($prod->id))
+                    {
+                      <option selected="selected" value="{{ $cat->category_menu}}">
+                      @if($cat->category_menu==TRUE)
+                      {
+                        {{"YES"}}
+                      }
+                      @else
+                      {
+                        {{"NO"}}
+                      }
+                      @endif
+                      </option>
+                    }
+                    @endif
+                    <option value="1">YES</option>
+                    <option value="0">NO</option>
+                    
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label>Category Location(Blank in case if you are not displaying</label>
+                  <input type="text" class="form-control" name="category_location" value="{{ isset($cat->id)?$cat->category_location: null }}" placeholder="Enter Location of the Category (1,2,3)">
+                </div>
               <div class="box-footer">
                 <!-- <button type="submit" class="btn btn-default">Cancel</button> -->
                 <button type="submit" class="btn btn-info pull-right">{{ isset($cat->id)?"EDIT":"ADD" }}</button>

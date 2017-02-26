@@ -33,6 +33,7 @@
                   <th>Uploaded By</th>
                   <th>Active</th>
                   <th>Download Count</th>
+                  <th>Service</th>
                   <th>Featured</th>
                   <th>Created date</th>
                   <th>Last Update</th>
@@ -60,6 +61,13 @@
                   </a>
                   </td>
                   <td>{{ $prod->prod_download }}</td>
+                  <th>
+                  @if($prod->is_service==TRUE)
+                    <small class="label label-success">Yes</small>
+                  @else
+                    <small class="label label-success">No</small>
+                  @endif
+                  </th>
                   <td><a href="{{ URL::to('admin/activeinactivefeaturedproduct')}}/{{ $prod->id }}">
                   @if($prod->prod_featured==TRUE)
                     <small class="label label-success">Yes</small>

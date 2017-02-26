@@ -17,6 +17,8 @@ class CreateCategoriesTable extends Migration
             $table->increments('id');
             $table->string('category_name');
             $table->string('category_slug');
+            $table->string('category_menu')->default('0');
+            $table->integer('category_location')->nullable();
             $table->boolean('category_active')->default('1');
             $table->boolean('category_delete')->default('0');
             $table->timestamps();

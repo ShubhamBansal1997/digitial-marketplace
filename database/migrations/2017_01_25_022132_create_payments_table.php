@@ -28,6 +28,7 @@ class CreatePaymentsTable extends Migration
             $table->integer('payment_prod_id');
             $table->integer('payment_vendor_id');
             $table->integer('payment_user_id');
+            $table->boolean('payment_is_customized')->default('0');
             $table->timestamps();
         });
     }

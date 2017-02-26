@@ -29,8 +29,9 @@
                 <thead>
                 <tr>
                   <th>S.No</th>
-                  <th>Vendor Name</th>
-                  <th>Vendor Email</th>
+                  <th>Coupon Name</th>
+                  <th>Coupon Code</th>
+                  <th>Coupon Discount</th>
                   <th>Active</th>
                   <th>Action</th>
                   
@@ -38,15 +39,16 @@
                 </thead>
                 <tbody>
                 
-                @foreach(\App\Users::where('user_delete',FALSE)->where('user_accesslevel','2')->get() as $i => $vendor)
+                @foreach(\App\Coupons::where('coupon_delete',FALSE)->get() as $i => $coupon)
                 <tr>
                   <td>{{ ++$i }}</td>
-                  <td>{{ $vendor->user_fname }} {{ $vendor->user_lname }}
+                  <td>{{ $coupon->coupon_name }}
                   </td>
-                  <td>{{ $vendor->user_email }}</td>
+                  <td>{{ $coupon->coupon_code }}</td>
+                  <td>{{ $coupon->coupon_amount }} {{ $coupon->coupon_type }}</td>
                   <td>
-                  <a href="{{ URL::to('admin/activeinactivevendor')}}/{{ $vendor->id }}">
-                  @if($vendor->user_state==TRUE)
+                  <a href="{{ URL::to('admin/activeinactivecoupon')}}/{{ $coupon->id }}">
+                  @if($coupon->coupon_active==TRUE)
                     <small class="label label-success">ACTIVE</small>
                   @else
                   
@@ -54,7 +56,7 @@
                   
                   @endif
                   </a>
-                  <td> <a href="{{ URL::to('admin/addeditvendor')}}/{{ $vendor->id }}"><i class="fa fa-fw fa-edit"></i><a href="{{ URL::to('admin/deletevendor')}}/{{ $vendor->id }}"><i class="fa fa-fw fa-remove"></i></a><i class="fa fa-fw fa-eye"></i></td>
+                  <td> <a href="{{ URL::to('admin/addeditcoupon')}}/{{ $coupon->id }}"><i class="fa fa-fw fa-edit"></i><a href="{{ URL::to('admin/deletecoupon')}}/{{ $coupon->id }}"><i class="fa fa-fw fa-remove"></i></a><i class="fa fa-fw fa-eye"></i></td>
                   
                 </tr>
                 @endforeach

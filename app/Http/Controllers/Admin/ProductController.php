@@ -17,57 +17,60 @@ class ProductController extends Controller
 {
     public function addeditcategory(Request $request)
     {
-    	$this->validate($request, [
+        $this->validate($request, [
             'category_name' => 'required',
+            'category_menu' => 'required',
                     ]);
-    	$category_name = $request->input('category_name');
-    	
-    	if($request->input('id')==NULL)
-    	  	$category = new Category;
-    	else
-    	{
-    		$id = $request->input('id');
-			$category = Category::where('id',$id)->first();	
-    	}
-    	$category->category_name = $category_name;
-    	$category->category_slug = str_replace(' ', '-', $category_name);
+        $category_name = $request->input('category_name');
+        
+        if($request->input('id')==NULL)
+            $category = new Category;
+        else
+        {
+            $id = $request->input('id');
+            $category = Category::where('id',$id)->first(); 
+        }
+        $category->category_name = $category_name;
+        $category->category_slug = str_replace(' ', '-', $category_name);
+        $category->category_menu = $request->input('category_menu');
+        $category->category_location = $request->input('category_location');
         $category->category_active = TRUE;
         $category->category_delete = FALSE;
-    	$category->save();
-    	return redirect('admin/category');
+        $category->save();
+        return redirect('admin/category');
 
     }
     public function viewaddeditcategory($id=NULL)
     {
-    	if($id!=NULL)
-    	{
-    		$cat = Category::where('id',$id)->first();
-    		return view('admin.pages.addeditcategory',compact('cat'));
-    	}
-    	else
-    	{
-    		return view('admin.pages.addeditcategory');	
-    	}
-    	
+        if($id!=NULL)
+        {
+            $cat = Category::where('id',$id)->first();
+            return view('admin.pages.addeditcategory',compact('cat'));
+        }
+        else
+        {
+            return view('admin.pages.addeditcategory'); 
+        }
+        
     }
     public function deletecategory($id)
     {
-    	$category = Category::where('id',$id)->first();
-    	$category->category_active = FALSE;
-    	$category->category_delete = TRUE;
-    	$category->save();
-    	return Redirect::back();
+        $category = Category::where('id',$id)->first();
+        $category->category_active = FALSE;
+        $category->category_delete = TRUE;
+        $category->save();
+        return Redirect::back();
     }
     public function activeinactivecategory($id)
     {
-    	$category = Category::where('id',$id)->first();
-    	//dd($category);
-    	if($category->category_active==FALSE)
-    		$category->category_active=TRUE;
-    	else
-    		$category->category_active=FALSE;
-    	$category->save();
-    	return Redirect::back();
+        $category = Category::where('id',$id)->first();
+        //dd($category);
+        if($category->category_active==FALSE)
+            $category->category_active=TRUE;
+        else
+            $category->category_active=FALSE;
+        $category->save();
+        return Redirect::back();
     }
     public function uploadfile($file)
     {
@@ -85,6 +88,9 @@ class ProductController extends Controller
         //dd($key);
         $this->validate($request, [
             'prod_name' => 'required',
+            'prod_slug' => 'required',
+            'prod_meta_title' => 'required',
+            'prod_meta_descrption' => 'required',
             'prod_image' => 'required|image',
             'prod_image_alt' =>'required',
             'prod_tags' => 'required',
@@ -103,7 +109,10 @@ class ProductController extends Controller
         {
             $prod = new Products;
             $prod->prod_name = $request->input('prod_name');
-            $prod->prod_slug = str_replace(' ', '-', $prod->prod_name);
+
+            $prod->prod_slug = str_replace(' ', '-', $request->prod_slug);
+            $prod->prod_meta_descrption = $request->prod_meta_descrption;
+            $prod->prod_meta_title = $request->prod_meta_title;
             $prod->prod_image = $this->uploadfile($request->file('prod_image'));
             $prod->prod_image_alt = $request->input('prod_image_alt');
             if($prod->prod_image1!=NULL&&$prod->prod_image_alt1!=NULL)
@@ -145,6 +154,7 @@ class ProductController extends Controller
             $prod->prod_customize_price = $request->input('prod_customize_price');
             $prod->prod_vendor_id = $request->input('prod_vendor_id');
             $prod->prod_featured = $request->input('prod_featured');
+            $prod->is_service = $request->input('is_service');
             $file = $request->file('prod_file');
             if ($file->isValid()) {
                 $name = time() .'_' . $file->getClientOriginalName();
