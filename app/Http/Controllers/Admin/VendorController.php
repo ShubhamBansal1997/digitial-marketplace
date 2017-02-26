@@ -21,12 +21,7 @@ class VendorController extends Controller
             'f_name' => 'required',
             'l_name' => 'required',
             'user_email' => 'required|email',
-            'mobile' => 'required|max:10',
-            'address' => 'required',
-            'country' => 'required',
-            'state' => 'required',
-            'city' => 'required',
-            'zip' => 'required'
+            'mobile' => 'required|max:10'
                     ]);
         $id = $request->input('id'); 
         if($id==NULL)
@@ -65,9 +60,19 @@ class VendorController extends Controller
         $user->user_zip = $request->input('zip');
         $user->user_state = TRUE;
         $user->user_delete = FALSE;
-        $user->user_accesslevel = 2;
-        $user->save();
-        return redirect('admin/vendor');
+        if($request->input('admin')==1)
+        {
+            $user->user_accesslevel = 1;
+            $user->save();
+            return redirect('admin/vendor');    
+        }
+        else
+        {
+            $user->user_accesslevel = 2;
+            $user->save();
+            return redirect('admin/admin');
+        }
+        
 
     }
     public function viewaddeditvendor($id=NULL)
@@ -83,6 +88,18 @@ class VendorController extends Controller
         }
         
     }
+    public function addeditadmin($id=NULL)
+    {
+        if($id!=NULL)
+        {
+            $ved = Users::where('id',$id)->first();
+            return view('admin.pages.addeditadmin',compact('ved'));
+        }
+        else
+        {
+            return view('admin.pages.addeditadmin');   
+        }
+    }
     public function deletevendor($id)
     {
         $vendor = Users::where('id',$id)->first();
@@ -90,7 +107,7 @@ class VendorController extends Controller
         $vendor->user_delete = TRUE;
         $vendor->save();
         Products::where('prod_vendor_id', '=', $vendor->id)
-            ->update(['prod_delete' => '1']);
+            ->update(['prod_delete' => '1'])
             ->update(['prod_status' => '0']);
         /** also delete the product associated with the vendor **/
         return Redirect::back();

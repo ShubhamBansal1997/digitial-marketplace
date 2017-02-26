@@ -298,7 +298,7 @@
                   <a href="#" class="btn btn-default btn-flat">Profile</a>
                 </div>
                 <div class="pull-right">
-                  <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                  <a href="{{ URL::to('signout')}}" class="btn btn-default btn-flat">Sign out</a>
                 </div>
               </li>
             </ul>
@@ -415,6 +415,13 @@
           <a href="{{ URL::to('admin/subscribers')}}">
           <i class="fa fa-files-o"></i>
           <span>Subscribers</span>
+          <span class="pull-right-container"></span>
+          </a>
+        </li>
+        <li class="treeview">
+          <a href="{{ URL::to('admin/admin')}}">
+          <i class="fa fa-files-o"></i>
+          <span>Admin</span>
           <span class="pull-right-container"></span>
           </a>
         </li>

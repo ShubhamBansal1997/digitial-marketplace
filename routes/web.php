@@ -10,6 +10,7 @@
 | to using a Closure or controller method. Build something great!
 |
 */
+use Session;
 use App\Products;
 use App\Users;
 Route::get('/', function () {
@@ -41,6 +42,10 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'admi
 			return view('admin.pages.vendordet',compact('id'));
 		});
 
+		Route::get('/admin',function() {
+			return view('admin.pages.admin');
+		});
+		Route::get('addeditadmin/{id?}','VendorController@addeditadmin');
 		Route::get('/product',function() {
 			return view('admin.pages.product');
 		});
@@ -122,6 +127,7 @@ Route::get('/checkout',function(){
 	return view('pages.checkout');
 });
 
-Route::get('product',function(){
-	return view('pages.product');
+Route::get('logout',function(){
+	Session::flush();
+	return redirect('/');
 });

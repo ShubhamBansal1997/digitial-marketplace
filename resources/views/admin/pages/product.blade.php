@@ -80,7 +80,10 @@
                   </td>
                   <td>{{ $prod->created_at }}</td>
                   <td>{{ $prod->updated_at }}</td>
-                  <td> <a href="{{ URL::to('admin/addeditproduct')}}/{{ $prod->id }}"><i class="fa fa-fw fa-edit"></i><a href="{{ URL::to('admin/deleteproduct')}}/{{ $prod->id }}"><i class="fa fa-fw fa-remove"></i></a><i class="fa fa-fw fa-eye"></i><a href="{{ \App\Products::getFileUrl($prod->prod_file) }}"><i class="fa fa-fw  fa-cloud-download"></i></a></td>
+                  <td> 
+                  <a href="{{ URL::to('admin/addeditproduct')}}/{{ $prod->id }}"><i class="fa fa-fw fa-edit"></i>
+                  <a href="{{ URL::to('admin/deleteproduct')}}/{{ $prod->id }}"><i class="fa fa-fw fa-remove"></i></a><i class="fa fa-fw fa-eye"></i>
+                  <a href="{{ \App\Products::getFileUrl($prod->prod_file) }}"><i class="fa fa-fw  fa-cloud-download"></i></a></td>
                   
                 </tr>
                 @endforeach

@@ -37,8 +37,10 @@ class Users extends Model
     public static function profile_image($key)
     {
          
+        //dd($key);
         if($key==NULL)
             return "test";
+        //$key = 'profile_images/1513653268678033.jpg';
         $s3 = Storage::disk('s3');
         $client = $s3->getDriver()->getAdapter()->getClient();
         $bucket = Config::get('filesystems.disks.s3.bucket');
