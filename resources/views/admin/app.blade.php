@@ -298,7 +298,7 @@
                   <a href="#" class="btn btn-default btn-flat">Profile</a>
                 </div>
                 <div class="pull-right">
-                  <a href="{{ URL::to('signout')}}" class="btn btn-default btn-flat">Sign out</a>
+                  <a href="{{ URL::to('logout')}}" class="btn btn-default btn-flat">Sign out</a>
                 </div>
               </li>
             </ul>

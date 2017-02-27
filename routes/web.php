@@ -127,7 +127,7 @@ Route::get('/checkout',function(){
 	return view('pages.checkout');
 });
 
-Route::get('logout',function(){
+Route::get('/logout',function(){
 	Session::flush();
 	return redirect('/');
 });

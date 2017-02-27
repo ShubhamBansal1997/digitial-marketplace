@@ -23,6 +23,8 @@ class LoginRegisterController extends Controller
         //$password = \Hash::make($password);
         //dd($password);
         $user = Users::where('user_email',$email)->first();
+        if($user==NULL)
+            return Redirect::back();
         $test = \Hash::check($password, $user->user_pwd);
         //dd($test);
             
@@ -68,7 +70,7 @@ class LoginRegisterController extends Controller
             'user_email' => 'required|unique:users',
             'user_pwd' => 'required',
             ]);
-        $users = new Users;
+        $user = new Users;
         $user->user_fname = $request->input('user_fname');
         $user->user_lname = $request->input('user_lname');
         $user->user_email = $request->input('user_email');
