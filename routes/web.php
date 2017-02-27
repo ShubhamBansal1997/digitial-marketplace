@@ -10,7 +10,7 @@
 | to using a Closure or controller method. Build something great!
 |
 */
-use Session;
+//use Session;
 use App\Products;
 use App\Users;
 Route::get('/', function () {

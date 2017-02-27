@@ -7,7 +7,7 @@
 			<h2>{{ $name }}</h2>
 			<p>Home
 			<span class="separator">/</span>
-			@if($catname!=NULL)
+			@if(isset($catname))
 			{{ $catname }}
 			<span class="separator">/</span>
 			@endif
