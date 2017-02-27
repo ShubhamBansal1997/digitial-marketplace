@@ -79,7 +79,7 @@
 							<!-- <a href="shop-gridview-v1.html">
 								<p class="category primary">PSD Templates</p>
 							</a> -->
-							<p class="price"><span>$</span>{{ $product->price }}</p>
+							<p class="price"><span>$</span>{{ $product->prod_price }}</p>
 						</div>
 						<hr class="line-separator">
 						@foreach(\App\Users::where('id',$product->prod_vendor_id)->get() as $vendor)
