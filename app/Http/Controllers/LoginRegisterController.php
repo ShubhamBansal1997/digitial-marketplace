@@ -80,7 +80,7 @@ class LoginRegisterController extends Controller
         Session::put('email',$request->input('user_email'));
         Session::put('login_type','user');
         Session::put('login',true);
-        return redirect('user/dashboard');
+        return redirect('user/account');
 
     }
     public function redirect()
