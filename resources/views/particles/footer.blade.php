@@ -224,7 +224,7 @@
 						<label for="email_address6" class="rl-label required">Email Address</label>
 						<input type="text" id="email_address6" name="user_email" placeholder="Enter your email address here...">
 						<label for="password6" class="rl-label required">Password</label>
-						<input type="password" id="password6" name="password" placeholder="Enter your password here...">
+						<input type="password" id="password6" name="user_pwd" placeholder="Enter your password here...">
 						<button class="button mid dark" type="submit">Register Now!</button>
 						<hr class="line-separator double">
 						<a href="{{ URL::to('redirect')}}" class="button mid fb">Register with Facebook</a>
