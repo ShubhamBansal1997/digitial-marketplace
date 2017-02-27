@@ -50,12 +50,12 @@ class LoginRegisterController extends Controller
             else if($accesslevel==2)
             {
                 Session::put('login_type','vendor');
-                return redirect('vendor/dashboard');
+                return redirect('vendor/account');
             }
             else if($accesslevel==3)
             {
                 Session::put('login_type','user');
-                return redirect('user/dashboard');
+                return redirect('user/account');
             }
         }
 
