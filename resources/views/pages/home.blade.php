@@ -66,7 +66,7 @@
 									@if($vendor->user_profile_image!=NULL)
 									<img src="{{ \App\Users::profile_image($vendor->user_profile_image) }}" alt="{{ \App\Users::username($vendor->id) }}">
 									@else
-									<img src="{{ asset('home_asset/images/avatars/avatar_01.jpg') }}" alt="{{ \App\Users::username($user->id) }}">
+									<img src="{{ asset('home_asset/images/avatars/avatar_01.jpg') }}" alt="{{ \App\Users::username($vendor->id) }}">
 									@endif
 								</figure>
 							</a>
