@@ -19,8 +19,6 @@ class SettingController extends Controller
     	$this->validate($request, [
             
             'banner_url' => 'required',
-            
-            'banner_image' => 'required',
             'banner_alt' => 'required',
             'id' => 'required'
             ]);
