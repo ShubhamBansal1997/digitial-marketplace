@@ -215,7 +215,8 @@
 					<li class="menu-item"><a href="">Knowledge Library</a></li>
 				</ul>
 			</nav>
-			<form class="search-form">
+			<form class="search-form" method="post" action="{{ URL::to('searchterm') }}">
+				{{ csrf_field() }}
 				<input type="text" class="rounded" name="search" id="search_products" placeholder="Search products here...">
 				<input type="image" src="{{ asset('home_asset/images/search-icon.png')}}" alt="search-icon">
 			</form>

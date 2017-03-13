@@ -16,7 +16,7 @@
 				<!-- HEADLINE -->
 				<div class="headline primary">
 					<h1>9,000+ Inspiring, Hand-Crafted Templates & Assets.</h1>
-					<h3>Made with love by some of the world’s best independent designers.
+					<h3>Made with love by some of the worldâ€™s best independent designers.
 					</br>Relevant, on-trend, and beautifully presented.</h3>
 				</div>
 				<!-- /HEADLINE -->
@@ -92,7 +92,7 @@
 				<!-- HEADLINE -->
 				<div class="headline primary">
 					<h1>300+ Customized Design Services Starts At $10</h1>
-					<h3>Made with love by some of the world’s best independent designers.
+					<h3>Made with love by some of the worldâ€™s best independent designers.
 					</br>Relevant, on-trend, and beautifully presented.</h3>
 				</div>
 				<!-- /HEADLINE -->
@@ -102,16 +102,61 @@
 			<!-- BLOG POST PREVIEW -->
 
 			<div class="blog-post-preview v1 column3-wrap">
-				@foreach(\App\Products::where('prod_delete',false)->where('prod_status',true)->where('prod_featured',true)->where('is_service',true)->get() as $product)
+				
+				@foreach(\App\Banners::bdet('Homepage-Banner-1') as $banner)
 				<div class="blog-post-preview-item column">
-					<a href="{{ URL::to('product')}}/{{ $product->prod_slug }}/{{ $product->id }}">
+					<a href="{{ $banner->banner_url }}">
 						<figure class="product-preview-image big liquid">
-							<img src="{{ \App\Products::getFileUrl($product->prod_image) }}" alt="{{ $product->prod_name }}">
+							<img src="{{ \App\Banners::getFileUrl($banner->banner_image) }}" alt="{{ $banner->banner_alt }}">
 						</figure>
 					</a>
 				</div>
 				@endforeach
-				
+				@foreach(\App\Banners::bdet('Homepage-Banner-2') as $banner)
+				<div class="blog-post-preview-item column">
+					<a href="{{ $banner->banner_url }}">
+						<figure class="product-preview-image big liquid">
+							<img src="{{ \App\Banners::getFileUrl($banner->banner_image) }}" alt="{{ $banner->banner_alt }}">
+						</figure>
+					</a>
+				</div>
+				@endforeach
+				@foreach(\App\Banners::bdet('Homepage-Banner-3') as $banner)
+				<div class="blog-post-preview-item column">
+					<a href="{{ $banner->banner_url }}">
+						<figure class="product-preview-image big liquid">
+							<img src="{{ \App\Banners::getFileUrl($banner->banner_image) }}" alt="{{ $banner->banner_alt }}">
+						</figure>
+					</a>
+				</div>
+				@endforeach
+				@foreach(\App\Banners::bdet('Homepage-Banner-4') as $banner)
+				<div class="blog-post-preview-item column">
+					<a href="{{ $banner->banner_url }}">
+						<figure class="product-preview-image big liquid">
+							<img src="{{ \App\Banners::getFileUrl($banner->banner_image) }}" alt="{{ $banner->banner_alt }}">
+						</figure>
+					</a>
+				</div>
+				@endforeach
+				@foreach(\App\Banners::bdet('Homepage-Banner-5') as $banner)
+				<div class="blog-post-preview-item column">
+					<a href="{{ $banner->banner_url }}">
+						<figure class="product-preview-image big liquid">
+							<img src="{{ \App\Banners::getFileUrl($banner->banner_image) }}" alt="{{ $banner->banner_alt }}">
+						</figure>
+					</a>
+				</div>
+				@endforeach
+				@foreach(\App\Banners::bdet('Homepage-Banner-6') as $banner)
+				<div class="blog-post-preview-item column">
+					<a href="{{ $banner->banner_url }}">
+						<figure class="product-preview-image big liquid">
+							<img src="{{ \App\Banners::getFileUrl($banner->banner_image) }}" alt="{{ $banner->banner_alt }}">
+						</figure>
+					</a>
+				</div>
+				@endforeach				
 			</div>
 			<!-- /BLOG POST PREVIEW -->
 
