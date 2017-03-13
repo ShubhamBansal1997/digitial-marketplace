@@ -34,7 +34,11 @@
 					<!-- USER AVATAR -->
 					<a href="{{ URL::to('/') }}" class="user-avatar-wrap medium">
 						<figure class="user-avatar medium">
+							@if($user->user_profile_image)
 							<img src="{{ \App\Users::profile_image($user->user_profile_image) }}" alt="{{ \App\Users::username($user->id) }} ">
+							@else
+							<img src="{{ asset('home_asset/images/avatars/avatar_01.jpg') }}" alt="{{ \App\Users::username($user->id) }}">
+							@endif
 						</figure>
 					</a>
 					<!-- /USER AVATAR -->

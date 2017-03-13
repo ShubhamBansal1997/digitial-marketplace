@@ -76,9 +76,9 @@
 							<a href="{{ URL::to('product')}}/{{ $product->prod_slug }}/{{ $product->id }}">
 								<p class="text-header">{{ $product->prod_name }}</p>
 							</a>
-							<!-- <a href="shop-gridview-v1.html">
-								<p class="category primary">PSD Templates</p>
-							</a> -->
+							<a href="#">
+								<p class="category primary">{{ \App\Category::cat_name(strtok($product->prod_categories, '/')) }}</p>
+							</a> 
 							<p class="price"><span>$</span>{{ $product->prod_price }}</p>
 						</div>
 						<hr class="line-separator">
@@ -87,7 +87,11 @@
 						<div class="user-rating">
 							<a href="{{ URL::to('/vendor')}}/{{ $vendor->user_slug}}/{{ $vendor->id }}">
 								<figure class="user-avatar small">
+									@if($vendor->user_profile_image!=NULL)
 									<img src="{{ \App\Users::profile_image($vendor->user_profile_image) }}" alt="{{ \App\Users::username($vendor->id) }}">
+									@else
+									<img src="{{ asset('home_asset/images/avatars/avatar_01.jpg') }}" alt="{{ \App\Users::username($user->id) }}">
+									@endif
 								</figure>
 							</a>
 							<a href="{{ URL::to('/vendor')}}/{{ $vendor->user_slug}}/{{ $vendor->id }}">

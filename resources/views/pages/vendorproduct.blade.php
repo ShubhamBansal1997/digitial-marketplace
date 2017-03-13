@@ -69,10 +69,10 @@
 							<a href="{{ URL::to('product')}}/{{ $product->prod_slug }}/{{ $product->id }}">
 								<p class="text-header">{{ $product->prod_name }}</p>
 							</a>
-							<!-- <a href="shop-gridview-v1.html">
-								<p class="category primary">PSD Templates</p>
-							</a> -->
-							<p class="price"><span>$</span>14</p>
+							<a href="#">
+								<p class="category primary">{{ \App\Category::cat_name(strtok($product->prod_categories, '/')) }}</p>
+							</a>
+							<p class="price"><span>$</span>{{ $product->prod_price }}</p>
 						</div>
 						<hr class="line-separator">
 
