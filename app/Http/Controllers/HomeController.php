@@ -156,4 +156,23 @@ class HomeController extends Controller
         return view('pages.products',compact('name','products','catname'));
 
     }
+    public function searchterm(Request $request)
+    {
+        $this->validate($request, [
+            'search' => 'required',
+            ]);
+        $redirect = 'search/' . $request->search;
+        return redirect($redirect);
+    }
+    public function search($searchterm)
+    {
+        $products = Products::where('prod_delete',false)
+            ->where('prod_status',true)
+            ->search($searchterm)
+            ->with('users')
+            ->get();
+            $name = $searchterm;
+        return view('pages.products',compact('products','name'));
+    }
+    
 }

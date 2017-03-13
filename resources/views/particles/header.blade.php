@@ -1,7 +1,7 @@
 <div class="header-wrap">
 		<header>
 			<!-- LOGO -->
-			<a href="index.html">
+			<a href="{{ URL::to('/') }}">
 				<figure class="logo">
 					<img src="{{ asset('home_asset/images/logo.png')}}" alt="logo">
 				</figure>
@@ -30,7 +30,11 @@
 					<div class="outer-ring">
 						<div class="inner-ring"></div>
 						<figure class="user-avatar">
+							@if($user->user_profile_image!=NULL)
 							<img src="{{ \App\Users::profile_image($user->user_profile_image) }}" alt="{{ \App\Users::username($user->id) }}">
+							@else
+							<img src="{{ asset('home_asset/images/avatars/avatar_01.jpg') }}" alt="{{ \App\Users::username($user->id) }}">
+							@endif
 						</figure>
 					</div>
 					</a>
