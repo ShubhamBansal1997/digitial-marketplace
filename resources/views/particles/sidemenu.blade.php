@@ -6,7 +6,7 @@
 		</svg>
 		<!-- /SVG PLUS -->
 
-		@if(Session::get('login')!='true')
+		@if(Session::get('login')=='true')
 		<!-- SIDE MENU HEADER -->
 		<div class="side-menu-header">
 			<figure class="logo small">
@@ -25,24 +25,22 @@
 		<!-- /SIDE MENU TITLE -->
      <!-- /SIDE MENU -->  
 		<ul class="dropdown interactive">
-			<li class="dropdown-item"><a href="{{ URL::to('user/account')}}">My Account</a></li>
-			<li class="dropdown-item"><a href="{{ URL::to('/cart')}}">Cart</a></li>
+			<li class="dropdown-item"><a href="">My Account</a></li>
+			<li class="dropdown-item"><a href="">Cart</a></li>
 		</ul>
 		@endif
 		<p class="side-menu-title">Main Menu</p>
 		<!-- /SIDE MENU TITLE -->
      <!-- /SIDE MENU -->  
 		<ul class="dropdown interactive">
-			<li class="dropdown-item"><a href="{{ URL::to('/') }}">Home</a></li>
-			<li class="dropdown-item"><a href="{{URL::to('/products')}}">Products</a></li>
-			<li class="dropdown-item"><a href="{{ URL::to('services')}}">Services</a></li>
+			<li class="dropdown-item"><a href="">Home</a></li>
+			<li class="dropdown-item"><a href="">Products</a></li>
+			<li class="dropdown-item"><a href="">Services</a></li>
 			<li class="dropdown-item"><a href="">Bundles</a></li>
 			<li class="dropdown-item"><a href="">$3 Deals</a></li>
 			<li class="dropdown-item"><a href="">Freebies</a></li>
 			<li class="dropdown-item"><a href="">Knowledge Library</a></li>
-			@if(Session::get('login')=='true')
-			<li class="dropdown-item"><a href="{{ URL::to('logout') }}">Logout</a></li>
-			@endif
+			<li class="dropdown-item"><a href="">Logout</a></li>
 		</ul>
 	</div>
 <!-- /SIDE MENU -->

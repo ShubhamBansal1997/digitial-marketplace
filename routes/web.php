@@ -41,11 +41,6 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'admi
 		Route::get('/vendor/{id}',function($id){
 			return view('admin.pages.vendordet',compact('id'));
 		});
-		Route::get('/banners',function(){
-			return view('admin.pages.banner');
-		});
-		Route::get('/editbanner/{id}','SettingController@editbanner');
-		Route::post('/editbanner','SettingController@posteditbanner')->middleware('web');
 
 		Route::get('/admin',function() {
 			return view('admin.pages.admin');
@@ -92,8 +87,6 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'admi
 	
 	
 });
-Route::get('search/{searchterm}','HomeController@search');
-Route::post('searchterm','HomeController@searchterm')->middleware('web');
 Route::get('user/account','HomeController@account')->middleware('user');
 Route::post('user/updateprofile','HomeController@updateprofile')->middleware(['web','user']);
 Route::post('user/updatepassword','HomeController@updatepassword')->middleware(['web','user']);
@@ -138,6 +131,3 @@ Route::get('/logout',function(){
 	Session::flush();
 	return redirect('/');
 });
-
-
-Route::get('/testing12345','HomeController@search');

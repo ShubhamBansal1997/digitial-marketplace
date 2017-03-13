@@ -6,11 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 use App\Category;
 use Storage;
 use Config;
-use Nicolaslopezj\Searchable\SearchableTrait;
 
 class Products extends Model
 {
-    use SearchableTrait;
     protected $table_name = 'products';
     public $timestamps = true;
     /**
@@ -18,33 +16,6 @@ class Products extends Model
      *
      * @var array
      */
-    protected $searchable = [
-        /**
-         * Columns and their priority in search results.
-         * Columns with higher values are more important.
-         * Columns with equal values have equal importance.
-         *
-         * @var array
-         */
-        'columns' => [
-            'products.prod_name' => 10,
-            'products.prod_slug' => 10,
-            'products.prod_tags' => 10,
-            'products.prod_descrption' => 10,
-            'products.prod_meta_descrption' => 5,
-            'products.prod_meta_title' => 5,
-            'products.prod_image_alt' => 2,
-            'products.prod_image_alt1' => 2,
-            'products.prod_image_alt2' => 2,
-            'products.prod_image_alt3' => 2,
-            'products.prod_image_alt4' => 2,
-            'products.prod_image_alt5' => 2,
-            'products.prod_image_alt6' => 2,
-        ],
-        'joins' => [
-            'users' => ['users.id','products.prod_vendor_id'],
-        ],
-    ];
     protected $fillable = [
         'prod_name', 'prod_slug', 'prod_image', 'prod_image_alt', 'prod_image1', 'prod_image_alt1', 'prod_image2', 'prod_image_alt2', 'prod_image3', 'prod_image_alt3', 'prod_image4', 'prod_image_alt4', 'prod_image5', 'prod_image_alt5', 'prod_image6', 'prod_image_alt6', 'prod_tags', 'prod_descrption', 'prod_demourl', 'prod_categories', 'prod_price', 'prod_customize_price', 'prod_status', 'prod_delete', 'prod_vendor_id', 'prod_download', 'prod_featured','prod_file','prod_meta_descrption','prod_meta_title','is_service'
     ];
@@ -54,10 +25,6 @@ class Products extends Model
      *
      * @var array
      */
-    public function users()
-    {
-        return $this->hasOne('App\Users','id' , 'prod_vendor_id');
-    }
     public static function getFileUrl($key) {
         if($key==NULL)
             return "test";
