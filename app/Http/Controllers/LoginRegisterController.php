@@ -6,9 +6,11 @@ use Illuminate\Http\Request;
 use App\Users;
 use Redirect;
 use Session;
-use Socialite;
 use Storage;
 use Config;
+use Socialite;
+//use Laravel\Socialite\Contracts\Factory as Socialite;
+//use Laravel\Socialite\Contracts\User as ProviderUser;
 
 class LoginRegisterController extends Controller
 {
@@ -83,16 +85,20 @@ class LoginRegisterController extends Controller
         return redirect('user/account');
 
     }
+
+    /* function to redirect to facebook login */
     public function redirect()
     {
         return Socialite::with('facebook')->redirect(); 
     }
     public function callback()
     {
+        //dd($providerUser);
+        
         try {
 
             $socialUser = Socialite::with('facebook')->stateless()->user();
-
+            
         } 
 
         catch (Exception $e) {

@@ -30,6 +30,7 @@ class Users extends Model
 
     public static function username($id)
     {
+        //dd($id);
         $user = Users::where('id',$id)->first();
         $username = $user->user_fname . ' ' . $user->user_lname;
         return $username;

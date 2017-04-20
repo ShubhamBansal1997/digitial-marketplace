@@ -1,28 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE HTML>
+<html>
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
-	<link rel="stylesheet" href="{{ asset('home_asset/css/vendor/simple-line-icons.css')}}">
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Design Minister</title>
+<link rel="stylesheet" href="{{ asset('home_asset/css/main.css')}}"/>
+<link rel="stylesheet" href="{{ asset('home_asset/css/bootstrap.css')}}"/>
+<!--<link rel="stylesheet" href="css/carousel.css">-->
+<link rel="stylesheet" type="text/css" href="{{ asset('home_asset/slick/slick.css')}}"/>
+<!--// Add the new slick-theme.css if you want the default styling-->
+<link rel="stylesheet" type="text/css" href="{{ asset('home_asset/slick/slick-theme.css')}}"/>
+<link rel="stylesheet" href="{{ asset('home_asset/css/styles.css')}}"/>
+<link rel='stylesheet' href="{{ asset('home_asset/css/s.css')}}" type='text/css' media='all' />
 
-	<link rel="stylesheet" href="{{ asset('home_asset/css/vendor/owl.carousel.css')}}">
-	<link rel="stylesheet" href="{{ asset('home_asset/css/style.css')}}">
-	<link rel="stylesheet" href="{{ asset('home_asset/css/custom.css')}}">
-	<!-- favicon -->
-	<link rel="icon" href="favicon.ico">
-	<meta name="csrf-token" content="{{ csrf_token() }}">
-	<title>Design Minister | Design Resource Marketplace</title>
+<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet"/>
 </head>
 <body>
 
 	@include('particles.header')
-	
-	
-
-	@include('particles.sidemenu')
-
-
-	@include('particles.mainmenu')
 
 	
 
@@ -32,25 +27,13 @@
 
 
 
+<script type='text/javascript' src="{{ asset('home_asset/js/jquery.min.js')}}"></script>
 
-<!-- jQuery -->
-<script src="{{ asset('home_asset/js/vendor/jquery-3.1.0.min.js')}}"></script>
-<!-- Tooltipster -->
-<script src="{{ asset('home_asset/js/vendor/jquery.tooltipster.min.js')}}"></script>
-<!-- Tweet -->
-<script src="{{ asset('home_asset/js/vendor/twitter/jquery.tweet.min.js')}}"></script>
-<!-- Owl Carousel -->
-<script src="{{ asset('home_asset/js/vendor/owl.carousel.min.js')}}"></script>
-<!-- Side Menu -->
-<script src="{{ asset('home_asset/js/side-menu.js')}}"></script>
-<!-- Home -->
-<script src="{{ asset('home_asset/js/home.js')}}"></script>
-<!-- Tooltip -->
-<script src="{{ asset('home_asset/js/tooltip.js')}}"></script>
-<!-- User Quickview Dropdown -->
-<script src="{{ asset('home_asset/js/user-board.js')}}"></script>
-<!-- Footer -->
-<script src="{{ asset('home_asset/js/footer.js')}}"></script>
+<script type='text/javascript' src="{{ asset('home_asset/js/bootstrap.min.js')}}"></script>
+<script type="text/javascript" src="{{ asset('home_asset/js/side-menu.js')}}"></script>
+<script type="text/javascript" src="{{ asset('home_asset/slick/slick.min.js')}}"></script>
+<!--<script type='text/javascript' src='js/script.js'></script>-->
+<script type='text/javascript' src="{{ asset('home_asset/js/custom.js')}}"></script>
 
 </body>
-</html>	
+</html>

@@ -38,11 +38,12 @@ class CreateProductsTable extends Migration
             $table->text('prod_demourl')->nullable();
             $table->text('prod_categories');
             $table->integer('prod_price');
+            $table->text('prod_customizations')->nullable();
             $table->integer('prod_customize_price');
             $table->boolean('prod_status')->default('1');
             $table->boolean('prod_delete')->default('0');
             $table->integer('prod_vendor_id');
-            $table->string('prod_file');
+            $table->string('prod_file')->nullable();
             $table->integer('prod_download')->default('0');
             $table->boolean('prod_featured')->default('0');
             $table->boolean('is_service')->default('0');

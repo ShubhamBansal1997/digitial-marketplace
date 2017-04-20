@@ -40,6 +40,7 @@
   <!-- bootstrap wysihtml5 - text editor -->
   <link rel="stylesheet" href="{{ asset('admin_asset/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css') }}">
   <script src="{{URL::asset('templateEditor/ckeditor/ckeditor.js')}}"></script>
+  
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -359,6 +360,7 @@
           <ul class="treeview-menu">
             <li><a href="{{ URL::to('admin/category') }}"><i class="fa fa-circle-o"></i> Category</a></li>
             <li><a href="{{ URL::to('admin/product') }}"><i class="fa fa-circle-o"></i> Products</a></li>
+            <li><a href="{{ URL::to('admin/customization') }}"><i class="fa fa-circle-o"></i>Customizations</a></li>
           </ul>
         </li>
         <li class="treeview">
@@ -525,19 +527,8 @@ $(function () {
 </script>
 <script>
   $(function () {
-    $("#example1").DataTable();
-    $("#example2").DataTable()({
-      "paging": true,
-      "lengthChange": false,
-      "searching": false,
-      "ordering": true,
-      "info": true,
-      "autowidth": false
-    });
-  });
-
-
-  $(function () {
+    
+  
     //Initialize Select2 Elements
     $(".select2").select2();
 
@@ -601,6 +592,19 @@ $(function () {
     $(".timepicker").timepicker({
       showInputs: false
     });
+    $("#tagging").select2({
+      tags: true
+    });
+    $("#example1").DataTable();
+    $("#example2").DataTable()({
+      "paging": true,
+      "lengthChange": false,
+      "searching": false,
+      "ordering": true,
+      "info": true,
+      "autowidth": false
+    });
+    
   });
 </script>
 </body>

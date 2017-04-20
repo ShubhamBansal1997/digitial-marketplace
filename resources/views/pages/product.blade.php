@@ -1,254 +1,386 @@
 @extends('app')
 
 @section('content')
-<!-- SECTION HEADLINE -->
-	<div class="section-headline-wrap">
-		<div class="section-headline">
-			<h2>{{ $product->prod_name }}</h2>
-			<p>Home<span class="separator">/</span><span class="current-section">Product</span></p>
-		</div>
-	</div>
-	<!-- /SECTION HEADLINE -->
+<section class="positive">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+					<p>&nbsp;</p>
+                    <span class="next">Logo Design & Branding<i class="fa fa-angle-double-right fa-small"></i> Logo Design</span>
 
-	<!-- SECTION -->
-	<div class="section-wrap">
-		<div class="section">
-			<!-- SIDEBAR -->
-			<div class="sidebar right">
-				<div class="sidebar-item void buttons">
-					<a href="{{ URL::to('directcheckout')}}/{{ $product->id }}" class="button big primary purchase">
-						<span class="currency">{{ $product->prod_price }}</span>
-						<span class="primary">Buy Now</span>
-					</a>
-					<a href="{{ URL::to('addtocart')}}/{{ $product->id }}" class="button big dark wcart">
-						<span class="icon-present"></span>
-						Add to Cart
-					</a>
-				</div>
+                    <div class="description">
+                        <h1 class="prod pro-title">{{ $product->prod_name }}</h1>
+						<p class="des pro-des">By <strong><a>{{ \App\Users::username($product->prod_vendor_id) }} </a></strong> in <strong> Facebook</strong></p>
+						
+                    </div>
+                </div>    
+					<div class="col-md-8 col-xs-12 over-hide">
 
-				<!-- SIDEBAR ITEM -->
-				@foreach(\App\Users::where('id',$product->user_vendor_id)->get() as $user)
-				<div class="sidebar-item author-bio">
-					<h5>Product Author</h5>
-					<hr class="line-separator">
-					<!-- USER AVATAR -->
-					<a href="{{ URL::to('/') }}" class="user-avatar-wrap medium">
-						<figure class="user-avatar medium">
-							@if($user->user_profile_image)
-							<img src="{{ \App\Users::profile_image($user->user_profile_image) }}" alt="{{ \App\Users::username($user->id) }} ">
-							@else
-							<img src="{{ asset('home_asset/images/avatars/avatar_01.jpg') }}" alt="{{ \App\Users::username($user->id) }}">
-							@endif
-						</figure>
-					</a>
-					<!-- /USER AVATAR -->
-					<p class="text-header">{{ \App\Users::username($user->id) }}</p>
-					<!-- SHARE LINKS -->
-					<!-- <ul class="share-links">
-						<li><a href="#" class="fb"></a></li>
-						<li><a href="#" class="twt"></a></li>
-						<li><a href="#" class="db"></a></li>
-					</ul> -->
-					<!-- /SHARE LINKS -->
-					<a href="{{ URL::to('vendor/') }}/{{ $user->user_slug}}/{{ $user->id }}" class="button mid dark-light">View Profile</a>
-				</div>
-				<!-- /SIDEBAR ITEM -->
-				@endforeach
-				<!-- SIDEBAR ITEM -->
-				<div class="sidebar-item product-info">
-					<h5>Product Information</h5>
-					<hr class="line-separator">
-					<!-- INFORMATION LAYOUT -->
-					<div class="information-layout">
-						<!-- INFORMATION LAYOUT ITEM -->
-						<div class="information-layout-item">
-							<p class="text-header">Sales:</p>
-							<p>{{ $product->prod_download }}</p>
-						</div>
-						<!-- /INFORMATION LAYOUT ITEM -->
-
-						<!-- INFORMATION LAYOUT ITEM -->
-						<div class="information-layout-item">
-							<p class="text-header">Upload Date:</p>
-							<p>{{ $product->created_date }}</p>
-						</div>
-						<!-- /INFORMATION LAYOUT ITEM -->
-
-						<!-- INFORMATION LAYOUT ITEM -->
-						<div class="information-layout-item">
-						    <p class="text-header">Tags:</p>
-							<p class="tags primary">{{ $product->prod_tags }}</p>
-						</div>
-						<!-- /INFORMATION LAYOUT ITEM -->
-					</div>
-					<!-- INFORMATION LAYOUT -->
-				</div>
-				<!-- /SIDEBAR ITEM -->
-				
-				<!-- SIDEBAR ITEM -->
-				<figure class="product-preview-image width100 side-banner">
-					<img src="https://dummyimage.com/270x270/00d6b4/fff.jpg" alt="side-banner">
-				</figure>
-				<!-- /SIDEBAR ITEM -->
-				
-			</div>
-			<!-- /SIDEBAR -->
-
-			<!-- CONTENT -->
-			
-			<div class="content left">
-				<!-- POST -->
-				<article class="post">
-					<!-- POST IMAGE -->
-					<div class="post-image">
-						<figure class="product-preview-image large liquid">
-							<img src="{{ \App\Products::getFileUrl($product->prod_image) }}" alt="{{ $product->prod_image_alt }}">
-						</figure>
-					</div>
-					<!-- /POST IMAGE -->
-
-					<!-- POST IMAGE SLIDES -->
-					<div class="post-image-slides">
-						<!-- SLIDE CONTROLS -->
-						<div class="slide-control-wrap">
-							<div class="slide-control left">
-								<!-- SVG ARROW -->
-								<svg class="svg-arrow">
-									<use xlink:href="#svg-arrow"></use>
-								</svg>
-								<!-- /SVG ARROW -->
-							</div>
-
-							<div class="slide-control right">
-								<!-- SVG ARROW -->
-								<svg class="svg-arrow">
-									<use xlink:href="#svg-arrow"></use>
-								</svg>
-								<!-- /SVG ARROW -->
-							</div>
-						</div>
-						<!-- /SLIDE CONTROLS -->
-
-						<!-- IMAGE SLIDES WRAP -->
-						<div class="image-slides-wrap">
-							<!-- IMAGE SLIDES -->
-							<div class="image-slides" data-slide-visible-full="6" 
-													  data-slide-visible-small="2"
-													  data-slide-count="9">
+                        <div class="row">
+                            <div class="col-md-12">
+							
+								<div class="product-slider" id="productSlider">
 								@if($product->prod_image!=NULL)
-								<!-- IMAGE SLIDE -->
-								<div class="image-slide selected">
-									<div class="overlay"></div>
-									<figure class="product-preview-image thumbnail liquid">
-										<img src="{{ \App\Products::getFileUrl($product->prod_image) }}" alt="{{ $product->prod_image_alt }}">
-									</figure>
-								</div>
-								<!-- /IMAGE SLIDE -->
+								  <div><img class="image-pic" src="{{ \App\Products::getFileUrl($product->prod_image) }}" alt=""></div>
 								@endif
 								@if($product->prod_image1!=NULL)
-								<!-- IMAGE SLIDE -->
-								<div class="image-slide selected">
-									<div class="overlay"></div>
-									<figure class="product-preview-image thumbnail liquid">
-										<img src="{{ \App\Products::getFileUrl($product->prod_image1) }}" alt="{{ $product->prod_image_alt1 }}">
-									</figure>
-								</div>
-								<!-- /IMAGE SLIDE -->
+								  <div><img class="image-pic" src="{{ \App\Products::getFileUrl($product->prod_image1) }}" alt=""></div>
 								@endif
 								@if($product->prod_image2!=NULL)
-								<!-- IMAGE SLIDE -->
-								<div class="image-slide selected">
-									<div class="overlay"></div>
-									<figure class="product-preview-image thumbnail liquid">
-										<img src="{{ \App\Products::getFileUrl($product->prod_image2) }}" alt="{{ $product->prod_image_alt2 }}">
-									</figure>
-								</div>
-								<!-- /IMAGE SLIDE -->
+								  <div><img class="image-pic" src="{{ \App\Products::getFileUrl($product->prod_image2) }}" alt=""></div>
 								@endif
 								@if($product->prod_image3!=NULL)
-								<!-- IMAGE SLIDE -->
-								<div class="image-slide selected">
-									<div class="overlay"></div>
-									<figure class="product-preview-image thumbnail liquid">
-										<img src="{{ \App\Products::getFileUrl($product->prod_image3) }}" alt="{{ $product->prod_image_alt3 }}">
-									</figure>
-								</div>
-								<!-- /IMAGE SLIDE -->
+								  <div><img class="image-pic" src="{{ \App\Products::getFileUrl($product->prod_image3) }}" alt=""></div>
 								@endif
 								@if($product->prod_image4!=NULL)
-								<!-- IMAGE SLIDE -->
-								<div class="image-slide selected">
-									<div class="overlay"></div>
-									<figure class="product-preview-image thumbnail liquid">
-										<img src="{{ \App\Products::getFileUrl($product->prod_image4) }}" alt="{{ $product->prod_image_alt4 }}">
-									</figure>
+								  <div><img class="image-pic" src="{{ \App\Products::getFileUrl($product->prod_image4) }}" alt=""></div>
 								</div>
-								<!-- /IMAGE SLIDE -->
 								@endif
-								@if($product->prod_image5!=NULL)
-								<!-- IMAGE SLIDE -->
-								<div class="image-slide selected">
-									<div class="overlay"></div>
-									<figure class="product-preview-image thumbnail liquid">
-										<img src="{{ \App\Products::getFileUrl($product->prod_image5) }}" alt="{{ $product->prod_image_alt5 }}">
-									</figure>
-								</div>
-								<!-- /IMAGE SLIDE -->
-								@endif
-								@if($product->prod_image6!=NULL)
-								<!-- IMAGE SLIDE -->
-								<div class="image-slide selected">
-									<div class="overlay"></div>
-									<figure class="product-preview-image thumbnail liquid">
-										<img src="{{ \App\Products::getFileUrl($product->prod_image6) }}" alt="{{ $product->prod_image_alt6 }}">
-									</figure>
-								</div>
-								<!-- /IMAGE SLIDE -->
-								@endif
+
 								
-							</div>
-							<!-- IMAGE SLIDES -->
-						</div>
-						<!-- IMAGE SLIDES WRAP -->
-					</div>
-					<!-- /POST IMAGE SLIDES -->
+								<div class="product-slider-nav images-description" id="productSliderNav">
+								@if($product->prod_image!=NULL)
+								  <div><img src="{{ \App\Products::getFileUrl($product->prod_image) }}" class="image-description img-responsive"  alt="" /></div>
+								@endif
+								@if($product->prod_image1!=NULL)
+								  <div><img src="{{ \App\Products::getFileUrl($product->prod_image1) }}" class="image-description img-responsive"  alt="" /></div>
+								@endif
+								@if($product->prod_image2!=NULL)
+								  <div><img src="{{ \App\Products::getFileUrl($product->prod_image2) }}" class="image-description img-responsive"  alt="" /></div>
+								@endif
+								@if($product->prod_image3!=NULL)
+								  <div><img src="{{ \App\Products::getFileUrl($product->prod_image3) }}" class="image-description img-responsive"  alt="" /></div>
+								@endif
+								@if($product->prod_image4!=NULL)
+								  <div><img src="{{ \App\Products::getFileUrl($product->prod_image4) }}" class="image-description img-responsive"  alt="" /></div>
+								</div>
+								@endif
+                            </div>
+                        </div>
+						<div class="gap20"></div>
+                        <hr class="Descripti" />
 
-					<hr class="line-separator">
+                        <div class="desc">
+                            <div class="col-md-12">
+                               
+								<div class="row">
+                                    <a class="Descr">Description</a>
+                                    <div class="describe ">
+										
+										
+                                        {!! $product->prod_descrption !!}
+										</div>
+                                    
+                                </div>
+                            </div>
+                        </div>
 
-					<!-- POST CONTENT -->
-					<div class="post-content">
-						<!-- POST PARAGRAPH -->
-						{!! $product->prod_descrption !!}
+                        <div class="row">
 
+                            <div class="col-md-12">
+                                <div class="partners">
+                                    <ul class="seens p-none">
+                                        <li class="seen1">
+                                            <span>Share: </span>
+                                        </li>
+
+                                        <li class="facebook">
+                                            <button type="button" class="socials">Facebook</button>
+                                        </li>
+
+                                        <li>
+                                            <button type="button" class="socials1">Tweet</button>
+                                        </li>
+                                        <li>
+                                            <button type="button" class="socials2">Pin It</button>
+                                        </li>
+                                        <li>
+                                            <button type="button" class="socials3">G+Share</button>
+                                        </li>
+
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
 						<div class="clearfix"></div>
+
+                    </div>
+
+                    <div class="col-md-4 col-xs-12 product-details">
+                        <div class="boxes">
+                            <ul class="product-price">
+                                <li>
+                                    <a class="pricing">$49</a>
+                                </li>
+                                <li>
+                                    <a class="template-only"> Template only</a> </li>
+                            </ul>
+                            <div class="recomended-services">
+                                <a class="recomended"> Recommended Services</a>
+                                <form class="checkbox1">
+                                     <div class="col-md-8 col-xs-8 text-left">
+										<input type="checkbox" id="checkbox1" class="css-checkbox med"/>
+										<label for="checkbox1" name="checkbox1_lbl" class="css-label med elegant">Customization</label>
+									 </div> <div class="col-md-4 col-xs-4 text-right">4$ <i class="fa fa-info-circle" data-toggle="tooltip" data-placement="top" title="Add to cart"></i></div>
+                                    
+                                     <div class="col-md-8 col-xs-8 text-left">
+										<input type="checkbox" id="checkbox2" class="css-checkbox med"/>
+										<label for="checkbox2" name="checkbox2_lbl" class="css-label med elegant">Add copy writing</label>
+										
+									 </div> <div class="col-md-4 col-xs-4 text-right">10$ <i class="fa fa-info-circle" data-toggle="tooltip" data-placement="top" title="Add to cart"></i></div>
+                                </form>
+                            </div>
+                            <p class="subtotal-price"> Subtotal Price: 59$</p>
+                            <div class="see-more">
+                                <button type="submit" class="btn btn-primary see1">Buy Now</button>
+                            </div>
+                            <div class="see-more">
+                                <button type="submit" class="see2">Add To Cart</button>
+                            </div>
+							<div class="see-more">
+							<p class="m-none">&nbsp;</p>
+                                <a class="domain text-center">Single domain License ( you can use this on<br> personal commercial or client projects)</a> </div>
+                            <ul class="col-md-12 payment text-center">
+                               
+                                <li>
+                                    <img class="image-description1 " src="{{ asset('home_asset/img/paypal.png')}}" alt="">
+                                </li>
+                                <li>
+                                    <img class="image-description1 " src="{{ asset('home_asset/img/003-visa.png')}}" alt="">
+                                </li>
+                                <li>
+                                    <img class="image-description1 " src="{{ asset('home_asset/img/mastercard.png')}}" alt="">
+                                </li>
+                                <li>
+                                    <img class="image-description1 " src="{{ asset('home_asset/img/american-express.png')}}" alt="">
+                                </li>
+                            </ul>
+							<div class="clearfix"></div>
+                            <hr class="detailing1" />
+                            <div class="col-md-12 clearfix">
+                                <div class="row">
+                                    <div class="user-data">
+                                        <div class="col-md-4 text-right">
+                                            <img class="image-description2 " src="{{ asset('home_asset/images/3.png')}}" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="user-details">
+                                        <div class="col-md-8 text-left p-none">
+                                            <ul>
+                                                <li class="name">
+                                                    <a class="user-name">Julia Dreams</a>
+                                                </li>
+                                                <li class="loco">
+                                                    <a class="user-location">USA</a>
+                                                    <br/>
+                                                    <a href="#" class="user-store">view Store</a>
+                                                </li>
+
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-12">
+                                    <a class="domain1">More From Julia Team</a>
+                                </div>
+                                <ul class="payment img p-none">
+                                    <li>
+                                        <img class="image-description1" src="{{ asset('home_asset/images/3.png')}}" alt="">
+                                    </li>
+                                    <li>
+                                        <img class="image-description1 " src="{{ asset('home_asset/images/3.png')}}" alt="">
+                                    </li>
+                                    <li>
+                                        <img class="image-description1 " src="{{ asset('home_asset/images/3.png')}}" alt="">
+                                    </li>
+                                    <li>
+                                        <img class="image-description1 " src="{{ asset('home_asset/images/3.png')}}" alt="">
+                                    </li>
+                                   
+
+
+                                <div class="row">
+
+                                                                    </ul>
+<hr class="detailing" />
+                                    <div class="detals">
+										<ul class="col-md-12 payment">
+											<li class="detals"><strong>Created&nbsp;: </strong> September 15,2015</li>
+											<li class="detals"><strong>Updated&nbsp;: </strong> March 13,2017</li>
+											<li class="detals"><strong>Version&nbsp;: </strong> 4.5</li>
+											<li class="detals"><strong>Updated&nbsp;: </strong> March 13,2017</li>
+											<li class="detals"><strong>Dependencies&nbsp;: </strong> WordPress4.+</li>
+											<li class="detals"><strong>File Included&nbsp;: </strong> HTMl,Images,PHP</li>
+											<li class="detals"><strong>Categories&nbsp;: </strong> Blog,Buisness,Portfolio,Fashion </li>
+											<li class="detals"><strong>Tags:&nbsp;: </strong> September 15,2015</li>
+											
+										</ul>
+										
+										
+                                        <br/>
+                                        <ul class="tags1">
+                                            <li class="bootastrap">
+                                                <button type="button" class="tags">responsive</button>
+                                            </li>
+
+                                            <li>
+                                                <button type="button" class="tags">Blog</button>
+                                            </li>
+                                            <li>
+                                                <button type="button" class="tags">Minimal</button>
+                                            </li>
+                                            <li>
+                                                <button type="button" class="tags">Personal</button>
+                                            </li>
+                                            <li>
+                                                <button type="button" class="tags">Blogging</button>
+                                            </li>
+                                            <li>
+                                                <button type="button" class="tags">Bootstrap</button>
+                                            </li>
+                                        </ul>
+
+                                    </div>
+                                </div>
+								<div class="clearfix"></div>
+							</div>
+                            <div class="clearfix"></div>
+							<p class="p-none">&nbsp;</p>
+							<div class="ads-banner ads-banner-300-250"></div>
+                        </div>
+                        
+                    </div>
+
+					<div class="image-section">
+						<div class="container">
+							<div class="row">
+							<div class="col-md-12">
+                            
+                                <div class="row">
+									 <div class="categories">
+										<ul class="p-none">
+											<li class="section-head browse1">Related Products
+											</li>
+										</ul>
+									</div>
+                                </div>
+                      
+                                <div class="row">
+								 <div class="pt-12 pb-8">
+                                    
+                                        <div class="col-sm-">
+                                            <div class="masonry noo-blog1">
+                                                <div class="masonry noo-blog home-masonry">
+                                                    <div class="row masonry-container" style="position: relative;">
+                                                        <div class="masonry-item col-md-3 col-sm-6" style="position: relative; left: 0px; top: 0px;">
+                                                            <div class="blog-item">
+                                                                <a class="blog-thumbnail" href="blog-detail.html">
+                                                                    <img width="400" height="440" src="{{ asset('home_asset/images/3.png')}}" alt="">
+																	
+                                                                </a>
+                                                                <div class="blog-description row">
+                                                                    <div class="col-md-8 col-xs-8">
+                                                                        <ul class="details">
+                                                                            <li>
+
+                                                                                <span>Delish Pro</span>
+                                                                                
+                                                                                <span><a>By <strong>Egor Federov</strong></a></span>
+                                                                            </li>
+                                                                        </ul>
+                                                                    </div>
+                                                                    <div class="col-md-4 col-xs-4">
+                                                                        <ul>
+                                                                            <li>
+																				<span class="price">$25</span>
+                                                                            </li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="masonry-item col-md-3 col-sm-6" style="position: relative; left: 0px; top: 0px;">
+                                                            <div class="blog-item">
+                                                                <a class="blog-thumbnail" href="blog-detail.html">
+                                                                    <img width="400" height="440" src="{{ asset('home_asset/images/3.png')}}" alt="">
+                                                                </a>
+                                                                <div class="blog-description row">
+                                                                    <div class="col-md-8 col-xs-8">
+                                                                        <ul class="details">
+                                                                            <li>
+
+                                                                                <span>Delish Pro</span>
+                                                                                
+                                                                                <span><a>By <strong>Egor Federov</strong></a></span>
+                                                                            </li>
+                                                                        </ul>
+                                                                    </div>
+                                                                    <div class="col-md-4 col-xs-4">
+                                                                        <ul>
+                                                                            <li>
+
+
+                                                                                <span class="price">45$</span>
+                                                                            </li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="masonry-item col-md-3 col-sm-6" style="position: relative; left: 0px; top: 0px;">
+                                                            <div class="blog-item">
+                                                                <a class="blog-thumbnail" href="blog-detail.html">
+                                                                    <img width="400" height="440" src="{{ asset('home_asset/images/3.png')}}" alt="">
+                                                                </a>
+                                                                <div class="blog-description row">
+                                                                    <div class="col-md-8 col-xs-8">
+                                                                        <ul class="details">
+                                                                            <li>
+
+                                                                                <span>Delish Pro</span>
+                                                                                
+                                                                                <span><a>By <strong>Egor Federov</strong></a></span>
+                                                                            </li>
+                                                                        </ul>
+                                                                    </div>
+                                                                    <div class="col-md-4 col-xs-4">
+                                                                        <ul>
+                                                                            <li>
+
+
+                                                                                <span class="price">45$</span>
+                                                                            </li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+														
+														<div class="col-md-3 col-sm-6">
+															<div class="blog-item custom-contact">
+																<img src="{{ asset('home_asset/fonts/design-tool.png')}}"/>
+																<p>Contact me now for a custom project based on your brief.</p>
+																<div class="see-more">
+																	<button type="submit" class="btn btn-primary see1">Contact</button>
+																</div>
+															</div>
+														</div>
+                                                    </div>
+													<div class="gap60"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    
+                                </div>
+								</div>
+                            </div>
+							</div>
+                        </div>
 					</div>
-					<!-- /POST CONTENT -->
+            </div>
+        </div>
+    </section>
 
-					<hr class="line-separator">
 
-					<!-- SHARE -->
-					<div class="share-links-wrap">
-						<p class="text-header small">Share this:</p>
-						<!-- SHARE LINKS -->
-						<ul class="share-links hoverable">
-							<li><a href="#" class="fb"></a></li>
-							<li><a href="#" class="twt"></a></li>
-							<li><a href="#" class="db"></a></li>
-							<li><a href="#" class="rss"></a></li>
-							<li><a href="#" class="gplus"></a></li>
-						</ul>
-						<!-- /SHARE LINKS -->
-					</div>
-					<!-- /SHARE -->
-				</article>
-				<!-- /POST -->
-				
-
-				
-			</div>
-			<!-- CONTENT -->
-		</div>
-	</div>
-	<!-- /SECTION -->
-	@include('particles.subscriber')
 @endsection

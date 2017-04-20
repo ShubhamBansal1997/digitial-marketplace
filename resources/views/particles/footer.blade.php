@@ -1,304 +1,188 @@
-<!-- FOOTER -->
-	<footer>
-		<!-- FOOTER TOP -->
-		<div id="footer-top-wrap">
-			<div id="footer-top">
-				<!-- COMPANY INFO -->
-				<div class="company-info">
-					<p class="footer-title">Our Community</p>
-					<ul class="company-info-list">
-						<li class="company-info-item">
-							<span class="icon-present"></span>
-							<p><span>850.296</span> Products</p>
-						</li>
-						<li class="company-info-item">
-							<span class="icon-energy"></span>
-							<p><span>1.207.300</span> Members</p>
-						</li>
-						<li class="company-info-item">
-							<span class="icon-user"></span>
-							<p><span>74.059</span> Sellers</p>
-						</li>
-					</ul>
-					
-				</div>
-				<!-- /COMPANY INFO -->
+<!-- Footer Section -->
+	<footer class="main-footer">
+        <div class="container">
+            <div class="row row-col-gap" data-gutter="60">
+                <div class="col-md-8 col-sm-12 hidden-xs">
+                    <div class="col-md-4 col-xs-12 p-none">
+                        <h4>Learn More</h4>
+                        <ul class="design">
+                            <li><a href="#">About Us</a>
+                            </li>
+                            <li><a href="#">Privacy Policy</a>
+                            </li>
+                            <li><a href="#">Refund Policy</a>
+                            </li>
+                            <li><a href="#">Term & Conditions</a>
+                            </li>
 
-				<!-- LINK INFO -->
-				<div class="link-info">
-					
-					<p class="footer-title">Learn More</p>
-					<!-- LINK LIST -->
-					
-						<ul class="link-list">
-						<li class="link-item">
-							
-							<a href="#">About Us</a>
-						</li>
-						<li class="link-item">
-							
-							<a href="#">Privacy Policy</a>
-						</li>
-						<li class="link-item">
-							
-							<a href="forum.html">Refund Policy</a>
-						</li>
-						<li class="link-item">
-							
-							<a href="forum.html">Terms & Conditions</a>
-						</li>
-					</ul>
-					
-				</div>
-				<!-- /LINK INFO -->
+                        </ul>
+                    </div>
+                    <div class="col-md-4 col-xs-12 p-none">
+                        <h4>Contact Us</h4>
+                        <ul class="design">
+                            <li><a href="#">Start Selling</a>
+                            </li>
+                            <li><a href="#">Advertise With Us</a>
+                            </li>
+                            <li><a href="#">Partner With Us</a>
+                            </li>
+                            <li><a href="#">Sitemap</a>
+                            </li>
+                            <li><a href="#">Contact Us</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4 col-xs-12 p-none">
+                        <h4>Our Community</h4>
+                        <ul class="design">
+                            <li><a href="#">850.296 Products</a>
+                            </li>
+                            <li><a href="#">1.207.300 Members</a>
+                            </li>
+                            <li><a href="#">74.059 Sellers</a>
+                            </li>
 
-				<div class="link-info">
-					<p class="footer-title">Contact Us</p>
-					<!-- LINK LIST -->
-					<ul class="link-list">
-						<li class="link-item">
-							
-							<a href="#">Start Selling</a>
-						</li>
-						<li class="link-item">
-							
-							<a href="#">Advertise With Us</a>
-						</li>
-							<li class="link-item">
-							
-							<a href="#">Partner With Us</a>
-						</li>
-						<li class="link-item">
-							
-							<a href="#">Sitemap</a>
-						</li>
-						<li class="link-item">
-							
-							<a href="#">Contact Us</a>
-						</li>
-					</ul>
-					<!-- /LINK LIST -->
-				</div>
+                        </ul>
+                    </div>
+                </div>
 
-				<!-- LINK INFO -->
-				<div class="link-info">
-					<p class="footer-title">Resources</p>
-					<!-- LINK LIST -->
-					<ul class="link-list">
-						<li class="link-item">
-							
-							<a href="#">Freebies</a>
-						</li>
-						<li class="link-item">
-							
-							<a href="#">Blog</a>
-						</li>
-						<li class="link-item">
-							<a href="#">E-books</a>
-						</li>
-					</ul>
-					<!-- /LINK LIST -->
-				</div>
-				<!-- /LINK INFO -->
+                <div class="col-md-4 col-sm-12 ">
+                    <h4 class="widget-title-sm">Newsletter</h4>
+                    <form action="{{ URL::to('subscribe')}}" method="post">
+                    	{!! csrf_field() !!}
+                        <div class="form-group">
+                            <label style="margin-bottom: 15px;">Sign up for our newsletter for stay up-to-date with our latest news in your inbox.</label>
+                            <input class="newsletter-input form-control" placeholder="yourmail@gmail.com" type="text" name="email"/>
+                        </div>
+                        <input class="btn btn-primary" type="submit" value="Subscribe" />
+                    </form>
+                </div>
+            </div>
+            <br/>
+			<hr>
+            <div class="row">
+				
+                <div class="col-md-8 col-xs-12">
+                    <div class="col-md-5 col-xs-12 p-none">
+                        <p class="copyright-text text-left"> &copy; 2017 <a href="#">Design Minister</a>. All rights reseved.</p>
+                    </div>
+                    <div class="col-md-7 col-xs-12">
+                        <ul class="main-footer-social-list pull-right">
+                            <li><a href="#"><img src="{{ asset('home_asset/fonts/006-facebook-logo.png')}}"/></a></li>
+                            <li><a href="#"><img src="{{ asset('home_asset/fonts/005-twitter-logo-silhouette.png')}}"/></a></li>
+                            <li><a href="#"><img src="{{ asset('home_asset/fonts/003-google-plus-symbol.png')}}"/></a></li>
+                            <li><a href="#"><img src="{{ asset('home_asset/fonts/004-dribbble-logo.png')}}"/></a></li>
+                            <li><a href="#"><img src="{{ asset('home_asset/fonts/002-pinterest.png')}}"/></a></li>
+                            <li><a href="#"><img src="{{ asset('home_asset/fonts/001-behance-logo.png')}}"/></a></li>
+                            
+                        </ul>
+                    </div>
+                </div>
 
-				<!-- TWITTER FEED -->
-				<div class="twitter-feed">
-					<p class="footer-title">Stay In Touch</p>
-					<!-- SOCIAL LINKS -->
-					<ul class="social-links">
-						<li class="social-link fb">
-							<a href="#"></a>
-						</li>
-						<li class="social-link twt">
-							<a href="#"></a>
-						</li>
-						<li class="social-link db">
-							<a href="#"></a>
-						</li>
-						<li class="social-link rss">
-							<a href="#"></a>
-						</li>
-					</ul>
-					<!-- /SOCIAL LINKS -->
-				</div>
-				<!-- /TWITTER FEED -->
-			</div>
-		</div>
-		<!-- /FOOTER TOP -->
+                <div class="col-md-4 col-xs-12">
+                    <ul class="payment-icons-list">
+                        <li>
+                            <img src="{{ asset('home_asset/img/001-credit-card.png')}}" alt="Image Alternative text" title="Pay with Maestro" />
+                        </li>
 
-		<div id="footer-bottom-wrap">
-			<div id="footer-bottom">
-				<div class="half-big-row">
-					<p><span>&copy;</span><a href="#"> Design Minister</a>  - All Rights Reserved 2017</p>
+                        <li>
+                            <img src="{{ asset('home_asset/img/003-visa.png')}}" alt="Image Alternative text" title="Pay with Visa" />
+                        </li>
+                        <li>
+                            <img src="{{ asset('home_asset/img/002-paypal.png')}}" alt="Image Alternative text" title="Pay with Paypal" />
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+
+
+        </div>
+    </footer>
+
+	<!-- LOGIN - modal-->
+	<div id="LoginModal" class="overlay" style="display: none;">
+		<div class="form-popup custom clearfix">
+			<div class="modal fade in" role="dialog" style="display: block;">
+			<div class="modal-dialog modal-md">
+
+		<!-- Modal content-->
+		<div class="modal-content modal-login">
+	
+			<!-- user_sign_in_start -->
+			<div id="user_sign_in">
+				
+				<div class="modal-panel-right">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" id="close-login"><img src="{{ asset('home_asset/img/cross.png')}}"/></button>
+					<h4 class="modal-title">Sign Into Your Account</h4>
+				  </div>
+				<div class="modal-body">
+				<!-- Wrapper for backbone views -->
+				
+				<div class="pane-sign-up">
+					<a class="btn bt-primary btn-block btn-facebook facebook-login">Sign In using <strong>Facebook</strong></a>
+					<span class="divider">OR</span>
+					<form action="#">
+						<input type="text" class="form-control" placeholder="Username">
+						<input type="password" class="form-control ts_topmargin10" placeholder="Password">
+						<button class="btn btn-primary ts_search_btn ts_topmargin10">Sign In</button>
+					</form>
+			
+				</div>
 				
 				</div>
-				<div class="half-small-row">
-					<div class="ts_footer_link">
-						<ul>
-					    	<li><p>Secure Payments:</p></li>
-					        <li><a target="_blank" href="#" class="wallet wallet_1">&nbsp;</a></li>
-					    	<li><a target="_blank" href="#" class="wallet wallet_2">&nbsp;</a></li>
-					    	<li><a target="_blank" href="#" class="wallet wallet_3">&nbsp;</a></li>
-					    	<li><a target="_blank" href="#" class="wallet wallet_4">&nbsp;</a></li>
-					    						
-						</ul>
+				<div class="modal-footer">
+				<h4 class="modal-title"> Don't have an account?</h4>
+				<a href="#" class="btn btn-block btn-transparent Registeropen">Create an account</a>
+			</div>
+			</div>
+			</div>
+			<!-- user_sign_in_end -->
+		</div>
+
+			</div>
+		</div>
+		</div>
+	</div>
+	<!-- LOGIN -  modal-->
+	
+	<!-- LOGIN - modal-->
+	<div id="RegisterModal" class="overlay" style="display: none;">
+		<div class="form-popup custom clearfix">
+			<div class="modal fade in" role="dialog" style="display: block;">
+		  <div class="modal-dialog modal-md">
+
+			<!-- Modal content-->
+			<div class="modal-content modal-login">
+				<!-- user_sign_up_start -->
+				<div id="user_sign_up">
+					
+					<div class="modal-panel-right">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" id="close-register"><img src="{{ asset('home_asset/img/cross.png')}}"/></button>
+							<h4 class="modal-title">Create Your Free Account</h4>
+						  </div>
+						<div class="modal-body">
+						<!-- Wrapper for backbone views -->
+						<div class="pane-sign-up">
+							<a class="btn bt-primary btn-block btn-facebook facebook-login" href="{{ URL::to('redirect')}}">Sign up using <strong>Facebook</strong></a>
+							<span class="divider">OR</span>
+							<button class="gmail ts_search_btn">Continue with Email</button>
+							<p>By creating an account, you agree to our <a href="#">Terms & Conditions</a></p>
+						</div>
+						</div>
+						<div class="modal-footer">
+						<h4 class="modal-title">Already have an account? </h4>
+						<a href="#" class="btn btn-block btn-transparent LoginOpen">Sign In!</a>
+					</div>
 					</div>
 				</div>
-		
+				<!-- user_sign_up_end -->
 			</div>
+
+		  </div>
 		</div>
-	</footer>
-	<!-- /FOOTER -->
-	<!-- LOGIN ACOOUNT -->
-<div class="overlay" id="LoginPopup" style="display:none">
-	<div class="form-popup custom">
-				<!-- CLOSE BTN -->
-				<div class="close-btn " id="close-login">
-					<!-- SVG PLUS -->
-					<svg class="svg-plus">
-						<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-plus"></use>
-					</svg>
-					<!-- /SVG PLUS -->
-				</div>
-				<!-- /CLOSE BTN -->
-
-				<!-- FORM POPUP HEADLINE -->
-				<div class="form-popup-headline secondary">
-					<h2>Login to your Account</h2>
-					<p>Enter now to your account and start buying and selling!</p>
-				</div>
-				<!-- /FORM POPUP HEADLINE -->
-
-				<!-- FORM POPUP CONTENT -->
-				<div class="form-popup-content">
-					<form id="login-form2" method="post" action="{{ URL::to('login') }}">
-						{!! csrf_field() !!}
-						<label for="Email" class="rl-label">Email</label>
-						<input type="email" id="username5" name="email" placeholder="Enter your username here..." required>
-						<label for="password5" class="rl-label">Password</label>
-						<input type="password" id="password5" name="password" placeholder="Enter your password here..." required>
-						<p>Forgot your password? <a href="#" class="ForgotOpen primary">Click here!</a></p>
-						<button class="button mid dark" type="submit">Login <span class="primary">Now!</span></button>
-					</form>
-					<!-- LINE SEPARATOR -->
-					<hr class="line-separator double">
-					<!-- /LINE SEPARATOR -->
-					<a href="{{ URL::to('redirect') }}" class="button mid fb">Login with Facebook</a>
-					<p class="clearfix"></p>
-					<p class="popup-text">New to Design Minister!! <a href="#" class="Registeropen primary"> Register Here</a></p>
-				</div>
-				<!-- /FORM POPUP CONTENT -->
-				
-			</div>
-</div>	
-<!-- LOGIN ACOOUNT -->
-
-<!-- REGISTER POP UP -->
-<div class="overlay" id="RegisterPopup" style="display:none">
-	<div class="form-popup custom">
-				<!-- CLOSE BTN -->
-				<div class="close-btn" id="close-register">
-					<!-- SVG PLUS -->
-					<svg class="svg-plus">
-						<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-plus"></use>
-					</svg>
-					<!-- /SVG PLUS -->
-				</div>
-				<!-- /CLOSE BTN -->
-
-				<!-- FORM POPUP HEADLINE -->
-				<div class="form-popup-headline primary">
-					<h2>Register Account</h2>
-					<p>Register now and start making money from home!</p>
-				</div>
-				<!-- /FORM POPUP HEADLINE -->
-
-				<!-- FORM POPUP CONTENT -->
-				<div class="form-popup-content">
-					<form id="register-form4" method="post" action="{{ URL::to('register')}}">
-						{{ csrf_field() }}
-						<label for="first name" class="rl-label required">First Name</label>
-						<input type="text" id="fname" name="user_fname" placeholder="Enter your First Name here...">
-						<label for="last name" class="rl-label required">Last Name</label>
-						<input type="text" id="lname" name="user_lname" placeholder="Enter your Last Name here...">
-						<label for="email_address6" class="rl-label required">Email Address</label>
-						<input type="text" id="email_address6" name="user_email" placeholder="Enter your email address here...">
-						<label for="password6" class="rl-label required">Password</label>
-						<input type="password" id="password6" name="user_pwd" placeholder="Enter your password here...">
-						<button class="button mid dark" type="submit">Register Now!</button>
-						<hr class="line-separator double">
-						<a href="{{ URL::to('redirect')}}" class="button mid fb">Register with Facebook</a>
-					    <p class="popup-text">Already have an account!! <a href="#" class="LoginOpen primary"> Login Here</a></p>
-					</form>
-				
-				</div>
-				<!-- /FORM POPUP CONTENT -->
-			</div>
-</div>	
-<!-- REGISTER POP UP -->
-<!-- FORGOT PASSWORD -->
-<div class="overlay" id="ForgotPopup" style="display:none">
-	<div class="form-popup custom">
-				<!-- CLOSE BTN -->
-				<div class="close-btn" id="close-forgot">
-					<!-- SVG PLUS -->
-					<svg class="svg-plus">
-						<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-plus"></use>
-					</svg>
-					<!-- /SVG PLUS -->
-				</div>
-				<!-- /CLOSE BTN -->
-
-				<!-- FORM POPUP CONTENT -->
-				<div class="form-popup-content">
-					<h4 class="popup-title">Restore your Password</h4>
-					<!-- LINE SEPARATOR -->
-					<hr class="line-separator short">
-					<!-- /LINE SEPARATOR -->
-					<p class="spaced">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.</p>
-					<form id="restore-pwd-form">
-						<label for="email_address" class="rl-label">Email Address</label>
-						<input type="text" id="email_address" name="email_address" placeholder="Enter your email address...">
-						<button class="button mid dark no-space">Restore your <span class="primary">Password</span></button>
-					</form>
-				</div>
-				<!-- /FORM POPUP CONTENT -->
-			</div>
-</div>
-<!-- FORGOT PASSWORD -->
-	
-	    <div class="shadow-film closed"></div>
-        <!-- SVG ARROW -->
-        <svg style="display: none;">	
-	    <symbol id="svg-arrow" viewBox="0 0 3.923 6.64014" preserveAspectRatio="xMinYMin meet">
-		<path d="M3.711,2.92L0.994,0.202c-0.215-0.213-0.562-0.213-0.776,0c-0.215,0.215-0.215,0.562,0,0.777l2.329,2.329
-			L0.217,5.638c-0.215,0.215-0.214,0.562,0,0.776c0.214,0.214,0.562,0.215,0.776,0l2.717-2.718C3.925,3.482,3.925,3.135,3.711,2.92z"/>
-	    </symbol>
-        </svg>
-        <!-- /SVG ARROW -->
-        <!-- SVG CHECK -->
-        <svg style="display: none;">
-	    <symbol id="svg-check" viewBox="0 0 15 12" preserveAspectRatio="xMinYMin meet">
-		<polygon points="12.45,0.344 5.39,7.404 2.562,4.575 0.429,6.708 3.257,9.536 3.257,9.536 
-			5.379,11.657 14.571,2.465 "/>
-	    </symbol>
-        </svg>
-        <!-- /SVG CHECK -->
-
-        <!-- SVG STAR -->
-        <svg style="display: none;">
-	    <symbol id="svg-star" viewBox="0 0 10 10" preserveAspectRatio="xMinYMin meet">	
-		<polygon points="4.994,0.249 6.538,3.376 9.99,3.878 7.492,6.313 8.082,9.751 4.994,8.129 1.907,9.751 
-	    2.495,6.313 -0.002,3.878 3.45,3.376 "/>
-	    </symbol>
-        </svg>
-        <!-- /SVG STAR -->
-
-        <!-- SVG PLUS -->
-        <svg style="display: none;">
-	    <symbol id="svg-plus" viewBox="0 0 13 13" preserveAspectRatio="xMinYMin meet">
-		<rect x="5" width="3" height="13"/>
-		<rect y="5" width="13" height="3"/>
-	    </symbol>
-        </svg>
-        <!-- /SVG PLUS -->
+		</div>
+	</div>
+	<!-- LOGIN -  modal-->

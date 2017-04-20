@@ -61,7 +61,7 @@
                 </div>
                 <div class="form-group">
                   <label for="exampleInputFile">Product Image 1</label>
-                  <input type="file" id="exampleInputFile" name="prod_image" required>
+                  <input type="file" id="exampleInputFile" name="prod_image">
                   <input type="text" class="form-control" name="prod_image_alt" value="{{ isset($prod->id)?$prod->prod_image_alt: null }}" required>
                 </div>
                  <div class="form-group">
@@ -95,8 +95,9 @@
                   <input type="text" class="form-control" name="prod_image_alt6" value="{{ isset($prod->prod_image_alt6)?$prod->prod_image_alt6: null }}">
                 </div>
                 <div class="form-group">
+                
                   <label>Tags (seperated by commas...)</label>
-                  <textarea class="form-control" rows="4" name="prod_tags" required>{{ isset($prod->id)?$prod->prod_tags: null }}</textarea>
+                  <input class="form-control" name="prod_tags" value="{{ isset($prod->id)?$prod->prod_tags: null }}" required>
                 </div>
                 <div class="form-group">
                   <label>Descrption</label>
@@ -107,29 +108,40 @@
                   <input type="text" class="form-control" name="prod_demourl" value="{{ isset($prod->id)?$prod->prod_demourl: null }}" placeholder="Enter Demo Url" >
                 </div>
                 <div class="form-group">
+                  <label>Files Included</label>
+                  <input type="text" class="form-control" name="prod_files_included" value="{{ isset($prod->prod_files_included)?$prod->prod_files_included: null }}" placeholder="Enter Files Included" >
+                </div>
+                <div class="form-group">
                 <label>Categories</label>
-                  <select class="form-control select2" name="prod_categories[]" multiple="multiple" data-placeholder="Select Categories" style="width: 100%;" required>
+                  <select class="form-control select2" name="prod_categories[]" multiple="multiple" data-placeholder="Select Categories" style="width: 100%;" type="checkbox" required>
                     @foreach(\App\Category::where('category_active',TRUE)->where('category_delete',FALSE)->get() as $cat)
-                    <option value="{{ $cat->id }}">{{ $cat->category_name }}</option>
+                    <option value="{{ $cat->id }}" @if(isset($selectcat)!=NULL) @if(in_array($cat->id, $selectcat)) {{ "selected "}} @endif @endif > {{ $cat->category_name }}</option>
                     @endforeach
                   </select>
                 </div>
-              
+                <div class="form-group">
+                <label>Customizations</label>
+                  <select class="form-control select2" name="prod_customizations[]" multiple="multiple" data-placeholder="Select Customizations" style="width: 100%;" type="checkbox" required>
+                    @foreach(\App\Customizations::where('customization_active',TRUE)->where('customization_delete',FALSE)->get() as $customization)
+                    <option value="{{ $customization->id }}" 
+                    @if(isset($selectcustomizations)!=NULL) 
+                      @if(in_array($customization->id, $selectcustomizations)) {{ "selected "}} 
+                      @endif 
+                      @endif > {{ $customization->customization_name }}</option>
+                    @endforeach
+                  </select>
+                </div>              
                 <div class="form-group">
                   <label>Price</label>
                   <input type="text" class="form-control" name="prod_price" placeholder="Enter Price" value="{{ isset($prod->id)?$prod->prod_price: null}}" required>
                 </div>
                 <div class="form-group">
-                  <label>Customized Price</label>
-                  <input type="text" class="form-control" name="prod_customize_price" value="{{ isset($prod->id)?$prod->prod_customize_price: null }}" placeholder="Enter Customized Price" required>
-                </div>
-                <div class="form-group">
                   <label>Vendor</label>
                   <select class="form-control select2" style="width: 100%;" name="prod_vendor_id" required>
                     @if(isset($prod->id))
-                    {
+                    
                       <option selected="selected" value="{{ $prod->prod_vendor_id}}">{{ \App\Users::username($prod->prod_vendor_id) }}</option>
-                    }
+                    
                     @endif
                     @foreach(\App\Users::where('user_delete',FALSE)->where('user_accesslevel','2')->get() as $i => $vendor)
                     <option value="{{ $vendor->id }}">{{ \App\Users::username($vendor->id) }}</option>
@@ -187,7 +199,7 @@
                 </div>
                 <div class="form-group">
                   <label for="exampleInputFile12">Upload Product</label>
-                  <input type="file" id="exampleInputFile12" name="prod_file" required>
+                  <input type="file" id="exampleInputFile12" name="prod_file">
                 </div>
                 
               <div class="box-footer">

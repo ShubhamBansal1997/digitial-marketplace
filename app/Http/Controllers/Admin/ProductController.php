@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Category;
 use App\Products;
+use App\Customizations;
 use Session;
 use Redirect;
 use Storage;
@@ -75,11 +76,14 @@ class ProductController extends Controller
     public function uploadfile($file)
     {
         
-        if ($file->isValid()) {
-            $name = time() .'_' . $file->getClientOriginalName();
-            $key = 'images/' . $name;
-            Storage::disk('s3')->put($key, file_get_contents($file));
-            return $key;
+        if($file!=NULL)
+        {
+            if ($file->isValid()) {
+                $name = time() .'_' . $file->getClientOriginalName();
+                $key = 'images/' . $name;
+                Storage::disk('s3')->put($key, file_get_contents($file));
+                return $key;
+            }
         }
     }
     public function addeditproduct(Request $request)
@@ -91,16 +95,15 @@ class ProductController extends Controller
             'prod_slug' => 'required',
             'prod_meta_title' => 'required',
             'prod_meta_descrption' => 'required',
-            'prod_image' => 'required|image',
+            'prod_image' => 'image',
             'prod_image_alt' =>'required',
             'prod_tags' => 'required',
             'prod_descrption' => 'required',
             'prod_categories' => 'required',
             'prod_price' => 'required',
-            'prod_customize_price' => 'required',
             'prod_vendor_id' => 'required',
             'prod_featured' => 'required',
-            'prod_file' => 'required|file'
+            'prod_file' => 'file'
 
                     ]);
         
@@ -108,39 +111,49 @@ class ProductController extends Controller
         if($request->input('id')==NULL)
         {
             $prod = new Products;
+        }
+        else
+        {
+            $prod = Products::where('id',$request->input('id'))->first();
+        }
             $prod->prod_name = $request->input('prod_name');
 
             $prod->prod_slug = str_replace(' ', '-', $request->prod_slug);
             $prod->prod_meta_descrption = $request->prod_meta_descrption;
             $prod->prod_meta_title = $request->prod_meta_title;
-            $prod->prod_image = $this->uploadfile($request->file('prod_image'));
+            //$prod->prod_image = $this->uploadfile($request->file('prod_image'));
             $prod->prod_image_alt = $request->input('prod_image_alt');
-            if($prod->prod_image1!=NULL&&$prod->prod_image_alt1!=NULL)
+            if($request->file('prod_image')!=NULL)
             {
-                $prod->prod_image1 = $this->uploadfile($request->file('prod_image'));
+                $prod->prod_image = $this->uploadfile($request->file('prod_image'));
+                //$prod->prod_image_alt1 = $request->input('prod_image_alt1'); 
+            }
+            if($request->file('prod_image1')!=NULL&&$request->input('prod_image_alt1')!=NULL)
+            {
+                $prod->prod_image1 = $this->uploadfile($request->file('prod_image1'));
                 $prod->prod_image_alt1 = $request->input('prod_image_alt1'); 
             }
-            if($prod->prod_image2!=NULL&&$prod->prod_image_alt2!=NULL)
+            if($request->file('prod_image2')!=NULL&&$request->input('prod_image_alt2')!=NULL)
             {
                 $prod->prod_image2 = $this->uploadfile($request->file('prod_image2'));
                 $prod->prod_image_alt2 = $request->input('prod_image_alt2'); 
             }
-            if($prod->prod_image3!=NULL&&$prod->prod_image_alt1!=NULL)
+            if($request->file('prod_image3')!=NULL&&$request->input('prod_image_alt3')!=NULL)
             {
                 $prod->prod_image3 = $this->uploadfile($request->file('prod_image3'));
                 $prod->prod_image_alt3 = $request->input('prod_image_alt3'); 
             }
-            if($prod->prod_image4!=NULL&&$prod->prod_image_alt4!=NULL)
+            if($request->file('prod_image4')!=NULL&&$request->input('prod_image_alt4')!=NULL)
             {
                 $prod->prod_image4 = $this->uploadfile($request->file('prod_image4'));
                 $prod->prod_image_alt4 = $request->input('prod_image_alt4'); 
             }
-            if($prod->prod_image5!=NULL&&$prod->prod_image_alt5!=NULL)
+            if($request->file('prod_image5')!=NULL&&$request->input('prod_image_alt5')!=NULL)
             {
                 $prod->prod_image5 = $this->uploadfile($request->file('prod_image5'));
                 $prod->prod_image_alt5 = $request->input('prod_image_alt5'); 
             }
-            if($prod->prod_image6!=NULL&&$prod->prod_image_alt6!=NULL)
+            if($request->file('prod_image6')!=NULL&&$request->input('prod_image_alt6')!=NULL)
             {
                 $prod->prod_image6 = $this->uploadfile($request->file('prod_image6'));
                 $prod->prod_image_alt6 = $request->input('prod_image_alt6'); 
@@ -150,28 +163,26 @@ class ProductController extends Controller
             $prod->prod_demourl = $request->input('prod_demourl');
             //$comma_separated = implode(",", $array);
             $prod->prod_categories = implode(",", $request->input('prod_categories'));
+            $prod->prod_customizations = implode(",",$request->input('prod_customizations'));
             $prod->prod_price = $request->input('prod_price');
-            $prod->prod_customize_price = $request->input('prod_customize_price');
+            $prod->prod_files_included = $request->input('prod_files_included');
             $prod->prod_vendor_id = $request->input('prod_vendor_id');
             $prod->prod_featured = $request->input('prod_featured');
             $prod->is_service = $request->input('is_service');
-            $file = $request->file('prod_file');
-            if ($file->isValid()) {
-                $name = time() .'_' . $file->getClientOriginalName();
-                $key = $name;
-                Storage::disk('s3')->put($key, file_get_contents($file));
-                $prod->prod_file= $key;
-            }
             
+            $file = $request->file('prod_file');
+            if($file!=NULL)
+            {
+                if ($file->isValid()) {
+                    $name = time() .'_' . $file->getClientOriginalName();
+                    $key = $name;
+                    Storage::disk('s3')->put($key, file_get_contents($file));
+                    $prod->prod_file= $key;
+                }
+            }
             $prod->save();
             return redirect('admin/product');
-        }
         
-        
-        else
-        {
-            return Redirect::back(); 
-        }
         
 
     }
@@ -180,7 +191,10 @@ class ProductController extends Controller
         if($id!=NULL)
         {
             $prod = Products::where('id',$id)->first();
-            return view('admin.pages.addeditproduct',compact('prod'));
+            $selectcat = explode(",", $prod->prod_categories);
+            $selectcustomizations = explode(",", $prod->prod_customizations);
+            //dd($selectcustomizations);
+            return view('admin.pages.addeditproduct',compact('prod','selectcat','selectcustomizations'));
         }
         else
         {
@@ -216,6 +230,55 @@ class ProductController extends Controller
         else
             $product->prod_featured=FALSE;
         $product->save();
+        return Redirect::back();
+    }
+    public function addeditcustomization(Request $request)
+    {
+        $this->validate($request, [
+            'customization_name' => 'required',
+            'customization_price' => 'required',
+                    ]);
+        $customization_name = $request->input('customization_name');
+        
+        if($request->input('id')==NULL)
+            $customization = new Customizations;
+        else
+        {
+            $id = $request->input('id');
+            $customization = Customizations::where('id',$id)->first(); 
+        }
+        $customization->customization_name = $customization_name;
+        $customization->customization_price = $request->input('customization_price');
+        $customization->customization_active = TRUE;
+        $customization->customization_delete = FALSE;
+        $customization->save();
+        return redirect('admin/customization');
+    }
+    public function viewaddeditcustomization($id=NULL)
+    {
+        if($id!=NULL)
+        {
+            $customization = Customizations::where('id',$id)->first();
+            return view('admin.pages.addeditcustomization',compact('customization'));
+        }
+        else
+        {
+            return view('admin.pages.addeditcustomization'); 
+        }
+    }
+    public function deletecustomization($id)
+    {
+        $customization = Customizations::where('id',$id)->first();
+        $customization->customization_active = FALSE;
+        $customization->customization_delete = TRUE;
+        $customization->save();
+        return Redirect::back();
+    }
+    public function activeinactivecustomization($id)
+    {
+        $customization = Customizations::where('id',$id)->first();
+        $customization->customization_active = FALSE;
+        $customization->save();
         return Redirect::back();
     }
 }
