@@ -60,6 +60,14 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'admi
 		Route::get('/deleteproduct/{id}','ProductController@deleteproduct');
 		Route::post('/addeditproduct','ProductController@addeditproduct')->middleware('web');
 
+		Route::get('/customization',function() {
+			return view('admin.pages.customizations');
+		});
+		Route::get('/activeinactivecustomization/{id}','ProductController@activeinactivecustomization');
+		Route::get('/addeditcustomization/{id?}','ProductController@viewaddeditcustomization');
+		Route::get('/deletecustomization/{idaddeditcustomization}','ProductController@deletecustomization');
+		Route::post('/addeditcustomization','ProductController@addeditcustomization')->middleware('web');
+
 		Route::get('/coupon',function() {
 			return view('admin.pages.coupon');
 		});
@@ -67,6 +75,8 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'admi
 		Route::get('/addeditcoupon/{id?}','PaymentController@viewaddeditcoupon');
 		Route::get('/deletecoupon/{id}','PaymentController@deletecoupon');
 		Route::post('/addeditcoupon','PaymentController@addeditcoupon')->middleware('web');
+
+		
 
 		Route::post('/makepayout','PaymentController@makepayout');
 		Route::get('/sale',function() {
@@ -106,7 +116,9 @@ Route::get('/home',function(){
 });
 Route::post('/login','LoginRegisterController@login')->middleware('web');
 Route::post('/register','LoginRegisterController@register')->middleware('web');
+// Route to redirect to facebook login
 Route::get('/redirect', 'LoginRegisterController@redirect');
+// Route to handle the callback of facebook login
 Route::get('/callback', 'LoginRegisterController@callback');
 
 Route::post('subscribe','HomeController@subscribe')->middleware('web');
