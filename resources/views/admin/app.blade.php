@@ -386,6 +386,14 @@
           </ul>
         </li>
         <li class="treeview">
+          <a href="{{ URL::to('admin/custom-order')}}">
+            <i class="fa fa-files-o"></i>
+            <span>Custom Orders</span>
+            <span class="pull-right container">
+              
+            </span>
+        </li>
+        <li class="treeview">
           <a href="#">
             <i class="fa fa-files-o"></i>
             <span>Pages</span>

@@ -1,193 +1,206 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
-	<link rel="stylesheet" href="{{ asset('home_asset/css/vendor/simple-line-icons.css')}}">
-	<link rel="stylesheet" href="{{ asset('home_asset/css/style.css')}}">
-	<link rel="stylesheet" type="text/css" href="{{ asset('home_asset/css/custom.css')}}">
-	<!-- favicon -->
-	<link rel="icon" href="favicon.ico">
-	<title>Emerald Dragon | Checkout</title>
-</head>
-<body>
+@extends('app')
 
-	<!-- HEADER -->
-	<div class="header-wrap">
-		<header>
-			<!-- LOGO -->
-			<a href="index.html">
-				<figure class="logo">
-					<img src="{{ asset('home_asset/images/logo.png')}}" alt="logo">
-				</figure>
-			</a>
-			<!-- /LOGO -->
+@section('css')
+<link rel="stylesheet" href="{{ asset('home_asset/css/carousel.css') }}">
+<link id="style-main-color" rel="stylesheet" href="{{ asset('home_asset/css/colors/default.css')}}">
+@endsection
 
-			<!-- LOGO MOBILE -->
-			<a href="{{URL::to('/')}}">
-				<figure class="logo-mobile">
-					<img src="{{ asset('home_asset/images/logo_mobile.png')}}" alt="logo-mobile">
-				</figure>
-			</a>
-			<!-- /LOGO MOBILE -->
-	</div>
-	<!-- /HEADER -->
+@section('content')
 
-	<!-- SECTION -->
-	<div class="section-wrap">
-		<div class="section">
-			<!-- CHECKOUT ITEMS -->
-			<div class="checkout-items">
-				<!-- CHECKOUT ITEM -->
-				<div class="checkout-item">
-					<h5>Choose your Payment Method</h5>
-					<hr class="line-separator">
-      		<div class="payment-methods active">
-          		<div class="heading">
-            		<h5>PayPal</h5>
-            		<span>Recomended</span>
-          		</div>
-         		 <ul class="payment-card">
-            		<li><img src="{{ asset('home_asset/images/PayPal.png')}}"></li>
-            		<li><img src="{{ asset('home_asset/images/Visa.png')}}"></li>
-                	<li><img src="{{ asset('home_asset/images/MasterCard.png')}}"></li>
-                	<li><img src="{{ asset('home_asset/images/AmericanExpress.png')}}"></li>
-          		</ul>
-          <div class="pay-btn">
-          <p>The most secure fast and convenient mean of online payment.The payment can be proceeded with balance or payment card.</p>
-          </div>
-		    <div class="mid_button">
-				<a href="#" class="button mid paypal">Pay via Paypal</a>
-			</div>
-      </div>
-      <div class="payment-methods">
-          <div class="heading">
-            <h5>Card</h5>
-          </div>
-          <ul class="payment-card">
-            <li><img src="{{ asset('home_asset/images/AmericanExpress.png')}}"></li>
-              <li><img src="{{ asset('home_asset/images/Visa.png')}}"></li>
-                <li><img src="{{ asset('home_asset/images/MasterCard.png')}}"></li>
-          </ul>
-          <div class="pay-btn">
-          <p>In case PayPal isn't up to your liking, this servise is your number one choice by being classical means for payment with card.</p>
-          </div>
-		 <div class="mid_button">
-				<a href="#" class="button mid primary">Pay via Card</a>
-			</div>
-      </div>
-					
-				</div>
-				<!-- /CHECKOUT ITEM -->
-				<!-- CHECKOUT ITEM -->
-				<div class="checkout-item not-padded">
-					<h5>Cart Overview</h5>
-					<hr class="line-separator">
-					<!-- CART OVERVIEW ITEM -->
-					@foreach(Cart::content() as $row)
-					<div class="cart-overview-item">
-						<p class="text-header small">{{ $row->name }}</span></p>
-						<p class="price"><span>$</span>{{ $row->price }}</p>
-						<p class="category primary">{{ $row->options->vendor_name }}</p>
-					</div>
-					<!-- /CART OVERVIEW ITEM -->
-					@endforeach
-					
-						<!-- CART TOTAL -->
-					<div class="cart-total small">
-						<p class="price"><span>$</span>{{ Cart::subtotal() }}</p>
-						<p class="text-header subtotal">Cart Subtotal</p>
-					</div>
-					<!-- /CART TOTAL -->
-					
-					<!-- CART TOTAL -->
-					<div class="cart-total small">
-						<p class="price">-<span>$</span>0</p>
-						<p class="text-header subtotal">Discount</p>
-					</div>
-					<!-- /CART TOTAL -->
-
-					<!-- CART TOTAL -->
-					<div class="cart-total small">
-						<p class="price"><span>$</span>{{ Cart::subtotal() }}</p>
-						<p class="text-header subtotal">Cart Total</p>
-					</div>
-					<!-- /CART TOTAL -->
-				</div>
-				<!-- /CHECKOUT ITEM -->
-			</div>
-			<!-- /CHECKOUT ITEMS -->
-		</div>
-	</div>
-	<!-- /SECTION -->
-	<!-- FOOTER -->
-	<footer>
-		<!-- FOOTER BOTTOM -->
-		<div id="footer-bottom-wrap">
-			<div id="footer-bottom">
-				<div class="half-big-row">
-					<p><span>&copy;</span><a href="#"> Design Minister</a>  - All Rights Reserved 2017</p>
-				
-				</div>
-				<div class="half-small-row">
-					<div class="ts_footer_link">
-						<ul>
-					    						<li><p>Secure Payments:</p></li>
-					    						<li><a target="_blank" href="#" class="wallet wallet_1">&nbsp;</a></li>
-					    						<li><a target="_blank" href="#" class="wallet wallet_2">&nbsp;</a></li>
-					    						<li><a target="_blank" href="#" class="wallet wallet_3">&nbsp;</a></li>
-					    						<li><a target="_blank" href="#" class="wallet wallet_4">&nbsp;</a></li>
-					    						
-						</ul>
+	<!-- Section Start -->
+	<section>
+		<div class="container">
+			<div class="container">
+				<div class="row text-center">
+					<p class="gap60"></p>				
+					<h1 class="page-title">How would you like to pay?</h1>
+					<div class="page-des">
+					Pay securely with credit card or paypal.<br>Either way,you'll get to download instantly onnce payment is successful.
 					</div>
 				</div>
+				<div class="row">
+
+					<div class="payment_design text-center">
+						<p class="gap40 m-none"></p>
+						
+						<!-- Payment Tabs start -->
+						<div class="tab-area">
+								<ul class="tabs p-none clearfix">
+									<li class="box1 active">
+										<a href="#card">
+											<img src="{{ asset('home_asset/img/credit-card-2.png')}}">&nbsp&nbsp<span class="wallet-button">Credit Card</span>
+										</a>
+									</li>
+									<li class="box1">
+										<a href="#paypal">
+											 <img src="{{ asset('home_asset/img/paypal@2x.png')}}">
+										</a>
+									</li>			
+								</ul>
+								<div class="tab-container">
+									<!-- payment 1-->
+									<div class="tab-content" id="card" style="display: block;">
+									
+									<div class="pad-amt">
+											<div class="row">
+												<p class="checkout-head">Your total amount is</p>
+											</div>
+											<div class="row">
+												<p class="checkout-amt">$24</p>
+											</div>
+											<div class="row">
+												<p class="checkout-head">Note:We dont keep your credit card details</p>
+											</div>
+									</div>
 		
+									
+									<form class="form-horizontal text-left" role="form">
+								<fieldset>
+								<form action="/action_page.php" method="get" id="nameform">
+
+									<div class="form-group">
+
+										<div class="col-sm-12">
+										   <p class="gap20"></p>
+											<label for="fname">Card Holder</label>
+											<input type="text" class="form-control" name="card-holder-name" id="card-holder-name" placeholder="Card Holder's Name">
+										</div>
+								   
+								   
+
+										<div class="col-sm-12">
+											<p class="gap20"></p>
+											<label for="fname">Card Number</label>
+											<input type="text" class="form-control" name="card-number" id="card-number" placeholder="Debit/Credit Card Number">
+										</div>
+									 </div>
+									
+									<div class="form-group">
+										
+										<div class="col-sm-5">
+										<div class="col-xs-6 expiration-control">
+												<p class="gap20 m-none"></p>
+											   <label for="fname">Expiration</label>
+												
+
+													<select class="form-control col-sm-2" name="expiry-month" id="expiry-month">
+														<option>MM</option>
+														<option value="01">Jan (01)</option>
+														<option value="02">Feb (02)</option>
+														<option value="03">Mar (03)</option>
+														<option value="04">Apr (04)</option>
+														<option value="05">May (05)</option>
+														<option value="06">June (06)</option>
+														<option value="07">July (07)</option>
+														<option value="08">Aug (08)</option>
+														<option value="09">Sep (09)</option>
+														<option value="10">Oct (10)</option>
+														<option value="11">Nov (11)</option>
+														<option value="12">Dec (12)</option>
+													</select>
+												</div>
+												<div class="col-xs-6 expiration-control">
+													<p class="gap40 m-b-5"></p>
+													<select class="form-control" name="expiry-year">
+														<option>YY</option>
+														<option value="13">2013</option>
+														<option value="14">2014</option>
+														<option value="15">2015</option>
+														<option value="16">2016</option>
+														<option value="17">2017</option>
+														<option value="18">2018</option>
+														<option value="19">2019</option>
+														<option value="20">2020</option>
+														<option value="21">2021</option>
+														<option value="22">2022</option>
+														<option value="23">2023</option>
+													</select>
+												</div>
+											</div>
+
+											<div class="col-sm-7">
+											<p class="gap20 m-none"></p>
+											<label for="fname">CVV</label>
+												<input type="text" class="form-control" name="cvv" id="cvv" placeholder="Security Code">
+											</div>
+										
+									</div>
+								</form>
+								</fieldset>
+							</form>
+					
+										<div class="gap40"></div>
+										<p>By clicking the "PROCEED",you also agree to our LICENSE AGREEMENT.</p>
+										<div class="gap40"></div>
+										<div class="col-md-6 col-xs-6" style="padding-left:0px;">
+											<button type="button" class="back-button">Back</button>
+										</div>
+									
+										<div class="col-md-6 col-xs-6" style="padding-left:0px;">
+											<button  type="submit" form="nameform" value="Submit" class="btn btn-primary proceed-button">Proceed</button>
+										</div>
+						
+									</div>
+									
+									<!-- payment 2-->
+									<div class="tab-content" id="paypal" style="display: none;">
+										<div class="pad-amt">
+											<div class="row">
+												<p class="checkout-head">Your total amount is</p>
+											</div>
+											<div class="row">
+												<p class="checkout-amt">$24</p>
+											</div>
+										   
+										</div>
+
+										<div class="gap40"></div>
+										<p>By clicking the "PROCEED",you also agree to our LICENSE AGREEMENT.</p>
+										<div class="gap40"></div>
+										<div class="row">
+										<div class="col-md-6 col-xs-6">
+											<button type="button" class="back-button">Back</button>
+										</div>
+										<div class="col-md-6 col-xs-6">
+											<button type="button" class="btn btn-primary paypal-button">PayPal Checkout</button>
+										</div>
+									</div>
+									</div>			
+								</div>
+							</div>
+						<!-- Payment Tabs End -->
+						
+						<!-- paymennt policy start -->
+						<div class="account_policy">
+							<div class="col-md-6">
+								<div class="img-pad-margin">
+									<img src="{{ asset('home_asset/img/padlock-2.png')}}">
+									<h4 class="title">Your Information is Sale</h4>
+									<p class="des">We will not sale or rent your personal contact
+										<br>  information for any marketing purposes
+										<br> whatsoever.</p>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="img-pad-margin">
+									<img src="{{ asset('home_asset/img/shield.png')}}">
+									<h4 class="title">Secure Checkout</h4>
+									<p class="des">All information is encrypted and transmitted
+										<br> without risk using a Secure Socket Layer
+										<br> protocol. You can trust us!</p>
+								</div>
+							</div>
+						</div>
+						<!-- paymennt policy end -->
+					</div>
+
+				</div>
 			</div>
 		</div>
-		<!-- /FOOTER BOTTOM -->
-	</footer>
-	<!-- /FOOTER -->
+	</section>
 
-	<div class="shadow-film closed"></div>
+@endsection
 
-<!-- SVG ARROW -->
-<svg style="display: none;">	
-	<symbol id="svg-arrow" viewBox="0 0 3.923 6.64014" preserveAspectRatio="xMinYMin meet">
-		<path d="M3.711,2.92L0.994,0.202c-0.215-0.213-0.562-0.213-0.776,0c-0.215,0.215-0.215,0.562,0,0.777l2.329,2.329
-			L0.217,5.638c-0.215,0.215-0.214,0.562,0,0.776c0.214,0.214,0.562,0.215,0.776,0l2.717-2.718C3.925,3.482,3.925,3.135,3.711,2.92z"/>
-	</symbol>
-</svg>
-<!-- /SVG ARROW -->
-
-<!-- SVG STAR -->
-<svg style="display: none;">
-	<symbol id="svg-star" viewBox="0 0 10 10" preserveAspectRatio="xMinYMin meet">	
-		<polygon points="4.994,0.249 6.538,3.376 9.99,3.878 7.492,6.313 8.082,9.751 4.994,8.129 1.907,9.751 
-	2.495,6.313 -0.002,3.878 3.45,3.376 "/>
-	</symbol>
-</svg>
-<!-- /SVG STAR -->
-
-<!-- SVG PLUS -->
-<svg style="display: none;">
-	<symbol id="svg-plus" viewBox="0 0 13 13" preserveAspectRatio="xMinYMin meet">
-		<rect x="5" width="3" height="13"/>
-		<rect y="5" width="13" height="3"/>
-	</symbol>
-</svg>
-<!-- /SVG PLUS -->
-
-<!-- jQuery -->
-<script src="{{ asset('home_asset/js/vendor/jquery-3.1.0.min.js')}}"></script>
-<!-- Tweet -->
-<script src="{{ asset('home_asset/js/vendor/twitter/jquery.tweet.min.js')}}"></script>
-<!-- Side Menu -->
-<script src="{{ asset('home_asset/js/side-menu.js')}}"></script>
-<!-- Radio Link -->
-<script src="{{ asset('home_asset/js/radio-link.js')}}"></script>
-<!-- User Quickview Dropdown -->
-<script src="{{ asset('home_asset/js/user-board.js')}}"></script>
-<!-- Footer -->
-<script src="{{ asset('home_asset/js/footer.js')}}"></script>
-</body>
-</html>
+@section('script')
+<script type="text/javascript" src="{{ asset('home_asset/js/script.js') }}"></script>
+@endsection

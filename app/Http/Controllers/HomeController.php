@@ -7,12 +7,48 @@ use App\Subscriber;
 use App\Users;
 use App\Products;
 use App\Category;
+use App\Custom_Order;
 use Redirect;
 use Session;
 use Cart;
 
 class HomeController extends Controller
 {
+    public function custom_order(Request $request)
+    {
+        $this->validate($request,[
+            'order_work' => 'required',
+            'order_descrption' => 'required',
+            'order_price' => 'required',
+            'order_sample_file' => 'required'
+            ]);
+        $custom_order = new Custom_Order;
+        $user = Users::where('user_email',Session::get('email'))->first();
+        $custom_order->user_id = $user->id;
+        $custom_order->order_work = $request->input('order_work');
+        $custom_order->order_descrption = $request->input('order_descrption');
+        $custom_order->order_price = $request->input('order_price');
+        $custom_order->order_sample_file = $this->uploadfile($request->file('order_sample_file'));
+        $custom_order->order_completed = 0;
+        $custom_order->save();
+        return redirect('thankyou-custom');
+    }
+    /** The function is used to upload file to s3 bucket */
+
+    public function uploadfile($file)
+    {
+        
+        if($file!=NULL)
+        {
+            if ($file->isValid()) {
+                $name = time() .'_' . $file->getClientOriginalName();
+                $key = 'custom_order/' . $name;
+                Storage::disk('s3')->put($key, file_get_contents($file));
+                return $key;
+            }
+        }
+    }
+
     public function subscribe(Request $request)
     {
         $this->validate($request, [
@@ -30,6 +66,7 @@ class HomeController extends Controller
 
 
     }
+    /** The function is used to update the profile in the account section in the hompage */
     public function updateprofile(Request $request)
     {
         $this->validate($request, [
@@ -47,10 +84,13 @@ class HomeController extends Controller
         $user->user_fname = $request->input('user_fname');
         $user->user_lname = $request->input('user_lname');
         $user->user_email = $request->input('user_email');
+        if($user->user_pwd!=null)
+            $user->user_pwd = bcrypt($request->input('user_pwd'));
         Session::put('email',$request->input('user_email'));
         $user->save();
         return Redirect::back();
     }
+    /** The function function is disposed of due to change in design */
     public function updatepassword(Request $request)
     {
         $this->validate($request, [
@@ -77,6 +117,7 @@ class HomeController extends Controller
             }
         }
     }
+    /** end of the function  */
     public function product($productnameslug, $productid)
     {
         $product = Products::where('prod_slug',$productnameslug)->where('id',$productid)->first();

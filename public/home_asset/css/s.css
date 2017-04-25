@@ -18,6 +18,14 @@ button.search-query1 {
     background-color: #fff;
     border: none;
 }
+
+/* pagination style */
+.pagination > li > a, .pagination > li > span{color: #f04959;background-color: #fff;border: 1px solid #eeeeee;padding: 7px 15px;}
+.pagination > .active > a, .pagination > .active > span, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus
+{background-color: #f04959;border-color: #f04959;color: #fff;}
+/* pagination style */
+		
+		
 li.sort {
     font-size: 14px;
     color: #000;
@@ -122,6 +130,13 @@ img {
     position: relative;
     border-radius: 7px;
 }
+
+.modal-forgot {
+    width: 100%;
+    height: 300px;
+    position: relative;
+    border-radius: 7px;
+}
 .modal-panel-right {
     position: absolute;
     right: 0;
@@ -129,28 +144,53 @@ img {
     height: 100%;
        border-radius: 5px;
 }
+ul.dropdown-menu.left{    left: auto;
+    right: 0;}
+	.user-info{
+    width: 175px;
+}
+ul.dropdown-menu.left li a{
+    padding: 10px 15px;
+}
+ul.dropdown-menu.left li {
+    padding: 0;
+}
+ul.dropdown-menu.left li.divider{
+    padding: 0;
+}
+	.user-info .avatar{
+    width: 40px;
+    height: 40px;
+    border-radius: 30px;
+    overflow: hidden;
+    float: left;
+    line-height: 10px;
+    margin: 8px 10px;
+    border: 2px solid #dedede;
+}
 #user_sign_in .modal-panel-right, #user_sign_up .modal-panel-right {
     background: #fff;
 }
 .modal-login .modal-body {
     position: absolute;
-    top: 50%;
+    top: 15%;
     -webkit-transform: translateY(-50%);
     -moz-transform: translateY(-50%);
     -ms-transform: translateY(-50%);
     -o-transform: translateY(-50%);
-    transform: translateY(-50%);
+    transform: translateY(-7%);
     width: 100%;
-    height: 190px;
+    /* height: 190px; */
     text-align: center;
-    padding: 0 25px;
+    padding: 20px 25px;
+    vertical-align: middle;
 }
 .modal-login .modal-body .pane-sign-up{
     width: 80%;
     margin: 0 auto;
 }
 #user_sign_in .modal-body {
-    top: 40%;
+    /* top: 40%; */
 }
 .modal-login .modal-footer {
     text-align: center;
@@ -169,18 +209,9 @@ img {
 }
 
 #user_sign_in .modal-body {
-    top: 40%;
+    top: 20%;
 }
-.btn-facebook {
-    background: #3b5998 url(../images/facebook_button_icon.svg) no-repeat !important;
-    background-position: 55px center !important;
-    background-size: 30px;
-    white-space: nowrap;
-    overflow: hidden;
-    border: none;
-    padding: 10px 0 !important;
-    color: #fff !important;
-}
+
 
 .ts_topmargin10 {
     margin-top: 10px;
@@ -263,12 +294,7 @@ a:hover {
 b {
     font-weight: 700
 }
-.btn,
-.btn-primary:active,
-.form-control {
-    background-image: none;
-    outline: none;
-}
+
 button,
 input {
     color: inherit;
@@ -409,7 +435,7 @@ hr.cart-view {
 li.sds-banner {
     margin-bottom: -20px;
 }
-button.see3 {
+.see3 {
     padding: 9px;
     width: 45%;
     border: 1px solid #ddd;
@@ -419,7 +445,7 @@ button.see3 {
     line-height: 17px;
     outline: none;
 }
-button.see4 {
+.see4 {
     padding: 9px;
     width: 45%;
     border-radius: 4px;
@@ -430,6 +456,7 @@ button.see4 {
     background-color: #F1405A;
     line-height: 17px;
 }
+.cart .see3,.cart .see4{    display: inline-block;}
 ul.sub-menu.indicator.lavel_one1 {
     margin-left: -139px ! important;
     position: absolute;
@@ -479,7 +506,8 @@ li.box.cart:hover .sub-menu{top: 120%;
 }
 .btn-block {
     display: block;
-    width: 100%
+    width: 100%;
+    background-image: none !important;
 }
 .pull-left {
     float: left!important;
@@ -499,6 +527,16 @@ li.box.cart:hover .sub-menu{top: 120%;
 .navbar-brand>img {
     display: block;
     padding: 8px 0px;
+}
+.btn-facebook {
+    background: #3b5998 url(../images/facebook_button_icon.svg) no-repeat !important;
+    background-position: 55px center !important;
+    background-size: 30px;
+    white-space: nowrap;
+    overflow: hidden;
+    border: none;
+    padding: 10px 0 !important;
+    color: #fff !important;
 }
 hr.Descripti {
     margin-right: 15px;
@@ -1090,6 +1128,26 @@ ul#login-dp>li>div>div>a {
 	.main .interact-banner{
     padding: 40% 0px;
 }
+.btn,
+.btn-primary:active,
+.form-control {
+    background-image: none !important;
+    outline: none !important;
+}
+.modal-login .modal-body{
+    padding: 5px 15px;
+}
+.modal-login .modal-body .pane-sign-up {
+    width: 90%;}
+.tab-box{ widt:100%;}
+.cart-item, .cart-flex{
+   
+    flex: 1;
+    align-items: center;
+       display: inline-block;
+    align-content: center;
+}
+.half-row{    width: 100%;}
 .img-pad-margin{ padding-top:0;}
 .account_policy{ padding-top:70px;}
 .total-price-text{    text-align: center;
@@ -1418,8 +1476,7 @@ form.checkbox1 {
     line-height: 2;
 }
 .see2 {
-    border-color: rgba(39, 31, 39, 0.23);
-    border-width: thin;
+    border: 1px solid rgba(39, 31, 39, 0.23);
     color: #000;
     text-align: center;
     text-decoration: none;
@@ -1429,7 +1486,9 @@ form.checkbox1 {
     cursor: pointer;
     border-radius: 4px;
     height: 40px;
+    line-height: 40px;
     width: 250px;
+    padding: 0;
     border-radius: 4px;
     background-color: #fff;
 }
@@ -1444,6 +1503,8 @@ form.checkbox1 {
     cursor: pointer;
     border-radius: 4px;
     height: 40px;
+    line-height: 40px;
+    padding: 0px 10px;
     width: 250px;
     border-radius: 4px;
     background-color: #1BC975;
@@ -2492,3 +2553,4 @@ input[type=checkbox].css-checkbox.med:checked + label.css-label.med {
     border-image: initial;
     margin: 30px auto 10px;
 }
+.top2{top: 2px; position: relative;}

@@ -35,6 +35,16 @@ class Users extends Model
         $username = $user->user_fname . ' ' . $user->user_lname;
         return $username;
     }
+    public static function get_email($id)
+    {
+        $user = User::where('id',$id)->first();
+        return $user->user_email;
+    }
+    public static function get_slug($id)
+    {
+        $user = User::where('id',$id)->first();
+        return $user->user_slug;
+    }
     public static function profile_image($key)
     {
          

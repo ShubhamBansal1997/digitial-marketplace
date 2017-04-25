@@ -13,6 +13,8 @@
 //use Session;
 use App\Products;
 use App\Users;
+use App\Custom_Order;
+use Redirect as Redirect;
 Route::get('/', function () {
     return view('pages.home');
 });
@@ -96,6 +98,20 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'admi
 		});
 		Route::get('/activeinactiveuser/{id}','UserController@activeinactiveuser');
 		Route::get('/blockunblockuser/{id}','UserController@blockunblockuser');
+
+		// route to show the list of all the custom-orders
+		Route::get('/custom-order',function(){
+			return view('admin.pages.custom_order');
+		});
+		Route::get('/completeincompleteorder',function($id){
+			$order = Custom_Order::where('id',$id)->first();
+			if($order->order_completed==TRUE)
+				$order->order_completed==FALSE;
+			else
+				$order->order_completed==TRUE;
+			$order->save();
+			return Redirect::back();
+		});
 		
 
 
@@ -151,5 +167,16 @@ Route::get('/logout',function(){
 	return redirect('/');
 });
 
+// Route for custom order page
+Route::get('/custom-order',function(){
+	if(Session::get(login)==true)
+		return view('pages.custom_order');
+});
+/** the route is for the custom order */
+Route::post('/custom-order','HomeController@custom_order')->middleware('web');
+/** the route is for the thankyou page of custom order */
+Route::get('/thankyou-custom',function(){
+	return view('pages.thankyou_custom');
+});
 
 Route::get('/testing12345','HomeController@search');

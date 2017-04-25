@@ -20,6 +20,25 @@ $(function() {
 		return false;
 	});
 
+	
+	/*-----------------
+		ACCOUNT SETTINGS TABS
+	-----------------*/
+		$(".tab-content").hide();
+		$(".tabs-menu li:first-child").addClass("active-tab");
+		$(".tab-content:first-child").show();
+	
+		$(".tabs-menu li").click(function() {
+		if (!$(this).hasClass("active")) {
+			$(this).parent().find("li").removeClass("active-tab");
+			$(this).parent().next().find(".tab-content").hide();
+			
+			var activeTab = $(this).find("a").attr("href");
+			$(this).addClass("active-tab");
+			$(this).parent().next().find(activeTab).fadeIn();
+		}
+		return false;
+    	});
 
 // Slick slider
  $('#review').slick({
@@ -70,7 +89,7 @@ $(function() {
 	});	*/
 	
 	// Login register modal
-	$(".LoginOpen").click(function(){ 
+	    $(".LoginOpen").click(function(){ 
 			$("#RegisterModal").fadeOut(500); 
 			$("#LoginModal").fadeIn(1000);
 		});
@@ -78,9 +97,15 @@ $(function() {
 			$("#LoginModal").fadeOut(500);
 			$("#RegisterModal").fadeIn(1000);
 		});
+		
+		//open FORGOT password popup
+		$(".ForgotOpen").click(function(){ $("#LoginModal").fadeOut(500); $("#ForgotModal").fadeIn(1000); });
+		
 		//close Login popup
 		$("#close-login").click(function(){ $("#LoginModal").fadeOut(500); });
 		//close Register popup
 		$("#close-register").click(function(){ $("#RegisterModal").fadeOut(500); });	
+		//Close FORGOT password popup
+		$("#close-forgot").click(function(){ $("#ForgotModal").fadeOut(500); });
 	
 });

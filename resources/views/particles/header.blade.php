@@ -1,6 +1,6 @@
-<div class="site">
-        <header class="noo-header header-2">
-            <div class="navbar-wrapper">
+	<!-- SECTION [Header] -->
+    <header class="noo-header header-2">
+        <div class="navbar-wrapper">
                 <div class="navbar navbar-default">
 
                     <div class="container">
@@ -19,9 +19,9 @@
                                 </a>
                             </div>
 							
-							<!-- SIDE Menu -->
+							<!-- SIDE Menu For mobile devices-->
 							<div id="mobile-menu" class="side-menu right closed">
-								<span class="svg-plus"><img src="{{ asset('home_asset/img/cross.png') }}"/></span>
+								<span class="svg-plus"><img src="{{ asset('home_asset/img/cross.png')}}"/></span>
 								<!-- SIDE MENU HEADER -->
 								<div class="side-menu-header">
 									<figure class="logo small">
@@ -259,33 +259,66 @@
 						<img src="{{ asset('home_asset/fonts/Shape.png')}}">
 						<input class="search-query1 " type="text" name="search" placeholder="  Search">
 					</li>
+					@if(Session::get('login')!=true)
 					<li class="dropdown">
                         <a href="#" class="LoginOpen">Log In</a>
                     </li>
-					<li>
-						<a href="#" class="btn btn-primary button black head-btn Registeropen">Sign Up</a>
-                    </li>
-									<li class="box cart">
-                                        <a href="#" class="button white head-btn">
-										<img src="{{ asset('home_asset/fonts/shopping-cart.png') }}"> 23 $ &nbsp;<img src="{{ asset('home_asset/fonts/Shape2.png') }}"></a>
-										<ul class="sub-menu indicator lavel_one1">
-                                            @foreach(Cart::content() as $row)
-                                            <li>
+                    @else
+                    <li class="box user-info dropdown">
+                      
+						@foreach(\App\Users::where('user_email', Session::get('email'))->get() as $user)
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+						@if($user->user_profile_image==NULL)
+						<figure class="avatar"><img src="{{ \App\Users::profile_image($user->user_profile_image)}}"/></figure>
+						@else
+						<figure class="avatar"><img src="{{ asset('home_asset/fonts/avatar.jpg')}}"/></figure>
+						@endif
 
-                                            	<a href="{{ URL::to('/product')}}/{{ $row->options->prod_slug }}/{{ $row->id }}"><div class="col-md-9 text-left">{{ $row->name }} </div>
-                                            	<div class="col-md-3 text-right">${{ $row->price }}<span class="cross"> <a href="{{ URL::to('removefromcart') }}/{{ $row->rowId }}"><img src="{{ asset('home_asset/img/cross.png') }}"/></span></a></div>  
-                                            	</a>
-                                            </li>
-											@endforeach
-											<hr class="cart-view">
-                                            <li class="subtotal"><a href="index-2.html"><div class="col-md-9 text-left">Subtotal </div><div class="col-md-3 text-right">${{ Cart::total() }}</div></a></li>
-											  <li class="view cart text-center">
-											  <button type="submit" class="see3" onclick="window.location.href='{{ URL::to('/cart')}}'">View Cart</button>
-											  <button type="submit" class="see4 btn-red" onclick="window.location.href='{{ URL::to('/checkout')}}'">Checkout Now</button>
-											  </li>
-											
-                                        </ul>                                   
-								   </li>
+						{{ $user->user_fname }} 
+						
+						<img src="{{ asset('home_asset/fonts/Shape2.png')}}"></b></a>
+					
+						  <ul class="dropdown-menu left">
+							<li><a href="{{ URL::to('user/account') }}">Account Settings</a></li>
+							<li><a href="{{ URL::to('user/account') }}">Download History</a></li>
+							<li><a href="{{ URL::to('user/account') }}">Purchase History</a></li>
+							<li class="divider"></li>
+							<li><a href="{{ URL::to('logout') }}">Logout</a></li>
+						  </ul>
+						@endforeach
+			                             
+					</li>
+                    @endif
+					<li class="box cart">
+					    <a href="#" class="button white head-btn">
+						<img src="{{ asset('home_asset/fonts/shopping-cart.png')}}"> {{ Cart::total() }} $ &nbsp;<img src="{{ asset('home_asset/fonts/Shape2.png')}}"></a>
+						<ul class="sub-menu indicator lavel_one1">
+					        @foreach(Cart::content() as $row)
+					        <li>
+					        	<a href="{{ URL::to('/product')}}/{{ $row->option->prod_slug}}">
+					        		<div class="col-md-9 text-left">{{ $row->name }}</div>
+					        		<div class="col-md-3 text-right">{{ $row->price }}$
+					        			<span class="cross"> 
+					        			<img src="{{asset('home_asset/img/cross.png')}}"/></span>
+					        		</div>  
+					        	</a>
+								</li>
+							@endforeach
+							<hr class="cart-view">
+					        	<li class="subtotal">
+					        		<a href="{{ URL::to('/cart')}}">
+					        			<div class="col-md-9 text-left">Subtotal </div>
+					        			<div class="col-md-3 text-right">{{ Cart::total() }} $</div>
+					        		</a>
+					        	</li>
+							  <li class="view cart text-center">
+							  <a href="{{ URL::to('/cart') }}" type="submit" class="see3">View Cart</a>
+							  <a href="{{ URL::to('/checkout') }}" type="submit" class="see4 btn-red">Checkout Now</a>
+							  </li>
+							
+					    </ul>                                   
+					</li>
+			
 				</ul>
 			</nav>
 		
@@ -299,6 +332,4 @@
                     </div>
                 </div>
             </div>
-    
-    </header>
-	</div>
+	</header>

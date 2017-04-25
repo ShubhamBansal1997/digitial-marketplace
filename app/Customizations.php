@@ -16,4 +16,15 @@ class Customizations extends Model
     protected $fillable = [
         'customization_name', 'customization_price'
     ];
+
+    public static function cust_name($id)
+    {
+        $cust = Customizations::where('id',$id)->first();
+        return $cust->customization_name;
+    }
+    public static function cust_price($id)
+    {
+        $cust = Customizations::where('id',$id)->first();
+        return $cust->customization_price;
+    }
 }

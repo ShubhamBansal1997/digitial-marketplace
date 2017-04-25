@@ -103,133 +103,6 @@ span.textt {
     font-weight: 500;
     line-height: 2;
 }
-.button-place-order {
-    background-color: #1BC975; /* Green */
-    border: none;
-    color: white;
-    padding: 10px 70px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
-	margin-top:34px;
-	
-	border-radius:4px;
-}
-.continue-shop-button{
-	margin-top:60px;
-    
-    display: inline-block;
-    margin-bottom: 0;
-    font-weight: 400;
-    vertical-align: middle;
-    touch-action: manipulation;
-    cursor: pointer;
-    border: 1px solid #DFDFDF;
-    white-space: nowrap;
-    padding: 10px 104px;
-    font-size: 14px;
-    line-height: 1.428571429;
-    border-radius: 4px;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-	height:44px;
-	
-	 background-color:#fff;
-	
-}
-.checkout-button{
-		margin-top: 60px;
-    display: inline-block;
-    margin-bottom: 0;
-    font-weight: 400;
-    vertical-align: middle;
-    touch-action: manipulation;
-    cursor: pointer;
-    border: 1px solid transparent;
-    white-space: nowrap;
-    padding: 10px 134px;
-    font-size: 14px;
-    line-height: 1.428571429;
-    border-radius: 4px;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-	color: #fff;
-    background-color: #1BC975;
-	height:44px;
-}
-.paypal-button{
-	margin-bottom: 0;
-	font-weight: 400;
-	width: 100%;
-	vertical-align: middle;
-	touch-action: manipulation;
-	cursor: pointer;
-	border: 1px solid transparent;
-	white-space: nowrap;
-	padding: 10px;
-	outline: none;
-	font-size: 14px;
-	line-height: 1.428571429;
-	border-radius: 4px;
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
-	color: #fff;
-	background-color: #1BC975;
-	height:44px;
-}
-.proceed-button{
-	width:100%;
-	display: inline-block;
-	margin-bottom: 0;
-	font-weight: 400;
-	vertical-align: middle;
-	touch-action: manipulation;
-	cursor: pointer;
-	border: 1px solid transparent;
-	white-space: nowrap;
-	padding: 10px 120px;
-	font-size: 14px;
-	line-height: 1.428571429;
-	border-radius: 4px;
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
-	color: #fff;
-	background-color: #1BC975;
-	height:44px;
-}
-
-.back-button{
-	width:100%;
-	display: inline-block;
-	margin-bottom: 0;
-	font-weight: 400;
-	outline: none;
-	vertical-align: middle;
-	touch-action: manipulation;
-	cursor: pointer;
-	border: 1px solid #DFDFDF;
-	white-space: nowrap;
-	font-size: 14px;
-	line-height: 1.428571429;
-	border-radius: 4px;
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
-	height:44px;
-	background-color:#fff;
-}
 
 .expiration-control{
 padding-left:0px;
@@ -843,6 +716,145 @@ img.noo-logo-img.noo-logo-normal {
 	        line-height: 80px;
 			   
 }
+
+
+.button-place-order {
+    background-color: #1BC975; /* Green */
+    border: none;
+    color: white;
+    padding: 10px 70px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+	margin-top:34px;
+	
+	border-radius:4px;
+}
+.continue-shop-button{
+	margin-top:60px;
+    
+    display: inline-block;
+    margin-bottom: 0;
+    font-weight: 400;
+    vertical-align: middle;
+    touch-action: manipulation;
+    cursor: pointer;
+    border: 1px solid #DFDFDF;
+    white-space: nowrap;
+    padding: 10px 104px;
+    font-size: 14px;
+    line-height: 1.428571429;
+    border-radius: 4px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+	height:44px;
+	
+	 background-color:#fff;
+	
+}
+.checkout-button{
+		margin-top: 60px;
+    display: inline-block;
+    margin-bottom: 0;
+    font-weight: 400;
+    vertical-align: middle;
+    touch-action: manipulation;
+    cursor: pointer;
+    border: 1px solid transparent;
+    white-space: nowrap;
+    padding: 10px 134px;
+    font-size: 14px;
+    line-height: 1.428571429;
+    border-radius: 4px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+	color: #fff;
+    background-color: #1BC975;
+	height:44px;
+	    line-height: 30px;
+    padding: 6px 12px;
+}
+.paypal-button{
+	margin-bottom: 0;
+	font-weight: 400;
+	width: 100%;
+	vertical-align: middle;
+	touch-action: manipulation;
+	cursor: pointer;
+	border: 1px solid transparent;
+	white-space: nowrap;
+	padding: 10px;
+	outline: none;
+	font-size: 14px;
+	line-height: 1.428571429;
+	border-radius: 4px;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	color: #fff;
+	background-color: #1BC975;
+	height:44px;
+	    line-height: 30px;
+    padding: 6px 12px;
+}
+.proceed-button{
+	width:100%;
+	display: inline-block;
+	margin-bottom: 0;
+	font-weight: 400;
+	vertical-align: middle;
+	touch-action: manipulation;
+	cursor: pointer;
+	border: 1px solid transparent;
+	white-space: nowrap;
+	padding: 10px 120px;
+	font-size: 14px;
+	line-height: 1.428571429;
+	border-radius: 4px;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	color: #fff;
+	background-color: #1BC975;
+	height:44px;
+	    line-height: 30px;
+    padding: 6px 12px;
+}
+
+.back-button{
+	width:100%;
+	display: inline-block;
+	margin-bottom: 0;
+	font-weight: 400;
+	outline: none;
+	vertical-align: middle;
+	touch-action: manipulation;
+	cursor: pointer;
+	border: 1px solid #DFDFDF;
+	white-space: nowrap;
+	font-size: 14px;
+	line-height: 1.428571429;
+	border-radius: 4px;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	height:44px;
+	background-color:#fff;
+	    line-height: 30px;
+    padding: 6px 12px;
+}
+
+
 a#noo-search {
     margin-left: 28%;
 }
