@@ -114,32 +114,32 @@
                             <div class="row masonry-container" style="position: relative;">
                                 <div class="masonry-item col-md-4 col-sm-6" style="position: relative; left: 0px; top: 0px;">
                                     <div class="blog-item">
-                                     
-                                              <div class="ih-item square effect13 left_to_right"><a href="#">
-                      <div class="img"><img src="{{ asset('home_asset/assets/rect/1.jpg')}}" alt="img"></div><h3 class="label-tag">50% OFF</h3>
-                      <div class="info">
-					  <div class="col-md-6 col-xs-6"><span class="off1">View</span></div>
-                        <div class="col-md-6 col-xs-6"><span class="off2">Add to Cart</span></div>
-                      </div>
+                                        <div class="ih-item square effect13 left_to_right"><a href="#">
+                                            <div class="img"><img src="assets/rect/1.jpg" alt="img"></div><h3 class="label-tag">50% OFF</h3>
+                                                <div class="info">
+                                                  <div class="col-md-6 col-xs-6"><span class="off1">View</span></div>
+                                                    <div class="col-md-6 col-xs-6"><span class="off2">Add to Cart</span></div>
+                                                </div>
 
-</a></div>
-								<div class="blog-description row">
-                                        <div class="col-md-8 col-xs-8">
-                                            <ul class="details">
-                                                <li>
-                                                    <span>Delish Pro</span>
-                                                    <span><a>By <strong>Egor </strong> in <strong> Facebook</strong></a></span>
-                                                </li>
-                                            </ul>
+                                                </a>
                                         </div>
-                                        <div class="col-md-4 col-xs-4">
-                                            <ul>
-                                                <li>
-													<span class="price new">$25</span>
-                                                </li>
-                                            </ul>
+                                        <div class="blog-description row">
+                                            <div class="col-md-8 col-xs-8">
+                                                <ul class="details">
+                                                    <li>
+                                                        <span>Delish Pro</span>
+                                                        <span><a>By <strong>Egor </strong> in <strong> Facebook</strong></a></span>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-md-4 col-xs-4">
+                                                <ul>
+                                                    <li>
+                                                        <span class="price new">$25</span>
+                                                    </li>
+                                                </ul>
+                                            </div>
                                         </div>
-									</div>
                                     </div>
                                 </div>
                                <div class="masonry-item col-md-4 col-sm-6" style="position: relative; left: 0px; top: 0px;">

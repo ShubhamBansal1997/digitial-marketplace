@@ -40,7 +40,7 @@
                 </thead>
                 <tbody>
                 
-                @foreach(\App\Custom_Order::all() as $i => $order)
+                @foreach(\App\Custom_Order::get() as $i => $order)
                 <tr>
                   <td>{{ ++$i }}</td>
                   <td>{{ \App\Users::username($order->user_id) }}</td>

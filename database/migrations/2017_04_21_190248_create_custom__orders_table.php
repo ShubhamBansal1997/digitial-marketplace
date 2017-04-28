@@ -13,7 +13,7 @@ class CreateCustomOrdersTable extends Migration
      */
     public function up()
     {
-        Schema::create('custom__orders', function (Blueprint $table) {
+        Schema::create('custom_orders', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id');
             $table->string('order_work');
@@ -32,6 +32,6 @@ class CreateCustomOrdersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('custom__orders');
+        Schema::dropIfExists('custom_orders');
     }
 }

@@ -12,7 +12,7 @@
     font-weight: normal;
 }
 .home-masonry{}
-.home-masonry .blog-item{ max-height:none;margin-bottom: 25px;}
+.home-masonry .blog-item{ max-height:none;margin-bottom: 10px;}
 
 button.search-query1 {
     background-color: #fff;
@@ -130,13 +130,6 @@ img {
     position: relative;
     border-radius: 7px;
 }
-
-.modal-forgot {
-    width: 100%;
-    height: 300px;
-    position: relative;
-    border-radius: 7px;
-}
 .modal-panel-right {
     position: absolute;
     right: 0;
@@ -144,53 +137,28 @@ img {
     height: 100%;
        border-radius: 5px;
 }
-ul.dropdown-menu.left{    left: auto;
-    right: 0;}
-	.user-info{
-    width: 175px;
-}
-ul.dropdown-menu.left li a{
-    padding: 10px 15px;
-}
-ul.dropdown-menu.left li {
-    padding: 0;
-}
-ul.dropdown-menu.left li.divider{
-    padding: 0;
-}
-	.user-info .avatar{
-    width: 40px;
-    height: 40px;
-    border-radius: 30px;
-    overflow: hidden;
-    float: left;
-    line-height: 10px;
-    margin: 8px 10px;
-    border: 2px solid #dedede;
-}
 #user_sign_in .modal-panel-right, #user_sign_up .modal-panel-right {
     background: #fff;
 }
 .modal-login .modal-body {
     position: absolute;
-    top: 15%;
+    top: 50%;
     -webkit-transform: translateY(-50%);
     -moz-transform: translateY(-50%);
     -ms-transform: translateY(-50%);
     -o-transform: translateY(-50%);
-    transform: translateY(-7%);
+    transform: translateY(-50%);
     width: 100%;
-    /* height: 190px; */
+    height: 190px;
     text-align: center;
-    padding: 20px 25px;
-    vertical-align: middle;
+    padding: 0 25px;
 }
 .modal-login .modal-body .pane-sign-up{
     width: 80%;
     margin: 0 auto;
 }
 #user_sign_in .modal-body {
-    /* top: 40%; */
+    top: 40%;
 }
 .modal-login .modal-footer {
     text-align: center;
@@ -209,9 +177,18 @@ ul.dropdown-menu.left li.divider{
 }
 
 #user_sign_in .modal-body {
-    top: 20%;
+    top: 40%;
 }
-
+.btn-facebook {
+    background: #3b5998 url(../images/facebook_button_icon.svg) no-repeat !important;
+    background-position: 55px center !important;
+    background-size: 30px;
+    white-space: nowrap;
+    overflow: hidden;
+    border: none;
+    padding: 10px 0 !important;
+    color: #fff !important;
+}
 
 .ts_topmargin10 {
     margin-top: 10px;
@@ -294,7 +271,12 @@ a:hover {
 b {
     font-weight: 700
 }
-
+.btn,
+.btn-primary:active,
+.form-control {
+    background-image: none;
+    outline: none;
+}
 button,
 input {
     color: inherit;
@@ -506,8 +488,7 @@ li.box.cart:hover .sub-menu{top: 120%;
 }
 .btn-block {
     display: block;
-    width: 100%;
-    background-image: none !important;
+    width: 100%
 }
 .pull-left {
     float: left!important;
@@ -527,16 +508,6 @@ li.box.cart:hover .sub-menu{top: 120%;
 .navbar-brand>img {
     display: block;
     padding: 8px 0px;
-}
-.btn-facebook {
-    background: #3b5998 url(../images/facebook_button_icon.svg) no-repeat !important;
-    background-position: 55px center !important;
-    background-size: 30px;
-    white-space: nowrap;
-    overflow: hidden;
-    border: none;
-    padding: 10px 0 !important;
-    color: #fff !important;
 }
 hr.Descripti {
     margin-right: 15px;
@@ -1128,26 +1099,6 @@ ul#login-dp>li>div>div>a {
 	.main .interact-banner{
     padding: 40% 0px;
 }
-.btn,
-.btn-primary:active,
-.form-control {
-    background-image: none !important;
-    outline: none !important;
-}
-.modal-login .modal-body{
-    padding: 5px 15px;
-}
-.modal-login .modal-body .pane-sign-up {
-    width: 90%;}
-.tab-box{ widt:100%;}
-.cart-item, .cart-flex{
-   
-    flex: 1;
-    align-items: center;
-       display: inline-block;
-    align-content: center;
-}
-.half-row{    width: 100%;}
 .img-pad-margin{ padding-top:0;}
 .account_policy{ padding-top:70px;}
 .total-price-text{    text-align: center;
@@ -1789,8 +1740,7 @@ ul.details>li+span {
 }
 .see-more {
     text-align: center;
-    margin-top: 0;
-    margin-bottom: 2%;
+    margin: 1% 0 2% 0;
 }
 button.search-query1 {
     background-color: #fff;

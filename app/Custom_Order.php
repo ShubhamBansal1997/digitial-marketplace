@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Custom_Order extends Model
 {
-    protected $table_name = 'custom_orders';
+    protected $table_name = "custom_orders";
     public $timestamps = true;
     /**
      * The attributes that are mass assignable.
