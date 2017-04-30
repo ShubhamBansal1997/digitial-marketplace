@@ -5,12 +5,12 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Vendor
-        <small>{{ isset($coup->id)?"EDIT":"ADD" }}</small>
+        Product Order
+        <small>{{ isset($prod->id)?"EDIT":"ADD" }}</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="{{ URL::to('admin/home')}}"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Customizations</li>
+        <li class="active">Product Order</li>
       </ol>
     </section>
 
@@ -22,7 +22,7 @@
        <!-- general form elements disabled -->
           <div class="box box-warning">
             <div class="box-header with-border">
-              <h3 class="box-title">Customization Information</h3>
+              <h3 class="box-title">Product Information</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
@@ -37,27 +37,31 @@
                 </div>
                 @endif
 
-              <form role="form" action="{{ URL::to('admin/addeditcustomization') }}" method="post"  enctype="multipart/form-data"> 
+              <form role="form" action="{{ URL::to('admin/editproductorder') }}" method="post" enctype= multipart/form-data> 
                 <!-- text input -->
                 {{ csrf_field() }}
                 
-                  <input type="hidden" class="form-control" value="{{ isset($customization->id)?$customization->id:NULL }}" name="id">
+                  <input type="hidden" class="form-control" value="{{ isset($product_order->id)?$product_order->id:NULL }}" name="id">
                 
                 <div class="form-group">
-                  <label>Customization Name</label>
-                  <input type="text" class="form-control" name="customization_name" value="{{ isset($customization->id)?$customization->customization_name: null }}" placeholder="Enter Customization Name">
+                  <label for="exampleInputFile">Product Order File</label>
+                  <input type="file" id="exampleInputFile" name="product_file">
                 </div>
+                
                 <div class="form-group">
-                  <label>Customization Price</label>
-                  <input type="text" class="form-control" name="customization_price" value="{{ isset($customization->id)?$customization->customization_price: null }}" placeholder="Enter Customization Price">
+                  <label>Product Status</label>
+                  <select class="form-control select2" style="width: 100%;" name="product_completed">
+                    @if($product_order->product_completed==false)
+                    <option selected="selected" value="0">Working</option>
+                    @else
+                    <option selected="selected" value="1">Completed</option>
+                    @endif
+                  </select>
+                  
                 </div>
-                <div class="form-group">
-                  <label>Customization Time</label>
-                  <input type="text" class="form-control" name="customizations_time" value="{{ isset($customization->customizations_time)?$customization->customizations_time: null }}" placeholder="Enter Customization Time">
-                </div>
-                <div class="box-footer">
+              <div class="box-footer">
                 <!-- <button type="submit" class="btn btn-default">Cancel</button> -->
-                <button type="submit" class="btn btn-info pull-right">{{ isset($coup->id)?"EDIT":"ADD" }}</button>
+                <button type="submit" class="btn btn-info pull-right">{{ "SAVE" }}</button>
               </div>
                 
               </form>

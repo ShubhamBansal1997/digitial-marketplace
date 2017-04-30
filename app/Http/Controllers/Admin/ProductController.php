@@ -37,6 +37,9 @@ class ProductController extends Controller
         $category->category_location = $request->input('category_location');
         $category->category_active = TRUE;
         $category->category_delete = FALSE;
+        $category->category_meta_title = $request->input('category_meta_title');
+        $category->category_meta_descrption = $request->input('category_meta_descrption');
+        $category->category_keywords = $request->input('category_keywords');
         $category->save();
         return redirect('admin/category');
 
@@ -118,9 +121,11 @@ class ProductController extends Controller
         }
             $prod->prod_name = $request->input('prod_name');
 
-            $prod->prod_slug = str_replace(' ', '-', $request->prod_slug);
-            $prod->prod_meta_descrption = $request->prod_meta_descrption;
-            $prod->prod_meta_title = $request->prod_meta_title;
+            $prod->prod_slug = str_replace(' ', '-', $request->input('prod_slug');
+            $prod->prod_meta_descrption = $request->input('prod_meta_descrption');
+            $prod->prod_meta_title = $request->input('prod_meta_title');
+            $prod->prod_completion_time = $request->input('prod_completion_time');
+            $prod->prod_prev_price = $request->input('prod_prev_price');
             //$prod->prod_image = $this->uploadfile($request->file('prod_image'));
             $prod->prod_image_alt = $request->input('prod_image_alt');
             if($request->file('prod_image')!=NULL)
@@ -249,6 +254,7 @@ class ProductController extends Controller
         }
         $customization->customization_name = $customization_name;
         $customization->customization_price = $request->input('customization_price');
+        $customization->customizations_time = $request->input('customizations_time');
         $customization->customization_active = TRUE;
         $customization->customization_delete = FALSE;
         $customization->save();

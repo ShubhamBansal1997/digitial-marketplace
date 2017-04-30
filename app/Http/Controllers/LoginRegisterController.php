@@ -77,6 +77,7 @@ class LoginRegisterController extends Controller
         $user->user_lname = $request->input('user_lname');
         $user->user_email = $request->input('user_email');
         $user->user_pwd = bcrypt($request->input('user_pwd'));
+        $user->user_delete = false;
         $user->user_accesslevel = 3;
         $user->save();
         Session::put('email',$request->input('user_email'));
@@ -138,6 +139,7 @@ class LoginRegisterController extends Controller
         $user->user_profile_image = $profile_pic;
         $user->user_slug = $name_slug;
         $user->user_email = $email;
+        $user->user_delete = false;
         $user->save();
         $user = Users::where('user_email',$email)->first();
 

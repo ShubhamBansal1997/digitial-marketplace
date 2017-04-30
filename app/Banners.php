@@ -7,7 +7,7 @@ use Config;
 use Storage;
 class Banners extends Model
 {
-    protected $table_name = 'banners';
+    protected $table = 'banners';
     public $timestamps = true;
     /**
      * The attributes that are mass assignable.

@@ -5,12 +5,12 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Product
+        Service
         <small>Add | Edit | Delete | Manage</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="{{ URL::to('admin/dashboard') }}"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Product</li>
+        <li class="active">Service</li>
       </ol>
     </section>
 
@@ -21,7 +21,7 @@
           <div class="box">
             <div class="box-header">
 
-              <h3 class="box-title"><a href="{{ URL::to('admin/addeditproduct')}}" class="btn btn-block btn-primary" >Add Product</a></h3>
+              <h3 class="box-title"><a href="{{ URL::to('admin/addeditproduct')}}" class="btn btn-block btn-primary" >Add Service</a></h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
@@ -42,7 +42,7 @@
                 </thead>
                 <tbody>
                 
-                @foreach(\App\Products::where('prod_delete',FALSE)->where('is_service',false)->get() as $i => $prod)
+                @foreach(\App\Products::where('prod_delete',FALSE)->where('is_service',true)->get() as $i => $prod)
                 <tr>
                   <td>{{ ++$i }}</td>
                   <td>{{ $prod->prod_name }}
@@ -59,7 +59,7 @@
                   @endif
                   </a>
                   </td>
-                  <td> \App\Payments::where('payment_prod_id',$product->id)->where('payment_status',true)->count() </td>
+                  <td>{{ \App\Payments::where('payment_prod_id',$product->id)->where('payment_status',true)->count() }}</td>
                   <td><a href="{{ URL::to('admin/activeinactivefeaturedproduct')}}/{{ $prod->id }}">
                   @if($prod->prod_featured==TRUE)
                     <small class="label label-success">Yes</small>

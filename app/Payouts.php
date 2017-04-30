@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Payouts extends Model
 {
-    protected $table_name = 'payouts';
+    protected $table = 'payouts';
     public $timestamps = true;
     /**
      * The attributes that are mass assignable.

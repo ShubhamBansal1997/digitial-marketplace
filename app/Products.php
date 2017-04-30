@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Category;
+use App\Users;
 use Storage;
 use Config;
 use Nicolaslopezj\Searchable\SearchableTrait;
@@ -11,7 +12,7 @@ use Nicolaslopezj\Searchable\SearchableTrait;
 class Products extends Model
 {
     use SearchableTrait;
-    protected $table_name = 'products';
+    protected $table = 'products';
     public $timestamps = true;
     /**
      * The attributes that are mass assignable.
@@ -46,7 +47,7 @@ class Products extends Model
         ],
     ];
     protected $fillable = [
-        'prod_name', 'prod_slug', 'prod_image', 'prod_image_alt', 'prod_image1', 'prod_image_alt1', 'prod_image2', 'prod_image_alt2', 'prod_image3', 'prod_image_alt3', 'prod_image4', 'prod_image_alt4', 'prod_image5', 'prod_image_alt5', 'prod_image6', 'prod_image_alt6', 'prod_tags', 'prod_descrption', 'prod_demourl', 'prod_categories', 'prod_price', 'prod_status', 'prod_delete', 'prod_vendor_id', 'prod_download', 'prod_featured','prod_file','prod_meta_descrption','prod_meta_title','is_service','prod_customizations','prod_files_included'
+        'prod_name', 'prod_slug', 'prod_image', 'prod_image_alt', 'prod_image1', 'prod_image_alt1', 'prod_image2', 'prod_image_alt2', 'prod_image3', 'prod_image_alt3', 'prod_image4', 'prod_image_alt4', 'prod_image5', 'prod_image_alt5', 'prod_image6', 'prod_image_alt6', 'prod_tags', 'prod_descrption', 'prod_demourl', 'prod_categories', 'prod_price', 'prod_status', 'prod_delete', 'prod_vendor_id', 'prod_download', 'prod_featured','prod_file','prod_meta_descrption','prod_meta_title','is_service','prod_customizations','prod_files_included','prod_completion_time','prod_prev_price'
     ];
 
     /**
@@ -89,5 +90,15 @@ class Products extends Model
             array_push($category,Category::cat_name($prod_category));
         }
         return $category;
+    }
+    public static function get_time($id)
+    {
+        $prod = Products::where('id',$id)->first();
+        return $prod->prod_completion_time;
+    }
+    public static function vendor_name($id)
+    {
+        $prod = Products::where('id',$id)->first();
+        return Users::username($prod->prod_vendor_id);
     }
 }

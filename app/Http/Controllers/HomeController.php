@@ -14,6 +14,7 @@ use App\Customizations;
 use Redirect;
 use Session;
 use Cart;
+use Storage;
 
 class HomeController extends Controller
 {

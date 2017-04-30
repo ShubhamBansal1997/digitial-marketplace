@@ -37,6 +37,18 @@
                   <input type="text" class="form-control" name="category_name" value="{{ isset($cat->id)?$cat->category_name: null }}" placeholder="Enter New Category">
                 </div>
                 <div class="form-group">
+                  <label>Category Meta Title</label>
+                  <input type="text" class="form-control" name="category_meta_title" value="{{ isset($cat->category_meta_title)?$cat->category_meta_title: null }}" placeholder="Enter Category Meta Title">
+                </div>
+                <div class="form-group">
+                  <label>Category Meta Descrption</label>
+                  <input type="text" class="form-control" name="category_meta_descrption" value="{{ isset($cat->category_meta_descrption)?$cat->category_meta_descrption: null }}" placeholder="Enter Category Meta Descrption">
+                </div>
+                <div class="form-group">
+                  <label>Category Keywords</label>
+                  <input type="text" class="form-control" name="category_keywords" value="{{ isset($cat->category_keywords)?$cat->category_keywords: null }}" placeholder="Enter Category Keywords">
+                </div>
+                <div class="form-group">
                   <label>Category To Be Displayed in the menu or not </label>
                   <select class="form-control select2" style="width: 100%;" name="category_menu">
                     @if(isset($prod->id))

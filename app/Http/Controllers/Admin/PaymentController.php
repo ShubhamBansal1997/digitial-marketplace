@@ -9,8 +9,12 @@ use App\Products;
 use App\Payments;
 use App\Payouts;
 use App\Coupons;
+use App\Service_Order;
+use App\Product_Custom_Order;
 use Session;
 use Redirect;
+use Storage;
+
 class PaymentController extends Controller
 {
  	public function makepayout(Request $request)
@@ -112,5 +116,50 @@ class PaymentController extends Controller
     		$coup->coupon_active=FALSE;
     	$coup->save();
     	return Redirect::back();
-    }   
+    } 
+    public function editserviceorder($id)
+    {
+        $service_order = Service_Order::where('id',$id)->first();
+        return view('admin.pages.editserviceorder',compact('service_order'));
+    }  
+    public function posteditserviveorder(Request $request)
+    {
+        $service_order = Service_Order::where('id',$request->input('id'))->first();
+        $service_order->service_completed = $request->input('service_completed');
+        if($request->file('service_file')!=NULL)
+            {
+                $service_order->service_file = $this->uploadfile($request->file('service_file'));
+            }
+        $service_order->save();
+        return redirect('admin/service-order');
+    }
+    public function editproductorder($id)
+    {
+        $service_order = Product_Custom_Order::where('id',$id)->first();
+        return view('admin.pages.editproductorder',compact('product_order'));
+    }  
+    public function posteditproductorder(Request $request)
+    {
+        $service_order = Product_Custom_Order::where('id',$request->input('id'))->first();
+        $service_order->product_completed = $request->input('product_completed');
+        if($request->file('product_file')!=NULL)
+            {
+                $service_order->product_file = $this->uploadfile($request->file('product_file'));
+            }
+        $service_order->save();
+        return redirect('admin/product-custom-order');
+    }
+    public function uploadfile($file)
+    {
+        
+        if($file!=NULL)
+        {
+            if ($file->isValid()) {
+                $name = time() .'_' . $file->getClientOriginalName();
+                $key = 'images/' . $name;
+                Storage::disk('s3')->put($key, file_get_contents($file));
+                return $key;
+            }
+        }
+    }
 }

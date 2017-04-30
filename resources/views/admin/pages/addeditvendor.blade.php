@@ -60,6 +60,23 @@
                   <input type="email" class="form-control" name="user_email" value="{{ isset($ved->id)?$ved->user_email: null }}" placeholder="Enter Email">
                 </div>
                 <div class="form-group">
+                  <label>Descrption</label>
+                  <input type="text" class="form-control" name="user_descrption" value="{{ isset($ved->user_descrption)?$ved->user_descrption: null }}" placeholder="Enter Descrption">
+                </div>
+                <div class="form-group">
+                  <label>Meta Title</label>
+                  <input type="text" class="form-control" name="user_meta_title" value="{{ isset($ved->user_meta_title)?$ved->user_meta_title: null }}" placeholder="Enter Meta Title">
+                </div>
+                <div class="form-group">
+                  <label>Meta Descrption</label>
+                  <input type="text" class="form-control" name="user_meta_descrption" value="{{ isset($ved->user_meta_descrption)?$ved->user_meta_descrption: null }}" placeholder="Enter Meta Descrption">
+                </div>
+                 <div class="form-group">
+                  <label>Payment Details</label>
+                  <textarea class="form-control" rows="4" name="user_payment_details" required>{{ isset($ved->id)?$ved->user_payment_details: null }}</textarea>
+                </div>
+                
+                <div class="form-group">
                   <label>Mobile</label>
                   <input type="text" class="form-control" name="mobile" value="{{ isset($ved->id)?$ved->user_mobile: null }}" placeholder="Enter Mobile" >
                 </div>

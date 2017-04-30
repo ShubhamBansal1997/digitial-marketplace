@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Category extends Model
 {
-    protected $table_name = 'categories';
+    protected $table = 'categories';
     public $timestamps = true;
     /**
      * The attributes that are mass assignable.
@@ -14,7 +14,7 @@ class Category extends Model
      * @var array
      */
     protected $fillable = [
-        'category_name', 'category_active', 'category_delete', 'category_slug', 'category_menu', 'category_location'
+        'category_name', 'category_active', 'category_delete', 'category_slug', 'category_menu', 'category_location','category_meta_title','category_meta_descrption','category_keywords'
     ];
 
     /**

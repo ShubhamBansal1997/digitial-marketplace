@@ -8,7 +8,7 @@ use Config;
 class Users extends Model
 {
     //use Notifiable;
-    protected $table_name = 'users';
+    protected $table = 'users';
     public $timestamps = true;
     /**
      * The attributes that are mass assignable.
@@ -16,7 +16,7 @@ class Users extends Model
      * @var array
      */
     protected $fillable = [
-        'user_profile_image','user_fname', 'user_lname', 'user_email', 'user_mobile', 'user_address', 'user_country', 'user_state', 'user_city', 'user_zip', 'user_status', 'user_accesslevel','user_slug'
+        'user_profile_image','user_fname', 'user_lname', 'user_email', 'user_mobile', 'user_address', 'user_country', 'user_state', 'user_city', 'user_zip', 'user_status', 'user_accesslevel','user_slug','user_descrption','user_meta_title','user_meta_descrption','user_payment_details'
     ];
 
     /**

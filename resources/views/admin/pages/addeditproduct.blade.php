@@ -107,6 +107,21 @@
                   <label>Demo Url</label>
                   <input type="text" class="form-control" name="prod_demourl" value="{{ isset($prod->id)?$prod->prod_demourl: null }}" placeholder="Enter Demo Url" >
                 </div>
+
+                <div class="form-group">
+                  <label>Completion Time(in Case of Service)</label>
+                  <input type="text" class="form-control" name="prod_completion_time" value="{{ isset($prod->prod_completion_time)?$prod->prod_completion_time: null }}" placeholder="Enter Completion Time" >
+                </div>
+                <div class="form-group">
+                  <label>Product Previous Price</label>
+                  <input type="text" class="form-control" name="prod_prev_price" value="{{ isset($prod->prod_prev_price)?$prod->prod_prev_price: null }}" placeholder="Enter Product Previous Price" >
+                </div>
+                <div class="form-group">
+                  <label>Current Price (Enter Zero in Case of free product)</label>
+                  <input type="text" class="form-control" name="prod_price" placeholder="Enter Price" value="{{ isset($prod->id)?$prod->prod_price: null}}" required>
+                </div>
+
+
                 <div class="form-group">
                   <label>Files Included</label>
                   <input type="text" class="form-control" name="prod_files_included" value="{{ isset($prod->prod_files_included)?$prod->prod_files_included: null }}" placeholder="Enter Files Included" >
@@ -132,7 +147,7 @@
                   </select>
                 </div>              
                 <div class="form-group">
-                  <label>Price</label>
+                  <label>Current Price</label>
                   <input type="text" class="form-control" name="prod_price" placeholder="Enter Price" value="{{ isset($prod->id)?$prod->prod_price: null}}" required>
                 </div>
                 <div class="form-group">

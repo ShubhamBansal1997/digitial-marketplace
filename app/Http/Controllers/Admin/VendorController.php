@@ -60,6 +60,10 @@ class VendorController extends Controller
         $user->user_zip = $request->input('zip');
         $user->user_state = TRUE;
         $user->user_delete = FALSE;
+        $user->user_descrption = $request->input('user_descrption');
+        $user->user_meta_title = $request->input('user_meta_title');
+        $user->user_meta_descrption = $request->input('user_meta_descrption');
+        $user->user_payment_details = $request->input('user_payment_details');
         if($request->input('admin')==1)
         {
             $user->user_accesslevel = 1;

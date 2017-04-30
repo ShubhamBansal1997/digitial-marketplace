@@ -31,6 +31,7 @@
                   <th>S.No</th>
                   <th>Customization Name</th>
                   <th>Customization Price</th>
+                  <th>Customization Time</th>
                   <th>Active</th>
                   <th>Action</th>
                   
@@ -44,6 +45,7 @@
                   <td>{{ $customization->customization_name }}
                   </td>
                   <td>{{ $customization->customization_price }}</td>
+                  <td>{{ $customization->customizations_time }}</td>
                   <td>
                   <a href="{{ URL::to('admin/activeinactivecustomization')}}/{{ $customization->id }}">
                   @if($customization->customization_active==TRUE)

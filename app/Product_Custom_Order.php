@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Customizations;
 
 class Product_Custom_Order extends Model
 {
@@ -14,7 +15,7 @@ class Product_Custom_Order extends Model
      * @var array
      */
     protected $fillable = [
-        'user_id', 'product_id', 'product_message1', 'product_message2', 'product_name','product_sample_file','product_completed','product_active','product_customization'
+        'user_id', 'product_id', 'product_message1', 'product_message2', 'product_name','product_sample_file','product_completed','product_active','product_customization','product_payment_id','product_file'
     ];
     public static function getFileUrl($key) {
         if($key==NULL)
@@ -31,5 +32,15 @@ class Product_Custom_Order extends Model
         $request = $client->createPresignedRequest($command, '+10 minutes');
 
         return (string) $request->getUri();
+    }
+    public static function Customizations($key)
+    {
+        $value = array();
+        foreach(explode(",", $key) as $id)
+        {
+            array_push($value, Customizations::cust_name($id));
+        }
+        $custom = implode(",", $value);
+        return $custom
     }
 }

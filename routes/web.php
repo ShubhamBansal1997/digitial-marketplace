@@ -56,6 +56,9 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'admi
 		Route::get('/product',function() {
 			return view('admin.pages.product');
 		});
+		Route::get('/service',function() {
+			return view('admin.pages.service');
+		});
 		Route::get('/activeinactiveproduct/{id}','ProductController@activeinactiveproduct');
 		Route::get('/activeinactivefeaturedproduct/{id}','ProductController@activeinactivefeaturedproduct');
 		Route::get('/addeditproduct/{id?}','ProductController@viewaddeditproduct');
@@ -103,6 +106,18 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'admi
 		Route::get('/custom-order',function(){
 			return view('admin.pages.custom_order');
 		});
+		// route to show the list of all product custom order
+		Route::get('/product-custom-order',function(){
+			return view('admin.pages.product_custom_order');
+		});
+		// route to show the list of all service order
+		Route::get('/service-order',function(){
+			return view('admin.pages.service_order');
+		});
+		// route to show the list of all simple order
+		Route::get('/simple-order',function(){
+			return view('admin.pages.simple_order');
+		});
 		Route::get('/completeincompleteorder',function($id){
 			$order = Custom_Order::where('id',$id)->first();
 			if($order->order_completed==TRUE)
@@ -111,6 +126,13 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'admi
 				$order->order_completed==TRUE;
 			$order->save();
 			return Redirect::back();
+		});
+		Route::get('/editserviceorder','PaymentController@editserviceorder');
+		Route::post('/editserviceorder','PaymentController@posteditserviceorder');
+		Route::get('/editproductorder','PaymentController@editproductorder');
+		Route::post('/editproductorder','PaymentController@posteditproductorder');
+		Route::get('/user/order/{id}',function($id){
+			return view('admin.pages.user_order',compact('id'));
 		});
 		
 

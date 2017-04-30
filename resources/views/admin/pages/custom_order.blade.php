@@ -29,12 +29,13 @@
                 <thead>
                 <tr>
                   <th>S.No</th>
-                  <th>User Name</th>
-                  <th>User Email</th>
+                  <th>Customer Name</th>
+                  <th>Customer Email</th>
                   <th>Order Work</th>
                   <th>Order Price</th>
                   <th>Order Sample File</th>
                   <th>Order Completed</th>
+                  <th>Order Date</th>
                   
                 </tr>
                 </thead>
@@ -58,6 +59,8 @@
                   
                   @endif
                   </a>
+                  </td>
+                  <td>{{ $order->created_at }}
                   
                   
                 </tr>

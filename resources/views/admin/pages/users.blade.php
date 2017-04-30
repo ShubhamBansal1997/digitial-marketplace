@@ -44,7 +44,7 @@
                   <td>{{ ++$i }}</td>
 
                   <td><img src="{{ \App\Users::profile_image($user->user_profile_image) }}" height="30px" width="30px" /></td>
-                  <td>{{ $user->user_fname }} {{ $user->user_lname }}
+                  <td><a href="{{ URL::to('/admin/user/order') }}/{{ $user->id }}"> {{ $user->user_fname }} {{ $user->user_lname }}</a>
                   </td>
                   <td>{{ $user->user_email }}</td>
                   <td>
@@ -57,6 +57,8 @@
                   
                   @endif
                   </a>
+                  </td>
+                  <td>
                   <a href="{{ URL::to('admin/blockunblockeduser')}}/{{ $user->id }}">
                   @if($user->user_delete==FALSE)
                     <small class="label label-success">UNBLOCKED</small>
@@ -66,6 +68,7 @@
                   
                   @endif
                   </a>
+                  </td>
                   
                 </tr>
                 @endforeach

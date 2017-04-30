@@ -360,6 +360,7 @@
           <ul class="treeview-menu">
             <li><a href="{{ URL::to('admin/category') }}"><i class="fa fa-circle-o"></i> Category</a></li>
             <li><a href="{{ URL::to('admin/product') }}"><i class="fa fa-circle-o"></i> Products</a></li>
+            <li><a href="{{ URL::to('admin/service') }}"><i class="fa fa-circle-o"></i> Services</a></li>
             <li><a href="{{ URL::to('admin/customization') }}"><i class="fa fa-circle-o"></i>Customizations</a></li>
           </ul>
         </li>
@@ -386,12 +387,19 @@
           </ul>
         </li>
         <li class="treeview">
-          <a href="{{ URL::to('admin/custom-order')}}">
+          <a href="#">
             <i class="fa fa-files-o"></i>
-            <span>Custom Orders</span>
-            <span class="pull-right container">
-              
+            <span>Orders</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
             </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="{{ URL::to('admin/custom-order') }}"><i class="fa fa-circle-o"></i> Custom-Orders</a></li>
+            <li><a href="{{ URL::to('admin/product-custom-order') }}"><i class="fa fa-circle-o"></i> Product Custom Order</a></li>
+            <li><a href="{{ URL::to('admin/service-order') }}"><i class="fa fa-circle-o"></i> Service Order</a></li>
+            <li><a href="{{ URL::to('admin/simple-order') }}"><i class="fa fa-circle-o"></i>Simple Order</a></li>
+          </ul>
         </li>
         <li class="treeview">
           <a href="#">

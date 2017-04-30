@@ -40,8 +40,8 @@ return [
         'redirect' => env('FB_REDIRECT'),
     ],
     'paypal' => [
-        'client_id' => 'paypal_client_id',
-        'secret' => 'paypal_secret'
+        'client_id' => 'AZB-9ILyey8bUSDHZ4uZT4TvyHbDwfb8Nc_63sm-J6u_1r5IBJuQvOIJFIGD9d72BGDgcX0HEGS93kva',
+        'secret' => 'EH3pM7fKNVUM0KZ4uAk3KisL1ZKVO8n0osKq03UwQ-wptlwSIe6rKX2TbnkXotxvLhisNWoxhMOaBuww'
     ],
 
 ];

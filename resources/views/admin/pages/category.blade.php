@@ -30,6 +30,9 @@
                 <tr>
                   <th>S.No</th>
                   <th>Category Name</th>
+                  <th>Category Meta Title</th>
+                  <th>Category Meta Descrption</th>
+                  <th>Category Keywords</th>
                   <th>Active</th>
                   <th>Action</th>
                   
@@ -40,8 +43,10 @@
                 @foreach(\App\Category::where('category_delete',FALSE)->get() as $i => $category)
                 <tr>
                   <td>{{ $category->id }}</td>
-                  <td>{{ $category->category_name}}
-                  </td>
+                  <td>{{ $category->category_name}}</td>
+                  <td>{{ isset($category->category_meta_title)?$category->category_meta_title: null }}</td>
+                  <td>{{ isset($category->category_meta_descrption)?$category->category_meta_descrption: null }}</td>
+                  <td>{{ isset($category->category_keywords)?$category->category_keywords: null }}</td>
                   <td>
                   <a href="{{ URL::to('admin/activeinactivecategory')}}/{{ $category->id }}">
                   @if($category->category_active==TRUE)

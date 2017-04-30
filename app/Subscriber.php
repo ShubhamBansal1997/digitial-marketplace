@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Subscriber extends Model
 {
-    protected $table_name = 'subscribers';
+    protected $table = 'subscribers';
     public $timestamps = true;
     /**
      * The attributes that are mass assignable.
