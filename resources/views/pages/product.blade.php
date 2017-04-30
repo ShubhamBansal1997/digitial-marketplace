@@ -24,7 +24,9 @@
                             <div class="col-md-12">
 							
 								<div class="product-slider" id="productSlider">
-								  <div><img class="image-pic" src="{{ \App\Products::getFileUrl($product->prod_image) }}" alt="{{ $product->prod_image_alt }}"></div>
+								  @if($product->prod_image1!=NULL)
+                                  <div><img class="image-pic" src="{{ \App\Products::getFileUrl($product->prod_image) }}" alt="{{ $product->prod_image_alt }}"></div>
+                                  @endif
 								  @if($product->prod_image1!=NULL)
 								  <div><img class="image-pic" src="{{ \App\Products::getFileUrl($product->prod_image1) }}" alt="{{ $product->prod_image_alt1 }}"></div>
 								  @endif

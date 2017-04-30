@@ -48,6 +48,8 @@ class Users extends Model
     public static function profile_image($key)
     {
          
+        if($key==NULL)
+            return 'test';
         //dd($key);
         //$key = 'profile_images/1513653268678033.jpg';
         $s3 = Storage::disk('s3');
