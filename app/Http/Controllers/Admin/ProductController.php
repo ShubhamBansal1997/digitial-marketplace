@@ -121,7 +121,7 @@ class ProductController extends Controller
         }
             $prod->prod_name = $request->input('prod_name');
 
-            $prod->prod_slug = str_replace(' ', '-', $request->input('prod_slug');
+            $prod->prod_slug = str_replace(' ', '-', $request->input('prod_slug'));
             $prod->prod_meta_descrption = $request->input('prod_meta_descrption');
             $prod->prod_meta_title = $request->input('prod_meta_title');
             $prod->prod_completion_time = $request->input('prod_completion_time');

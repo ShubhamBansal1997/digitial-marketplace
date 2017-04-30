@@ -450,6 +450,12 @@
           <span class="pull-right-container"></span>
           </a>
         </li>
+        <li class="treeview">
+          <a href="{{ URL::to('admin/settings') }}">
+          <i class="fa fa-files-o"></i>
+          <span>Settings</span>
+          <span class="pull-right-container"></span>
+        </li>
         <li><a href="documentation/index.html"><i class="fa fa-book"></i> <span>Documentation</span></a></li>
         <li class="header">LABELS</li>
         <li><a href="#"><i class="fa fa-circle-o text-red"></i> <span>Important</span></a></li>

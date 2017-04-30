@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Banners;
+use App\Settings;
 use Storage;
 
 class SettingController extends Controller
@@ -41,6 +42,20 @@ class SettingController extends Controller
     	return redirect('admin/banners');
 
 
+    }
+    public function setting()
+    {
+        $set = Settings::where('id',1)->first();
+        return view('admin.pages.settings',compact('set'));
+    }
+    public function postsetting(Request $request)
+    {
+        $setting = Settings::where('id',1)->first();
+        $setting->homepage_meta_title = $request->input('homepage_meta_title');
+        $setting->homepage_meta_descrption = $request->input('homepage_meta_descrption');
+        $setting->homepage_keywords = $request->input('homepage_keywords');
+        $setting->save();
+        return redirect('admin/dashboard');
     }
     
 }

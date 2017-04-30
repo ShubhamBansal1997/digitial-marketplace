@@ -128,12 +128,14 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'admi
 			return Redirect::back();
 		});
 		Route::get('/editserviceorder','PaymentController@editserviceorder');
-		Route::post('/editserviceorder','PaymentController@posteditserviceorder');
+		Route::post('/editserviceorder','PaymentController@posteditserviceorder')->middleware('web');
 		Route::get('/editproductorder','PaymentController@editproductorder');
-		Route::post('/editproductorder','PaymentController@posteditproductorder');
+		Route::post('/editproductorder','PaymentController@posteditproductorder')->middleware('web');
 		Route::get('/user/order/{id}',function($id){
 			return view('admin.pages.user_order',compact('id'));
 		});
+		Route::get('/settings','SettingController@setting');
+		Route::post('/settings','SettingController@postsetting')->middleware('web');
 		
 
 
