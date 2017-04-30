@@ -39,5 +39,9 @@ return [
         'client_secret' => env('FB_SECRET_KEY'),
         'redirect' => env('FB_REDIRECT'),
     ],
+    'paypal' => [
+        'client_id' => 'paypal_client_id',
+        'secret' => 'paypal_secret'
+    ],
 
 ];

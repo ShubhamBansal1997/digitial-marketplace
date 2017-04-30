@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Coupons extends Model
 {
-    protected $table_name = 'coupons';
+    protected $table = 'coupons';
     public $timestamps = true;
     /**
      * The attributes that are mass assignable.

@@ -12,7 +12,7 @@
             <div class="row">
                 <div class="col-md-12">
 					<p>&nbsp;</p>
-                    <span class="next">Home &nbsp;<img src="{{ asset('home_asset/fonts/Shape1.png')}}"/> Product&nbsp;<img src="{{ asset('home_asset/fonts/Shape1.png')}}"/>&nbsp; {{ \App\Category::cat_name(explode(",", $product->prod_categories)[0]) }}&nbsp;<img src="{{ asset('home_asset/fonts/Shape1.png')}}"/> {{ $product->prod_name }}</span>
+                    <span class="next">Home &nbsp;<img src="{{ asset('home_asset/fonts/Shape1.png')}}"/> Service&nbsp;<img src="{{ asset('home_asset/fonts/Shape1.png')}}"/>&nbsp; {{ \App\Category::cat_name(explode(",", $product->prod_categories)[0]) }}&nbsp;<img src="{{ asset('home_asset/fonts/Shape1.png')}}"/> {{ $product->prod_name }}</span>
                     <div class="description">
                         <h1 class="prod pro-title">{{ $product->prod_name }}</h1>
 						<p class="des pro-des">By <strong><a href="{{ URL::to('vendor') }}/{{ \App\Users::get_slug($product->prod_vendor_id) }}/{{ $product->prod_vendor_id }}">{{ \App\Users::username($product->prod_vendor_id) }} </a></strong> in <strong> {{ \App\Category::cat_name(explode(",", $product->prod_categories)[0]) }}</strong></p>
@@ -132,51 +132,13 @@
                                     <a class="pricing">${{ $product->prod_price }}</a>
                                 </li>
                                 <li>
-                                    <a class="template-only"> Template only</a> </li>
+                                    <a class="template-only"> Service</a> </li>
                             </ul>
-                            @if($product->prod_customizations!=NULL)
-                            <div class="recomended-services">
-                                <a class="recomended"> Recommended Services</a>
-                                <form class="checkbox1" action="{{ URL::to('productbuy_customizations') }}" method="POST">
-                                     {{ csrf_field() }}
-                                     @foreach(explode(',',$product->prod_customizations) as $customizations)
-                                     @foreach(\App\Customizations::where('id',$customizations)->get() as $customization)
-                                     <div class="col-md-8 col-xs-8 text-left">
-										<input type="checkbox" id="checkbox1" name=customizations[] value="{{ $customization->id }}" class="css-checkbox med"/>
-										<label for="checkbox1" name="checkbox1_lbl" class="css-label med elegant">{{ $customization->customization_name }}</label>
-									 </div> 
-
-									 <div class="col-md-4 col-xs-4 text-right">{{ $customization->customization_price }}$ 
-									 	<i class="fa fa-info-circle" data-toggle="tooltip" data-placement="top" title="Add to cart"></i>
-									 </div>
-                                     @endforeach
-									 @endforeach
-                                    
-								
-                                
-                            </div>
-                            <input type="hidden" name="product_id" value="{{ $product->id }}">
                             <p class="subtotal-price"> Subtotal Price: {{ $product->prod_price }}$</p>
-                            
-
                             <div class="see-more">
-                                <button  type="submit" name="buy_now" value="true" class="btn btn-primary see1">Buy Now</button>
+                                <a href="{{ URL::to('serviceorder')}}/{{ $product->id }}" type="submit" class="btn btn-primary see1">Buy Now</a>
                             </div>
-                            <div class="see-more">
-                                <button href="#" type="submit" name="add_to_cart" value="true" class="see2">Add To Cart</button>
-                            </div>
-                            </form>
-                            @else
-                            <p class="subtotal-price"> Total Price: {{ $product->prod_price }}$</p>
-                            
-
-                            <div class="see-more">
-                                <a href="{{ URL::to('directcheckout') }}/{{ $product->id }}" type="submit" class="btn btn-primary see1">Buy Now</a>
-                            </div>
-                            <div class="see-more">
-                                <a href="{{ URL::to('addtocart')}}/{{ $product->id }}" type="submit" class="see2">Add To Cart</a>
-                            </div>
-                            @endif
+ 
 							<div class="see-more">
 							<p class="m-none">&nbsp;</p>
                                 <a class="domain text-center">Single domain License ( you can use this on<br> personal commercial or client projects)</a> </div>
@@ -335,6 +297,7 @@
 																	@if(Session::get('login')==true)
 																	<a href="{{ URL::to('custom-order') }}" class="btn btn-primary see1">Contact</a>
 																	@else
+
 																	<a href="#" class="btn btn-primary see1">Contact</a>
 																	@endif
 																</div>

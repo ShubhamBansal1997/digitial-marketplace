@@ -69,7 +69,7 @@
                 </li>
                 <li>
                     <a href="#others" class="selected">
-                        <img src="{{ asset('home_asset/fonts/coding.png')}}" alt="web-banner">
+                        <img src="{{ asset('home_asset/fonts/coding.png') }}" alt="web-banner">
                         <span>Web Banners</span>
                         <span>(230 offers)</span>
                     </a>
@@ -89,7 +89,7 @@
 				<span>Sort By</span>
 				<div class="dropdown">
 					<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Popular
-					<img src="{{ asset('home_asset/fonts/Shape2.png')}}"/></button>
+					<img src="{{ asset('home_asset/fonts/Shape2.png') }}"/></button>
 					<ul class="dropdown-menu Popular">
 					  <li><a href="#">element</a></li>
 					  <li><a href="#">element</a></li>
@@ -112,13 +112,16 @@
 
                         <div class="masonry noo-blog home-masonry">
                             <div class="row masonry-container" style="position: relative;">
+                                
+                                @foreach(\App\Products::where('prod_delete',false)->where('prod_status',true)->where('prod_featured',true)->where('is_service',false)->get() as $product)
                                 <div class="masonry-item col-md-4 col-sm-6" style="position: relative; left: 0px; top: 0px;">
                                     <div class="blog-item">
-                                        <div class="ih-item square effect13 left_to_right"><a href="#">
-                                            <div class="img"><img src="assets/rect/1.jpg" alt="img"></div><h3 class="label-tag">50% OFF</h3>
+                                        <div class="ih-item square effect13 left_to_right">
+                                            <a href="{{ URL::to('product') }}/{{ $product->prod_slug }}/{{ $product->id }}">
+                                            <div class="img"><img src="{{ \App\Products::getFileUrl($product->prod_image) }}" alt="{{ $product->prod_image_alt }}"></div>
                                                 <div class="info">
-                                                  <div class="col-md-6 col-xs-6"><span class="off1">View</span></div>
-                                                    <div class="col-md-6 col-xs-6"><span class="off2">Add to Cart</span></div>
+                                                  <div class="col-md-6 col-xs-6"><span class="off1"><a href="{{ URL::to('product') }}/{{ $product->prod_slug }}/{{ $product->id }}">View</a></span></a></div>
+                                                    <div class="col-md-6 col-xs-6"><span class="off2"><a href="{{ URL::to('addtocart') }}/{{ $product->id }}">Add to Cart</a></span></div>
                                                 </div>
 
                                                 </a>
@@ -127,280 +130,24 @@
                                             <div class="col-md-8 col-xs-8">
                                                 <ul class="details">
                                                     <li>
-                                                        <span>Delish Pro</span>
-                                                        <span><a>By <strong>Egor </strong> in <strong> Facebook</strong></a></span>
+                                                        <span>{{ $product->prod_name }}</span>
+                                                        @foreach(\App\Users::where('id',$product->prod_vendor_id)->get() as $user)
+                                                        <span><a href="{{ URL::to('vendor')}}/{{ $user->user_slug }}/{{ $user->id }}">By <strong>{{ \App\Users::username($product->prod_vendor_id) }}</strong> in <strong> {{ \App\Category::cat_name(explode(",", $product->prod_categories)[0]) }}</strong></a></span>
+                                                        @endforeach
                                                     </li>
                                                 </ul>
                                             </div>
                                             <div class="col-md-4 col-xs-4">
                                                 <ul>
                                                     <li>
-                                                        <span class="price new">$25</span>
+                                                        <span class="price new">$ {{ $product->prod_price}}</span>
                                                     </li>
                                                 </ul>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                               <div class="masonry-item col-md-4 col-sm-6" style="position: relative; left: 0px; top: 0px;">
-                                    <div class="blog-item">
-                                          <div class="ih-item square effect13 left_to_right"><a href="#">
-                      <div class="img"><img src="{{ asset('home_asset/assets/rect/1.jpg')}}" alt="img"></div>
-                      <div class="info">
-					  <div class="col-md-6 col-xs-6"><span class="off1">View</span></div>
-                        <div class="col-md-6 col-xs-6"><span class="off2">Add to Cart</span></div>
-                      </div></a></div>
-										<div class="blog-description row">
-                                       <div class="col-md-8 col-xs-8">
-                                            <ul class="details">
-                                                <li>
-
-                                                    <span>Delish Pro</span>
-                                                    <span><a>By <strong>Egor </strong> in <strong> Facebook</strong></a></span>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <div class="col-md-4 col-xs-4">
-                                            <ul>
-                                                <li>
-
-
-                                                    <span class="price">45$</span>
-                                                </li>
-                                            </ul>
-                                        </div>
-										</div>
-                                    </div>
-                                </div>
-                                <div class="masonry-item col-md-4 col-sm-6" style="position: relative; left: 0px; top: 0px;">
-                                    <div class="blog-item">
-                                          <div class="ih-item square effect13 left_to_right"><a href="#">
-                      <div class="img"><img src="{{ asset('home_asset/assets/rect/1.jpg')}}" alt="img"></div>
-                      <div class="info">
-					  <div class="col-md-6 col-xs-6"><span class="off1">View</span></div>
-                        <div class="col-md-6 col-xs-6"><span class="off2">Add to Cart</span></div>
-                      </div></a></div>
-										<div class="blog-description row">
-                                        <div class="col-md-8 col-xs-8">
-                                            <ul class="details">
-                                                <li>
-
-                                                    <span>Delish Pro</span>
-                                                    <span><a>By <strong>Egor </strong> in <strong> Facebook</strong></a></span>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <div class="col-md-4 col-xs-4">
-                                            <ul>
-                                                <li>
-
-
-                                                    <span class="price">45$</span>
-                                                </li>
-                                            </ul>
-                                        </div>
-										</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-12">
-
-                        <div class="masonry noo-blog home-masonry">
-                            <div class="row masonry-container" style="position: relative;">
-                                <div class="masonry-item col-md-4 col-sm-6" style="position: relative; left: 0px; top: 0px;">
-                                    <div class="blog-item">
-                                          <div class="ih-item square effect13 left_to_right"><a href="#">
-                      <div class="img"><img src="{{ asset('home_asset/assets/rect/1.jpg')}}" alt="img"></div>
-<h3 class="social-ads">Facebook Ads</h3>
-                     <div class="info">
-					  <div class="col-md-6 col-xs-6"><span class="off1">View</span></div>
-                        <div class="col-md-6 col-xs-6"><span class="off2">Add to Cart</span></div>
-                      </div></a></div>
-										<div class="blog-description row">
-                                        <div class="col-md-8 col-xs-8">
-                                            <ul class="details">
-                                                <li>
-
-                                                    <span>Delish Pro</span>
-                                                    <span><a>By <strong>Egor </strong> in <strong> Facebook</strong></a></span>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <div class="col-md-4 col-xs-4">
-                                            <ul>
-                                                <li>
-
-
-                                                    <span class="price">$25</span>
-                                                </li>
-                                            </ul>
-                                        </div>
-										</div>
-                                    </div>
-                                </div>
-                               <div class="masonry-item col-md-4 col-sm-6" style="position: relative; left: 0px; top: 0px;">
-                                    <div class="blog-item">
-                                          <div class="ih-item square effect13 left_to_right"><a href="#">
-                      <div class="img"><img src="{{ asset('home_asset/assets/rect/1.jpg')}}" alt="img"></div>
-                      <div class="info">
-					  <div class="col-md-6 col-xs-6"><span class="off1">View</span></div>
-                        <div class="col-md-6 col-xs-6"><span class="off2">Add to Cart</span></div>
-                      </div></a></div>
-										<div class="blog-description row">
-                                        <div class="col-md-8 col-xs-8">
-                                            <ul class="details">
-                                                <li>
-
-                                                    <span>Delish Pro</span>
-                                                    <span><a>By <strong>Egor </strong> in <strong> Facebook</strong></a></span>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <div class="col-md-4 col-xs-4">
-                                            <ul>
-                                                <li>
-
-
-                                                    <span class="price">45$</span>
-                                                </li>
-                                            </ul>
-                                        </div>
-										</div>
-                                    </div>
-                                </div>
-                                <div class="masonry-item col-md-4 col-sm-6" style="position: relative; left: 0px; top: 0px;">
-                                    <div class="blog-item">
-                                          <div class="ih-item square effect13 left_to_right"><a href="#">
-                      <div class="img"><img src="{{ asset('home_asset/assets/rect/1.jpg')}}" alt="img"></div>
-                      <div class="info">
-					  <div class="col-md-6 col-xs-6"><span class="off1">View</span></div>
-                        <div class="col-md-6 col-xs-6"><span class="off2">Add to Cart</span></div>
-                      </div></a></div>
-										<div class="blog-description row">
-                                        <div class="col-md-8 col-xs-8">
-                                            <ul class="details">
-                                                <li>
-
-                                                    <span>Delish Pro</span>
-                                                    <span><a>By <strong>Egor </strong> in <strong> Facebook</strong></a></span>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <div class="col-md-4 col-xs-4">
-                                            <ul>
-                                                <li>
-
-
-                                                    <span class="price">45$</span>
-                                                </li>
-                                            </ul>
-                                        </div>
-										</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-        <div class="row">
-                    <div class="col-sm-12">
-
-                        <div class="masonry noo-blog home-masonry">
-                            <div class="row masonry-container" style="position: relative;">
-                                <div class="masonry-item col-md-4 col-sm-6" style="position: relative; left: 0px; top: 0px;">
-                                    <div class="blog-item">
-                                         <div class="ih-item square effect13 left_to_right"><a href="#">
-                      <div class="img"><img src="{{ asset('home_asset/assets/rect/1.jpg')}}" alt="img"></div><h3 class="social-ads">Facebook Ads</h3>
-                      <div class="info">
-					  <div class="col-md-6 col-xs-6"><span class="off1">View</span></div>
-                        <div class="col-md-6 col-xs-6"><span class="off2">Add to Cart</span></div>
-                      </div></a></div>
-										<div class="blog-description row">
-                                        <div class="col-md-8 col-xs-8">
-                                            <ul class="details">
-                                                <li>
-
-                                                    <span>Delish Pro</span>
-                                                    <span><a>By <strong>Egor </strong> in <strong> Facebook</strong></a></span>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <div class="col-md-4 col-xs-4">
-                                            <ul>
-                                                <li>
-
-
-                                                    <span class="price">$25</span>
-                                                </li>
-                                            </ul>
-                                        </div>
-										</div>
-                                    </div>
-                                </div>
-                               <div class="masonry-item col-md-4 col-sm-6" style="position: relative; left: 0px; top: 0px;">
-                                    <div class="blog-item">
-                                          <div class="ih-item square effect13 left_to_right"><a href="#">
-                      <div class="img"><img src="{{ asset('home_asset/assets/rect/1.jpg')}}" alt="img"></div><h3 class="social-ads">Facebook Ads</h3>
-                      <div class="info">
-					  <div class="col-md-6 col-xs-6"><span class="off1">View</span></div>
-                        <div class="col-md-6 col-xs-6"><span class="off2">Add to Cart</span></div>
-                      </div></a></div>
-										<div class="blog-description row">
-                                        <div class="col-md-8 col-xs-8">
-                                            <ul class="details">
-                                                <li>
-
-                                                    <span>Delish Pro</span>
-                                                    <span><a>By <strong>Egor </strong> in <strong> Facebook</strong></a></span>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <div class="col-md-4 col-xs-4">
-                                            <ul>
-                                                <li>
-
-
-                                                    <span class="price">45$</span>
-                                                </li>
-                                            </ul>
-                                        </div>
-										</div>
-                                    </div>
-                                </div>
-                                <div class="masonry-item col-md-4 col-sm-6" style="position: relative; left: 0px; top: 0px;">
-                                    <div class="blog-item">
-                                          <div class="ih-item square effect13 left_to_right"><a href="#">
-                      <div class="img"><img src="{{ asset('home_asset/assets/rect/1.jpg')}}" alt="img"></div><h3 class="social-ads">Facebook Ads</h3>
-                      <div class="info">
-					  <div class="col-md-6 col-xs-6"><span class="off1">View</span></div>
-                        <div class="col-md-6 col-xs-6"><span class="off2">Add to Cart</span></div>
-                      </div></a></div>
-										<div class="blog-description row">
-                                        <div class="col-md-8 col-xs-8">
-                                            <ul class="details">
-                                                <li>
-
-                                                    <span>Delish Pro</span>
-                                                    <span><a>By <strong>Egor </strong> in <strong> Facebook</strong></a></span>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <div class="col-md-4 col-xs-4">
-                                            <ul>
-                                                <li>
-
-
-                                                    <span class="price">45$</span>
-                                                </li>
-                                            </ul>
-                                        </div>
-										</div>
-                                    </div>
-                                </div>
+                                @endforeach
                             </div>
                         </div>
                     </div>
@@ -409,7 +156,7 @@
 		</div>
 		<div class="gap20"></div>
 		<div class="see-more">
-            <button type="submit" class="btn btn-primary  see">See More</button>
+            <button class="btn btn-primary  see" onclick="location.href='{{ URL::to('products') }}';">See More</button>
         </div>
 		<div class="gap20"></div>
     </section>
@@ -424,7 +171,7 @@
         <div class="container">
             <div class="categories">
                 <li class="section-head browse2">Browse Our Services </li>
-                <li class="service"><span><a href="#" style="padding:5px">See all Services &nbsp;<img src="{{ asset('home_asset/fonts/Shape3.png')}}"></a></span></li>
+                <li class="service"><span><a href="{{ URL::to('services') }}" style="padding:5px">See all Services &nbsp;<img src="{{ asset('home_asset/fonts/Shape3.png')}}"></a></span></li>
             </div>
         </div>
     </section>
@@ -438,69 +185,33 @@
                     <div class="col-sm-12">
                         <div class="masonry noo-blog home-masonry">
                             <div class="row masonry-container" style="">
+                                
+                                @foreach(\App\Products::where('prod_status',true)->where('prod_delete',false)->where('prod_featured',true)->where('is_service',true)->take(3)->get() as $service)
                                 <div class="masonry-item col-md-4 col-sm-6" style="position: relative; left: 0px; top: 0px;">
                                     <div class="blog-item">
-                                        <a class="blog-thumbnail" href="blog-detail.html">
-                                            <img width="400" height="440" src="{{ asset('home_asset/images/3.png')}}" alt="">
+                                        <a class="blog-thumbnail" href="{{ URL::to('service') }}/{{ $service->prod_slug }}/{{ $service->id }}">
+                                            <img width="400" height="440" src="{{ \App\Products::getFileUrl($service->prod_image) }}" alt="{{ $service->prod_image_alt }}">
                                         </a>
 										<div class="blog-description row">
                                         <div class="col-md-8">
                                             <ul class="details">
                                                 <li>
 
-                                                    <span>Delish Pro</span>
-                                                    <span><a>By <strong>Egor </strong> in <strong> Facebook</strong></a></span>
+                                                    <span>{{ $service->prod_name }}</span>
+                                                    @foreach(\App\Users::where('id',$service->prod_vendor_id)->get() as $user)
+                                                    <span><a href="{{ URL::to('vendor')}}/{{ $user->user_slug }}/{{ $user->id }}">By <strong>{{ \App\Users::username($service->prod_vendor_id) }}</strong> in <strong> {{ \App\Category::cat_name(explode(",", $service->prod_categories)[0]) }}</strong></a></span>
+                                                    @endforeach
                                                 </li>
                                             </ul>
                                         </div>
                                         <div class="col-md-4">
-                                           <a class="btn btn-primary view-more" href="#">View All</a>
+                                           <a class="btn btn-primary view-more" href="{{ URL::to('services') }}">View All</a>
                                         </div>
 										</div>
                                     </div>
                                 </div>
-                               <div class="masonry-item col-md-4 col-sm-6" style="position: relative; left: 0px; top: 0px;">
-                                    <div class="blog-item">
-                                        <a class="blog-thumbnail" href="blog-detail.html">
-                                            <img width="400" height="440" src="{{ asset('home_asset/images/3.png')}}" alt="">
-                                        </a>
-										<div class="blog-description row">
-                                        <div class="col-md-8">
-                                            <ul class="details">
-                                                <li>
+                                @endforeach
 
-                                                    <span>Delish Pro</span>
-                                                    <span><a>By <strong>Egor </strong> in <strong> Facebook</strong></a></span>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <a class="btn btn-primary view-more" href="#">View All</a>
-                                        </div>
-										</div>
-                                    </div>
-                                </div>
-                                <div class="masonry-item col-md-4 col-sm-6" style="position: relative; left: 0px; top: 0px;">
-                                    <div class="blog-item">
-                                        <a class="blog-thumbnail" href="blog-detail.html">
-                                            <img width="400" height="440" src="{{ asset('home_asset/images/3.png')}}" alt="">
-                                        </a>
-										<div class="blog-description row">
-                                        <div class="col-md-8">
-                                            <ul class="details">
-                                                <li>
-
-                                                    <span>Delish Pro</span>
-                                                    <span><a>By <strong>Egor </strong> in <strong> Facebook</strong></a></span>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <a class="btn btn-primary view-more" href="#">View All</a>
-                                        </div>
-										</div>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -509,90 +220,34 @@
 					<div class="col-sm-12">
                         <div class="masonry noo-blog home-masonry">
                             <div class="row masonry-container" style="position: relative;">
+                                
+                                @foreach(\App\Products::where('prod_status',true)->where('prod_delete',false)->where('prod_featured',true)->where('is_service',true)->take(4)->get() as $i => $service)
+                                @if($i>2)
                                 <div class="masonry-item col-md-3 col-sm-6" style="position: relative; left: 0px; top: 0px;">
                                     <div class="blog-item">
-                                        <a class="blog-thumbnail" href="blog-detail.html">
-                                            <img width="400" height="440" src="{{ asset('home_asset/images/3.png')}}" alt="">
+                                        <a class="blog-thumbnail" href="{{ URL::to('service') }}/{{ $service->prod_slug }}/{{ $service->id }}">
+                                            <img width="400" height="440" src="{{ \App\Products::getFileUrl($service->prod_image) }}" alt="{{ $service->prod_image_alt }}">
                                         </a>
-										<div class="blog-description row">
-                                        <div class="col-md-6">
+                                        <div class="blog-description row">
+                                        <div class="col-md-8">
                                             <ul class="details">
                                                 <li>
 
-                                                    <span>Delish Pro</span>
-                                                    <span><a>Starting at $20</a></span>
+                                                    <span>{{ $service->prod_name }}</span>
+                                                    @foreach(\App\Users::where('id',$service->prod_vendor_id)->get() as $user)
+                                                    <span><a href="{{ URL::to('vendor')}}/{{ $user->user_slug }}/{{ $user->id }}">By <strong>{{ \App\Users::username($service->prod_vendor_id) }}</strong> in <strong> {{ \App\Category::cat_name(explode(",", $service->prod_categories)[0]) }}</strong></a></span>
+                                                    @endforeach
                                                 </li>
                                             </ul>
                                         </div>
-                                        <div class="col-md-6 text-right">
-                                            <a class="btn btn-primary view-more" href="blog-detail.html">View All</a>
+                                        <div class="col-md-4">
+                                           <a class="btn btn-primary view-more" href="{{ URL::to('services') }}">View All</a>
                                         </div>
-										</div>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="masonry-item col-md-3 col-sm-6" style="position: relative; left: 0px; top: 0px;">
-                                    <div class="blog-item">
-                                        <a class="blog-thumbnail" href="blog-detail.html">
-                                            <img width="400" height="440" src="{{ asset('home_asset/images/3.png')}}" alt="">
-                                        </a>
-										<div class="blog-description row">
-                                        <div class="col-md-6">
-                                            <ul class="details">
-                                                <li>
-
-                                                    <span>Delish Pro</span>
-                                                    <span><a>Starting at $20</a></span>
-													</li>
-                                            </ul>
-                                        </div>
-                                        <div class="col-md-6  text-right">
-                                            <a class="btn btn-primary view-more" href="blog-detail.html">View All</a>
-                                        </div>
-										</div>
-                                    </div>
-                                </div>
-                               <div class="masonry-item col-md-3 col-sm-6" style="position: relative; left: 0px; top: 0px;">
-                                    <div class="blog-item">
-                                        <a class="blog-thumbnail" href="blog-detail.html">
-                                            <img width="400" height="440" src="{{ asset('home_asset/images/3.png')}}" alt="">
-                                        </a>
-										<div class="blog-description row">
-                                        <div class="col-md-6">
-                                            <ul class="details">
-                                                <li>
-
-                                                    <span>Delish Pro</span>
-                                                    <span><a>Starting at $20</a></span>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <div class="col-md-6  text-right">
-                                            <a class="btn btn-primary view-more" href="blog-detail.html">View All</a>
-                                        </div>
-										</div>
-                                    </div>
-                                </div>
-								<div class="masonry-item col-md-3 col-sm-6" style="position: relative; left: 0px; top: 0px;">
-                                    <div class="blog-item">
-                                        <a class="blog-thumbnail" href="blog-detail.html">
-                                            <img width="400" height="440" src="{{ asset('home_asset/images/3.png')}}" alt="">
-                                        </a>
-										<div class="blog-description row">
-                                        <div class="col-md-6">
-                                            <ul class="details">
-                                                <li>
-
-                                                    <span>Delish Pro</span>
-                                                    <span><a>Starting at $20</a></span>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <div class="col-md-6  text-right">
-                                            <a class="btn btn-primary view-more" href="blog-detail.html">View All</a>
-                                        </div>
-										</div>
-                                    </div>
-                                </div>
+                                @endif
+                                @endforeach
                             </div>
                         </div>
 						<div class="gap60"></div>
@@ -659,42 +314,42 @@
 	</section>
 	
 	<!-- SECTION [partner]  -->
-	<section class="partner hidden-xs">
+	           <section class="partner hidden-xs">
 				   <div class="container">
 					   <div class="row">
 							<div class="col-md-12">
 							<div class="partners text-center">
-					   <ul class="p-none">
-						<li class="seen">  
-								<span>As Seen On: </span>
-						</li>
-						<li>
-							<a href="#" class="selected"></a>
-							   <img src="{{ asset('home_asset/fonts/co-wsj.png')}}" alt="">
-					   </li>
-						<li>
-							<a href="#" class="selected">
-								<img src="{{ asset('home_asset/fonts/co-fastcompany.png')}}" alt=""></a>
-						</li>
-						<li>
-							<a href="#" class="selected">
-								<img src="{{ asset('home_asset/fonts/co-pando.png')}}" alt=""></a>
-						</li>
-						<li>
-							<a href="#" class="selected">
-								<img src="{{ asset('home_asset/fonts/co-forbes.png')}}" alt=""> </a>
-						</li>
-						<li>
-							<a href="#others" class="selected">
-								<img src="{{ asset('home_asset/fonts/co-inc@2x.png')}}" alt=""></a>
-						</li>
-						<li>
-							<a href="#others" class="selected">
-								<img src="{{ asset('home_asset/fonts/co-entrepreneur.png')}}" alt=""></a>
-						</li>
-					   </ul>
-					   </div>
-					   </div>
+        					   <ul class="p-none">
+        						<li class="seen">  
+        								<span>As Seen On: </span>
+        						</li>
+        						<li>
+        							<a href="#" class="selected"></a>
+        							   <img src="{{ asset('home_asset/fonts/co-wsj.png')}}" alt="">
+        					   </li>
+        						<li>
+        							<a href="#" class="selected">
+        								<img src="{{ asset('home_asset/fonts/co-fastcompany.png')}}" alt=""></a>
+        						</li>
+        						<li>
+        							<a href="#" class="selected">
+        								<img src="{{ asset('home_asset/fonts/co-pando.png')}}" alt=""></a>
+        						</li>
+        						<li>
+        							<a href="#" class="selected">
+        								<img src="{{ asset('home_asset/fonts/co-forbes.png')}}" alt=""> </a>
+        						</li>
+        						<li>
+        							<a href="#others" class="selected">
+        								<img src="{{ asset('home_asset/fonts/co-inc@2x.png')}}" alt=""></a>
+        						</li>
+        						<li>
+        							<a href="#others" class="selected">
+        								<img src="{{ asset('home_asset/fonts/co-entrepreneur.png')}}" alt=""></a>
+        						</li>
+        					   </ul>
+					       </div>
+					       </div>
 					   </div>
 				   </div>
 			   </section>

@@ -124,52 +124,95 @@ Route::get('user/account','HomeController@account')->middleware('user');
 Route::post('user/updateprofile','HomeController@updateprofile')->middleware(['web','user']);
 Route::post('user/updatepassword','HomeController@updatepassword')->middleware(['web','user']);
 
+
+//Route to display the single product 
 Route::get('/product/{productnameslug}/{productid}','HomeController@product');
+
+// Route to display the single service
+Route::get('/service/{servicenameslug}/{serviceid}','HomeController@service');
 
 
 Route::get('/home',function(){
 	return view('pages.home');
 });
+
 Route::post('/login','LoginRegisterController@login')->middleware('web');
+
 Route::post('/register','LoginRegisterController@register')->middleware('web');
+
 // Route to redirect to facebook login
 Route::get('/redirect', 'LoginRegisterController@redirect');
 // Route to handle the callback of facebook login
 Route::get('/callback', 'LoginRegisterController@callback');
 
 Route::post('subscribe','HomeController@subscribe')->middleware('web');
-//Route::get('admin')
-// testing routes
+
+
+//Route to display all products
 Route::get('products',function(){
 	$products = Products::where('prod_delete',false)->where('prod_status',true)->where('is_service',false)->get();
 	$name = 'All Products';
 	return view('pages.products',compact('name','products'));
 });
+
+//Route to display all services
 Route::get('services',function(){
 	$products = Products::where('prod_delete',false)->where('prod_status',true)->where('is_service',true)->get();
 	$name = 'All Services';
-	return view('pages.products',compact('name','products'));
+	return view('pages.services',compact('name','products'));
 });
-Route::get('category/{categoryname}/{subcatname}','HomeController@category');
+
+/** Route to display the products of a particular category */
+Route::get('product/{categoryname}','HomeController@productcategory');
+
+/** Route to order the service */
+Route::get('serviceorder/{serviceid}','HomeController@orderservice')->middleware('login');
+
+/** Route to add service order info */
+Route::post('serviceordercheckout','HomeController@orderserviceinfo')->middleware(['web','login']);
+
+/** Route to add service order info */
+Route::post('productordercheckout','HomeController@productorder')->middleware(['web','login']);
+
+
+
+
+/** Route to display the services of a particular category */
+Route::get('service/{categoryname}','HomeController@servicecategory');
+
+/** Route to buy product directly  */
+Route::get('buynowproduct/{id}','HomeController@buynowproduct')->middleware('login');
+
+// Route to display and product and services of a vendor 
 Route::get('/vendor/{vendorname}/{id}','HomeController@vendor');
+
+// Route to add the uncustomized product from the cart 
 Route::get('/addtocart/{id}','HomeController@addtocart');
+// Route to remove the uncustomized product  from the cart
 Route::get('/removefromcart/{id}','HomeController@removefromcart');
+
 Route::get('/directcheckout/{id}','HomeController@directcheckout');
+
+Route::post('/productbuy_customizations','HomeController@productbuy_customizations')->middleware(['web','login']);
+
 Route::get('/cart',function(){
 	return view('pages.cart');
-});
+})->middleware('user');
 Route::get('/checkout',function(){
 	return view('pages.checkout');
-});
+})->middleware('login');
 
 Route::get('/logout',function(){
 	Session::flush();
 	return redirect('/');
 });
 
+
+
+
 // Route for custom order page
 Route::get('/custom-order',function(){
-	if(Session::get(login)==true)
+	if(Session::get('login')==true)
 		return view('pages.custom_order');
 });
 /** the route is for the custom order */
@@ -178,5 +221,13 @@ Route::post('/custom-order','HomeController@custom_order')->middleware('web');
 Route::get('/thankyou-custom',function(){
 	return view('pages.thankyou_custom');
 });
+Route::group(['middleware' => ['web']], function () {
+    Route::get('payPremium', ['as'=>'payPremium','uses'=>'PaypalController@payPremium']);
+    Route::get('getCheckout', ['as'=>'getCheckout','uses'=>'PaypalController@getCheckout']);
+    Route::get('getDone', ['as'=>'getDone','uses'=>'PaypalController@getDone']);
+    Route::get('getCancel', ['as'=>'getCancel','uses'=>'PaypalController@getCancel']);
+});
+Route::get('testing-123','PaypalController@getCheckout');
+
 
 Route::get('/testing12345','HomeController@search');

@@ -4,9 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Custom_Order extends Model
+class Service_Order extends Model
 {
-    protected $table = "custom_orders";
+    public $table = "service_orders";
     public $timestamps = true;
     /**
      * The attributes that are mass assignable.
@@ -14,7 +14,7 @@ class Custom_Order extends Model
      * @var array
      */
     protected $fillable = [
-        'user_id', 'order_work', 'order_descrption', 'order_price','order_sample_file','order_completed'
+        'user_id', 'service_id', 'service_message1', 'service_message2', 'service_name','service_sample_file','service_completed'
     ];
     public static function getFileUrl($key) {
         if($key==NULL)

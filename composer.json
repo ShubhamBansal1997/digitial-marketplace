@@ -13,7 +13,8 @@
         "gloudemans/shoppingcart": "^2.3",
         "laravel/socialite": "^3.0",
         "nicolaslopezj/searchable": "^1.9",
-        "laravel/tinker": "^1.0"
+        "laravel/tinker": "^1.0",
+        "netshell/paypal": "dev-master"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

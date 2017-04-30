@@ -8,6 +8,9 @@ use App\Users;
 use App\Products;
 use App\Category;
 use App\Custom_Order;
+use App\Service_Order;
+use App\Product_Custom_Order;
+use App\Customizations;
 use Redirect;
 use Session;
 use Cart;
@@ -28,7 +31,9 @@ class HomeController extends Controller
         $custom_order->order_work = $request->input('order_work');
         $custom_order->order_descrption = $request->input('order_descrption');
         $custom_order->order_price = $request->input('order_price');
-        $custom_order->order_sample_file = $this->uploadfile($request->file('order_sample_file'));
+        if($request->file('order_sample_file')!=NULL)
+            $custom_order->order_sample_file = $this->uploadfile($request->file('order_sample_file'));
+
         $custom_order->order_completed = 0;
         $custom_order->save();
         return redirect('thankyou-custom');
@@ -90,7 +95,7 @@ class HomeController extends Controller
         $user->save();
         return Redirect::back();
     }
-    /** The function function is disposed of due to change in design */
+    /** The function is disposed of due to change in design */
     public function updatepassword(Request $request)
     {
         $this->validate($request, [
@@ -117,45 +122,128 @@ class HomeController extends Controller
             }
         }
     }
+
     /** end of the function  */
+
+
+    /** function to display the single product 
+    Route linked ==> /product/{productnameslug}/{productid}
+    */
     public function product($productnameslug, $productid)
     {
-        $product = Products::where('prod_slug',$productnameslug)->where('id',$productid)->first();
+        $product = Products::where('prod_slug',$productnameslug)->where('id',$productid)->where('is_service',false)->first();
         return view('pages.product',compact('product'));
     }
+    /** end of the function */
+
+
+    /** function to display the single service 
+    Route linked ==> /service/{productnameslug}/{productid}
+    */
+    public function service($servicenameslug, $serviceid)
+    {
+        $product = Products::where('prod_slug',$servicenameslug)->where('id',$serviceid)->where('is_service',true)->first();
+        return view('pages.service',compact('product'));
+    }
+    /** end of the function */
+
+    /** function to display the services and products of a vendor */
     public function vendor($vendorname,$id)
     {
         $vendor = Users::where('user_slug',$vendorname)->where('id',$id)->first();
         if($vendor==NULL)
             return Redirect::back();
-        if(Session::get('range')==NULL)
-            Session::put('range','high');
-        if(Session::get('range')=='high')
-        {
-            $products = Products::where('prod_vendor_id',$id)->orderBy('prod_price','DESC')->get(); 
-        }
-        else
-        {
-            $products = Products::where('prod_vendor_id',$id)->orderBy('prod_price','ASC')->get();
-        }
+        $products = Products::where('prod_vendor_id',$id)->orderBy('prod_price','DESC')->get(); 
         return view('pages.vendorproduct',compact('vendor','products'));
         
     }
+    /** end of the function  */
+
+    /** function to add product without customization to cart */
     public function addtocart($id)
     {   
         $product = Products::where('id',$id)->first();
-        $url = Products::getFileUrl($product->prod_image);
-        $vendor_name = Users::username($product->prod_vendor_id);
-        //dd(Cart::content());
-        foreach(Cart::content() as $row)
-        {
-            if($row->id == $id)
-                return Redirect::back();
-        }
+        
+            $url = Products::getFileUrl($product->prod_image);
+            $vendor_name = Users::username($product->prod_vendor_id);
+            //dd(Cart::content());
+            foreach(Cart::content() as $row)
+            {
+                if($row->id == $id)
+                    return Redirect::back();
+            }
 
-        Cart::add(['id' => $product->id, 'name' => $product->prod_name, 'qty' => 1, 'price' => $product->prod_price, 'options' => ['pic' => $url, 'vendor_name' => $vendor_name,'is_service' => $product->is_service, 'prod_slug' => $product->prod_slug ]]);
-        return Redirect::back();
+            Cart::add(['id' => $product->id, 'name' => $product->prod_name, 'qty' => 1, 'price' => $product->prod_price, 'options' => ['pic' => $url, 'vendor_name' => $vendor_name,'is_service' => $product->is_service, 'prod_slug' => $product->prod_slug ]]);
+
+        
+            return Redirect::back();     
+
+
     }
+    /** end of cart */
+
+    /** function to order a service */
+    public function orderservice($serviceid)
+    {
+        
+            if(Session::get('login')!=true)
+                return Redirect::back();
+            $service = Products::where('id',$serviceid)->first();
+            //dd($service);
+            return view('pages.serviceorder',compact('service'));    
+        
+    }
+    /** end of the function */
+
+    /** function to add the service order info */
+    public function orderserviceinfo(Request $request)
+    {
+        $this->validate($request,[
+            'name' => 'required',
+            'reference_file' => 'file',
+            ]);
+        //$service = 
+        $service_order = new Service_Order;
+        $email = Session::get('email');
+        //dd($email);
+        $user = Users::where('user_email',$email)->first();
+        $service_order->user_id = $user->id;
+        $service_order->service_id = $request->input('service_id');
+        $service_order->service_message1 =  $request->input('message1');
+        $service_order->service_name = $request->input('name');
+        if($request->file('order_sample_file')!=NULL)
+            $custom_order->order_sample_file = $this->uploadfile($request->file('order_sample_file'));
+        $service_order->service_completed = false;
+        $service_order->save();
+        return redirect('/checkout'); 
+    }
+    /** end of the function */
+
+    /** function to add the service order info */
+    public function productorder(Request $request)
+    {
+        $this->validate($request,[
+            'name' => 'required',
+            'reference_file' => 'file',
+            ]);
+        //$service = 
+        $service_order = new Product_Custom_Order;
+        $email = Session::get('email');
+        //dd($email);
+        $user = Users::where('user_email',$email)->first();
+        $service_order->user_id = $user->id;
+        $service_order->product_id = $request->input('product_id');
+        $service_order->product_message1 =  $request->input('message1');
+        $service_order->product_name = $request->input('name');
+        if($request->file('order_sample_file')!=NULL)
+            $custom_order->product_sample_file = $this->uploadfile($request->file('order_sample_file'));
+        $service_order->product_completed = false;
+        $service_order->product_customizations = $request->input('custom');
+        $service_order->save();
+        return redirect('/checkout'); 
+    }
+    /** end of the function */
+
     public function removefromcart($id)
     {
         Cart::remove($id);
@@ -174,15 +262,16 @@ class HomeController extends Controller
         }
 
         Cart::add(['id' => $product->id, 'name' => $product->prod_name, 'qty' => 1, 'price' => $product->prod_price, 'options' => ['pic' => $url, 'vendor_name' => $vendor_name,'is_service' => $product->is_service, 'prod_slug' => $product->prod_slug ]]);
-        return redirect('checkout');
+        return redirect('/cart');
     }
-    public function category($categoryname, $subcatname)
+
+    /** function to display the products of a category  */
+    public function productcategory($categoryname)
     {
         
         $catname = str_replace('-', ' ', $categoryname);
-        $subcatname = str_replace('-', ' ', $subcatname);
         //$array = array();
-        $cat = Category::where('category_name',$subcatname)->first();
+        $cat = Category::where('category_name',$catname)->first();
         
         //$array = array($cat->id);
         if($cat==NULL)
@@ -190,13 +279,71 @@ class HomeController extends Controller
 
         $id = $cat->id;
         
-        $products = Products::where('prod_categories', 'LIKE', "%$id%")->where('prod_delete',false)->where('prod_status',true)->get();
+        $products = Products::where('prod_categories', 'LIKE', "%$id%")->where('prod_delete',false)->where('prod_status',true)->where('is_service',false)->get();
         // dd("shubham");
         // dd($products);
-        $name = $subcatname;
-        return view('pages.products',compact('name','products','catname'));
+        $name = $categoryname;
+        return view('pages.productcategory',compact('name','products'));
 
     }
+    /** function end here */
+
+    /** function to display the services of a category  */
+    public function servicecategory($categoryname)
+    {
+        
+        $catname = str_replace('-', ' ', $categoryname);
+        //$array = array();
+        $cat = Category::where('category_name',$catname)->first();
+        
+        //$array = array($cat->id);
+        if($cat==NULL)
+            return Redirect::back();
+
+        $id = $cat->id;
+        
+        $products = Products::where('prod_categories', 'LIKE', "%$id%")->where('prod_delete',false)->where('prod_status',true)->where('is_service',true)->get();
+        // dd("shubham");
+        // dd($products);
+        $name = $categoryname;
+        return view('pages.servicecategory',compact('name','products'));
+
+    }
+    /** function end here */
+
+    public function productbuy_customizations(Request $request)
+    {
+        if($request->input('customizations')==NULL)
+        {
+            if($request->input('buy_now')=='true')
+            {
+                $url = '/directcheckout/' . $request->input('product_id');
+                return redirect($url);
+            }
+            elseif($request->input('add_to_cart')=='true')
+            {
+                $url = '/addtocart/' . $request->input('product_id');
+                return redirect($url);
+            }
+        }
+        else
+        {
+            $sum = 0;
+            $customs = implode(",", $request->input('customizations'));
+            foreach($request->input('customizations') as $customization)
+            {   
+                $custom = Customizations::where('id',$customization)->first();
+                $sum = $sum + $custom->customization_price;
+            }
+            $product = Products::where('id',$request->input('product_id'))->first();
+            $sum = $sum + $product->prod_price;
+            $price = $sum;
+
+
+            return view('pages.productorder',compact('customs','price','product'));
+        }
+    }
+
     public function searchterm(Request $request)
     {
         $this->validate($request, [
@@ -213,7 +360,7 @@ class HomeController extends Controller
             ->with('users')
             ->get();
             $name = $searchterm;
-        return view('pages.products',compact('products','name'));
+        return view('pages.search',compact('products','name'));
     }
     
 }

@@ -32,13 +32,17 @@
                     <div class="cart-item clearfix">
                         <div class="col-md-8 col-xs-6 cart-flex">
                             <div class="col-md-6 col-xs-12">
-                                <a href="{{ URL::to('/product')}}/{{ $row->options->prod_slug }}/{{ $row->id }}" class="item-thumb">
+                                <a href="{{ URL::to('product')}}/{{ $row->options->prod_slug }}/{{ $row->id }}" class="item-thumb">
 									<img src="{{ $row->options->pic }}" class="img-responsive" alt="{{ $row->name }}" />
 								</a>
                             </div>
                             <div class="col-md-6 col-xs-12">
                                 <p class="item-title">{{ $row->name }}</p>
-								<p class="item-des">By <strong>{{ $row->options->vendor_name }}</strong> In <strong>{{ \App\Category::get_cat(explode(",", $product->prod_categories)[0]) }}</strong></span>
+								<p class="item-des">By <strong>{{ $row->options->vendor_name }}</strong> In <strong>
+								@foreach(\App\Products::where('id',$row->id)->get() as $product)
+								{{ \App\Category::cat_name(explode(",", $product->prod_categories)[0]) }}</strong>
+								@endforeach
+								</span>
                             </div>
 							<div class="clearfix"></div>
                         </div>
@@ -71,10 +75,10 @@
 				<div class="payment_design">
 					<div class="row">
 									<div class="col-md-6 col-xs-12">
-                                        <button type="button" class="back-button"  formaction="{{ URL::to('/')}}">Continue Shopping</button>
+                                        <a type="button" class="back-button"  href="{{ URL::to('/')}}">Continue Shopping</a>
                                     </div>
 									<div class="col-md-6 col-xs-12">
-                                        <button type="button" class="btn btn-primary paypal-button"  formaction="{{ URL::to('/checkout') }}"> Checkout</button>
+                                        <a type="button" class="btn btn-primary paypal-button"  href="{{ URL::to('/checkout') }}"> Checkout</a>
                                     </div>
                     </div>
 				

@@ -27,4 +27,5 @@ class Category extends Model
         $cat = Category::where('id',$id)->first();
         return $cat->category_name;
     }
+    
 }

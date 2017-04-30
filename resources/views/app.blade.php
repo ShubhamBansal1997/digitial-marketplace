@@ -99,11 +99,20 @@
 							<a class="btn bt-primary btn-block btn-facebook facebook-login" href="{{ URL::to('redirect') }}">Sign up using <strong>Facebook</strong></a>
 							<span class="divider">OR</span>
 							<form action="{{ URL::to('register') }}" method="POST">
+								@if (count($errors) > 0)
+				                <div class="alert alert-danger alert-dismissible">
+				                    <ul>
+				                        @foreach ($errors->all() as $error)
+				                            <li>{{ $error }}</li>
+				                        @endforeach
+				                    </ul>
+				                </div>
+				                @endif
 								{{ csrf_field() }}
 								<input type="text" class="form-control" placeholder="Email Address" name="user_email">
 								<input type="text" class="form-control ts_topmargin10" placeholder="First Name" name="user_fname">
 								<input type="text" class="form-control ts_topmargin10" placeholder="Last Name" name="user_lname">
-								<input type="password" class="form-control ts_topmargin10" placeholder="Password" name="user_email">
+								<input type="password" class="form-control ts_topmargin10" placeholder="Password" name="user_pwd">
 								<button class="btn btn-primary ts_search_btn ts_topmargin10" type="submit">Get Register</button>
 							</form>
 						</div>

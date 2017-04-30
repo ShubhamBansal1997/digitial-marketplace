@@ -14,11 +14,11 @@
                 <div class="col-md-12">
 					<p>&nbsp;</p>
                     <span class="next">Home &nbsp;<img src="{{ asset('home_asset/fonts/Shape1.png')}}"/>&nbsp; 
-                    {{ $vendor->user_fname }} {{ $vendor->user_lname }}
+                    Search &nbsp;<img src="{{ asset('home_asset/fonts/Shape1.png')}}"/>&nbsp; {{ $name }}
                     </span>
                     <div class="description">
 
-                        <h1 class="prod pro-title">{{ $vendor->user_fname }} {{ $vendor->user_lname }}</h1>
+                        <h1 class="prod pro-title">{{ $name }}</h1>
                     
                     </div>
 					<div class="gap20"></div>
@@ -35,22 +35,23 @@
                                 <div class="masonry-item col-md-4 col-sm-6" style="position: relative; left: 0px; top: 0px;">
                                     <div class="blog-item">
                                         <div class="ih-item square effect13 left_to_right">
-                                            @if($product->is_service==true)
+                                            @if($product->is_service==false)
+                                            <a href="{{ URL::to('product') }}/{{ $product->prod_slug }}/{{ $product->id }}">
+                                            @else
                                             <a href="{{ URL::to('service') }}/{{ $product->prod_slug }}/{{ $product->id }}">
-											@else
-											<a href="{{ URL::to('product') }}/{{ $product->prod_slug }}/{{ $product->id }}">
-											@endif
+                                            @endif
                                               <div class="img">
                                                 <img src="{{ \App\Products::getFileUrl($product->prod_image) }}" alt="{{ $product->prod_image_alt }}">
                                               </div>
                                               <div class="info">
                             					  <div class="col-md-6 col-xs-6"><span class="off1">
-												  @if($product->is_service==true)
-                            					  <a href="{{ URL::to('service') }}/{{ $product->prod_slug }}/{{ $product->id }}">View</a>
-                            					  @else
-												  <a href="{{ URL::to('product') }}/{{ $product->prod_slug }}/{{ $product->id }}">View</a>
-												  @endif
-                            					  </span></div>
+                                                  @if($product->is_service==false)
+                                                  <a href="{{ URL::to('product') }}/{{ $product->prod_slug }}/{{ $product->id }}">View</a>
+                                                  @else
+                                                  <a href="{{ URL::to('service') }}/{{ $product->prod_slug }}/{{ $product->id }}">View</a>
+                                                  @endif
+
+                                                  </span></div>
                                                     <div class="col-md-6 col-xs-6"><span class="off2">
                                                     @if($product->is_service==true)
                                                     <a href="{{ URL::to('serviceorder') }}/{{ $product->id }}">Buy Now</a>
@@ -68,7 +69,11 @@
                                                     <li>
                                                         <span>{{ $product->prod_name }}</span>
                                                         @foreach(\App\Users::where('id',$product->prod_vendor_id)->get() as $user)
-                                                        <span><a href="{{ URL::to('vendor')}}/{{ $user->user_slug }}/{{ $user->id }}">By <strong>{{ \App\Users::username($product->prod_vendor_id) }}</strong> in <strong> {{ \App\Category::cat_name(explode(",", $product->prod_categories)[0]) }}</strong></a></span>
+                                                        <span>
+
+                                                        <a href="{{ URL::to('vendor')}}/{{ $user->user_slug }}/{{ $user->id }}">By <strong>{{ \App\Users::username($product->prod_vendor_id) }}</strong> in <strong> {{ \App\Category::cat_name(explode(",", $product->prod_categories)[0]) }}</strong></a>
+
+                                                        </span>
                                                         @endforeach
                                                     </li>
                                                 </ul>
