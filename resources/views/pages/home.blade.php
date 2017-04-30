@@ -177,7 +177,7 @@
     </section>
     
 	<!-- SECTION [Services] -->
-	<section>
+    <section>
         <div class="container">
             <div class="pt-12 pb-8">
 
@@ -185,78 +185,185 @@
                     <div class="col-sm-12">
                         <div class="masonry noo-blog home-masonry">
                             <div class="row masonry-container" style="">
-                                
-                                @foreach(\App\Products::where('prod_status',true)->where('prod_delete',false)->where('prod_featured',true)->where('is_service',true)->take(3)->get() as $service)
+                                @foreach(\App\Banners::bdet('Homepage-Banner-1') as $banner)
                                 <div class="masonry-item col-md-4 col-sm-6" style="position: relative; left: 0px; top: 0px;">
                                     <div class="blog-item">
-                                        <a class="blog-thumbnail" href="{{ URL::to('service') }}/{{ $service->prod_slug }}/{{ $service->id }}">
-                                            <img width="400" height="440" src="{{ \App\Products::getFileUrl($service->prod_image) }}" alt="{{ $service->prod_image_alt }}">
-                                        </a>
-										<div class="blog-description row">
-                                        <div class="col-md-8">
-                                            <ul class="details">
-                                                <li>
-
-                                                    <span>{{ $service->prod_name }}</span>
-                                                    @foreach(\App\Users::where('id',$service->prod_vendor_id)->get() as $user)
-                                                    <span><a href="{{ URL::to('vendor')}}/{{ $user->user_slug }}/{{ $user->id }}">By <strong>{{ \App\Users::username($service->prod_vendor_id) }}</strong> in <strong> {{ \App\Category::cat_name(explode(",", $service->prod_categories)[0]) }}</strong></a></span>
-                                                    @endforeach
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <div class="col-md-4">
-                                           <a class="btn btn-primary view-more" href="{{ URL::to('services') }}">View All</a>
-                                        </div>
-										</div>
-                                    </div>
-                                </div>
-                                @endforeach
-
-                            </div>
-                        </div>
-                    </div>
-					<div class="clearfix"></div>
-					
-					<div class="col-sm-12">
-                        <div class="masonry noo-blog home-masonry">
-                            <div class="row masonry-container" style="position: relative;">
-                                
-                                @foreach(\App\Products::where('prod_status',true)->where('prod_delete',false)->where('prod_featured',true)->where('is_service',true)->take(4)->get() as $i => $service)
-                                @if($i>2)
-                                <div class="masonry-item col-md-3 col-sm-6" style="position: relative; left: 0px; top: 0px;">
-                                    <div class="blog-item">
-                                        <a class="blog-thumbnail" href="{{ URL::to('service') }}/{{ $service->prod_slug }}/{{ $service->id }}">
-                                            <img width="400" height="440" src="{{ \App\Products::getFileUrl($service->prod_image) }}" alt="{{ $service->prod_image_alt }}">
+                                        <a class="blog-thumbnail" href="{{ $banner->banner_url }}">
+                                            <img width="400" height="440" src="{{ \App\Banners::getFileUrl($banner->banner_image) }}" alt="{{ $banner->banner_alt }}">
                                         </a>
                                         <div class="blog-description row">
                                         <div class="col-md-8">
                                             <ul class="details">
                                                 <li>
 
-                                                    <span>{{ $service->prod_name }}</span>
-                                                    @foreach(\App\Users::where('id',$service->prod_vendor_id)->get() as $user)
-                                                    <span><a href="{{ URL::to('vendor')}}/{{ $user->user_slug }}/{{ $user->id }}">By <strong>{{ \App\Users::username($service->prod_vendor_id) }}</strong> in <strong> {{ \App\Category::cat_name(explode(",", $service->prod_categories)[0]) }}</strong></a></span>
-                                                    @endforeach
+                                                    <span>Delish Pro</span>
+                                                    <span><a>By <strong>Egor </strong> in <strong> Facebook</strong></a></span>
                                                 </li>
                                             </ul>
                                         </div>
                                         <div class="col-md-4">
-                                           <a class="btn btn-primary view-more" href="{{ URL::to('services') }}">View All</a>
+                                           <a class="btn btn-primary view-more" href="{{ $banner->banner_url }}">View All</a>
                                         </div>
                                         </div>
                                     </div>
                                 </div>
-                                @endif
+                               @endforeach
+                               @foreach(\App\Banners::bdet('Homepage-Banner-2') as $banner)
+                               <div class="masonry-item col-md-4 col-sm-6" style="position: relative; left: 0px; top: 0px;">
+                                    <div class="blog-item">
+                                        <a class="blog-thumbnail" href="{{ $banner->banner_url }}">
+                                            <img width="400" height="440" src="{{ \App\Banners::getFileUrl($banner->banner_image) }}" alt="{{ $banner->banner_alt }}">
+                                        </a>
+                                        <div class="blog-description row">
+                                        <div class="col-md-8">
+                                            <ul class="details">
+                                                <li>
+
+                                                    <span>Delish Pro</span>
+                                                    <span><a>By <strong>Egor </strong> in <strong> Facebook</strong></a></span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <a class="btn btn-primary view-more" href="{{ $banner->banner_url }}">View All</a>
+                                        </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                @endforeach
+                                @foreach(\App\Banners::bdet('Homepage-Banner-3') as $banner)
+                                <div class="masonry-item col-md-4 col-sm-6" style="position: relative; left: 0px; top: 0px;">
+                                    <div class="blog-item">
+                                        <a class="blog-thumbnail" href="{{ $banner->banner_url }}">
+                                            <img width="400" height="440" src="{{ \App\Banners::getFileUrl($banner->banner_image) }}" alt="{{ $banner->banner_alt }}">
+                                        </a>
+                                        <div class="blog-description row">
+                                        <div class="col-md-8">
+                                            <ul class="details">
+                                                <li>
+
+                                                    <span>Delish Pro</span>
+                                                    <span><a>By <strong>Egor </strong> in <strong> Facebook</strong></a></span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <a class="btn btn-primary view-more" href="{{ $banner->banner_url }}">View All</a>
+                                        </div>
+                                        </div>
+                                    </div>
+                                </div>
                                 @endforeach
                             </div>
                         </div>
-						<div class="gap60"></div>
+                    </div>
+                    <div class="clearfix"></div>
+                    
+                    <div class="col-sm-12">
+                        <div class="masonry noo-blog home-masonry">
+                            <div class="row masonry-container" style="position: relative;">
+                                @foreach(\App\Banners::bdet('Homepage-Banner-4') as $banner)
+                                <div class="masonry-item col-md-3 col-sm-6" style="position: relative; left: 0px; top: 0px;">
+                                    <div class="blog-item">
+                                        <a class="blog-thumbnail" href="{{ $banner->banner_url }}">
+                                            <img width="400" height="440" src="{{ \App\Banners::getFileUrl($banner->banner_image) }}" alt="{{ $banner->banner_alt }}">
+                                        </a>
+                                        <div class="blog-description row">
+                                        <div class="col-md-6">
+                                            <ul class="details">
+                                                <li>
+
+                                                    <span>Delish Pro</span>
+                                                    <span><a>Starting at $20</a></span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-md-6 text-right">
+                                            <a class="btn btn-primary view-more" href="{{ $banner->banner_url }}">View All</a>
+                                        </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                @endforeach
+                                @foreach(\App\Banners::bdet('Homepage-Banner-4') as $banner)
+                                <div class="masonry-item col-md-3 col-sm-6" style="position: relative; left: 0px; top: 0px;">
+                                    <div class="blog-item">
+                                        <a class="blog-thumbnail" href="{{ $banner->banner_url }}">
+                                            <img width="400" height="440" src="{{ \App\Banners::getFileUrl($banner->banner_image) }}" alt="{{ $banner->banner_alt }}">
+                                        </a>
+                                        <div class="blog-description row">
+                                        <div class="col-md-6">
+                                            <ul class="details">
+                                                <li>
+
+                                                    <span>Delish Pro</span>
+                                                    <span><a>Starting at $20</a></span>
+                                                    </li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-md-6  text-right">
+                                            <a class="btn btn-primary view-more" href="{{ $banner->banner_url }}">View All</a>
+                                        </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                @endforeach
+                                @foreach(\App\Banners::bdet('Homepage-Banner-4') as $banner)
+                               <div class="masonry-item col-md-3 col-sm-6" style="position: relative; left: 0px; top: 0px;">
+                                    <div class="blog-item">
+                                        <a class="blog-thumbnail" href="{{ $banner->banner_url }}">
+                                            <img width="400" height="440" src="{{ \App\Banners::getFileUrl($banner->banner_image) }}" alt="{{ $banner->banner_alt }}">
+                                        </a>
+                                        <div class="blog-description row">
+                                        <div class="col-md-6">
+                                            <ul class="details">
+                                                <li>
+
+                                                    <span>Delish Pro</span>
+                                                    <span><a>Starting at $20</a></span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-md-6  text-right">
+                                            <a class="btn btn-primary view-more" href="{{ $banner->banner_url }}">View All</a>
+                                        </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                @endforeach
+                                @foreach(\App\Banners::bdet('Homepage-Banner-4') as $banner)
+                                <div class="masonry-item col-md-3 col-sm-6" style="position: relative; left: 0px; top: 0px;">
+                                    <div class="blog-item">
+                                        <a class="blog-thumbnail" href="{{ $banner->banner_url }}">
+                                            <img width="400" height="440" src="{{ \App\Banners::getFileUrl($banner->banner_image) }}" alt="{{ $banner->banner_alt }}">
+                                        </a>
+                                        <div class="blog-description row">
+                                        <div class="col-md-6">
+                                            <ul class="details">
+                                                <li>
+
+                                                    <span>Delish Pro</span>
+                                                    <span><a>Starting at $20</a></span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-md-6  text-right">
+                                            <a class="btn btn-primary view-more" href="{{ $banner->banner_url }}">View All</a>
+                                        </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                @endforeach
+                            </div>
+                        </div>
+                        <div class="gap60"></div>
                     </div>
                 </div>
 
-			</div>
-		</div>
-	</section>
+            </div>
+        </div>
+    </section>
+
 	
 	<!-- SECTION [Reviews]  -->
 	<section class="broun-block reviews hidden-xs">

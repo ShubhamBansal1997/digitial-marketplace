@@ -269,11 +269,8 @@
                       
 						@foreach(\App\Users::where('user_email', Session::get('email'))->get() as $user)
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-						@if($user->user_profile_image!=NULL)
-						<figure class="avatar"><img src="{{ \App\Users::profile_image($user->user_profile_image)}}"/></figure>
-						@else
 						<figure class="avatar"><img src="{{ asset('home_asset/fonts/avatar.jpg')}}"/></figure>
-						@endif
+						
 
 						{{ $user->user_fname }} 
 						

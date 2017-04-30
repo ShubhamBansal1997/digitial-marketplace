@@ -240,7 +240,7 @@
 						<div class="row">
 							<div class="col-md-6">
 								<div class="img-pad-margin">
-									<img src="img/padlock-2.png">
+									<img src="{{ asset('home_asset/img/padlock-2.png')}}">
 									<h4 class="title">Your Information is Sale</h4>
 									<p class="des">We will not sale or rent your personal contact
 										<br>  information for any marketing purposes
@@ -249,7 +249,7 @@
 							</div>
 							<div class="col-md-6">
 								<div class="img-pad-margin">
-									<img src="img/shield.png">
+									<img src="{{ asset('home_asset/img/shield.png')}}">
 									<h4 class="title">Secure Checkout</h4>
 									<p class="des">All information is encrypted and transmitted
 										<br> without risk using a Secure Socket Layer
@@ -268,7 +268,7 @@
 @endsection
 
 @section('script')
-<script type="text/javascript" src="{{ asset('home_asset/js/custom-file.js') }}"></script>
+<script type="text/javascript" src="{{ asset('home_asset/js/custom-file-input.js') }}"></script>
 <script type="text/javascript" src="{{ asset('home_asset/js/classie.js')}}"></script>
 <script type="text/javascript" src="{{ asset('home_asset/js/selectFx.js')}}"></script>
 <script type="text/javascript">

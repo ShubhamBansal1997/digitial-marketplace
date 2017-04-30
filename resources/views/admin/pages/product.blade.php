@@ -59,7 +59,7 @@
                   @endif
                   </a>
                   </td>
-                  <td> \App\Payments::where('payment_prod_id',$product->id)->where('payment_status',true)->count() </td>
+                  <td> {{ \App\Payments::where('payment_prod_id',$product->id)->where('payment_status',true)->count() }} </td>
                   <td><a href="{{ URL::to('admin/activeinactivefeaturedproduct')}}/{{ $prod->id }}">
                   @if($prod->prod_featured==TRUE)
                     <small class="label label-success">Yes</small>
