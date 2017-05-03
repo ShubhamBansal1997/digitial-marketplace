@@ -254,4 +254,3 @@ Route::group(['middleware' => ['web']], function () {
 Route::get('testing-123','PaypalController@getCheckout');
 
 
-Route::get('/testing12345','HomeController@search');
