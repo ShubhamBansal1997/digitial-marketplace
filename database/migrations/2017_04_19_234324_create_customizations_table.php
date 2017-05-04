@@ -17,8 +17,8 @@ class CreateCustomizationsTable extends Migration
             $table->increments('id');
             $table->string('customization_name');
             $table->integer('customization_price');
-            $table->boolean('customizations_active')->default(1);
-            $table->boolean('customizations_delete')->default(0);
+            $table->boolean('customization_active')->default(1);
+            $table->boolean('customization_delete')->default(0);
             $table->timestamps();
         });
     }
