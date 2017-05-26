@@ -63,7 +63,12 @@ class ProductController extends Controller
         $category->category_active = FALSE;
         $category->category_delete = TRUE;
         $category->save();
-        return Redirect::back();
+        $msg = array(
+                  'status' => 'success',
+                  'msg' => 'Category Deleted successfully',
+              );
+        return response()->json($msg,200);;
+
     }
     public function activeinactivecategory($id)
     {
@@ -74,7 +79,11 @@ class ProductController extends Controller
         else
             $category->category_active=FALSE;
         $category->save();
-        return Redirect::back();
+        $msg = array(
+                  'status' => 'success',
+                  'msg' => 'Active status changed successfully',
+              );
+        return response()->json($msg,200);;
     }
     public function uploadfile($file)
     {
@@ -213,7 +222,11 @@ class ProductController extends Controller
         $product->prod_status = FALSE;
         $product->prod_delete = TRUE;
         $product->save();
-        return Redirect::back();
+        $msg = array(
+                  'status' => 'success',
+                  'msg' => 'Product deleted successfully',
+              );
+        return response()->json($msg,200);
     }
     public function activeinactiveproduct($id)
     {
@@ -224,7 +237,12 @@ class ProductController extends Controller
         else
             $product->prod_status=FALSE;
         $product->save();
-        return Redirect::back();
+
+        $msg = array(
+                  'status' => 'success',
+                  'msg' => 'Active status changes successfully',
+              );
+        return response()->json($msg,200);
     }
     public function activeinactivefeaturedproduct($id)
     {
@@ -235,7 +253,11 @@ class ProductController extends Controller
         else
             $product->prod_featured=FALSE;
         $product->save();
-        return Redirect::back();
+        $msg = array(
+                  'status' => 'success',
+                  'msg' => 'Featured status changes successfully',
+              );
+        return response()->json($msg,200);;
     }
     public function addeditcustomization(Request $request)
     {

@@ -37,11 +37,11 @@
                   <th>Created date</th>
                   <th>Last Update</th>
                   <th>Action</th>
-                  
+
                 </tr>
                 </thead>
                 <tbody>
-                
+
                 @foreach(\App\Products::where('prod_delete',FALSE)->where('is_service',true)->get() as $i => $prod)
                 <tr>
                   <td>{{ ++$i }}</td>
@@ -49,35 +49,30 @@
                   </td>
                   <td>{{ \App\Users::username($prod->prod_vendor_id) }}</td>
                   <td>
-                  <a href="{{ URL::to('admin/activeinactiveproduct')}}/{{ $prod->id }}">
                   @if($prod->prod_status==TRUE)
-                    <small class="label label-success">ACTIVE</small>
+                    <small id="activeinactivestatus" data-id="{{ $prod->id }}" class="label label-success">ACTIVE</small>
                   @else
-                  
-                    <small class="label label-danger">INACTIVE</small>
-                  
+
+                    <small id="activeinactivestatus" data-id="{{ $prod->id }}" class="label label-danger">INACTIVE</small>
+
                   @endif
-                  </a>
                   </td>
                   <td>{{ \App\Payments::where('payment_prod_id',$prod->id)->where('payment_status',true)->count() }}</td>
-                  <td><a href="{{ URL::to('admin/activeinactivefeaturedproduct')}}/{{ $prod->id }}">
+                  <td>
                   @if($prod->prod_featured==TRUE)
-                    <small class="label label-success">Yes</small>
+                    <small id="featurednonfeaturedstatus" class="label label-success" data-id="{{ $prod->id }}" >Yes</small>
                   @else
-                  
-                    <small class="label label-danger">No</small>
-                  
+                    <small id="featurednonfeaturedstatus" class="label label-danger" data-id="{{ $prod->id }}">No</small>
                   @endif
-                  </a>
                   </td>
                   <td>{{ $prod->created_at }}</td>
                   <td>{{ $prod->updated_at }}</td>
-                  <td> 
-                  <a href="{{ URL::to('admin/addeditproduct')}}/{{ $prod->id }}"><i class="fa fa-fw fa-edit"></i>
-                  <a href="{{ URL::to('admin/deleteproduct')}}/{{ $prod->id }}"><i class="fa fa-fw fa-remove"></i></a>
+                  <td>
+                  <a href="{{ URL::to('admin/addeditproduct')}}/{{ $prod->id }}"><i class="fa fa-fw fa-edit"></i></a>
+                  <i id="deleteproduct" data-id="{{ $prod->id }}" class="fa fa-fw fa-remove"></i>
                   <a href="{{ URL::to('product') }}/{{$prod->prod_slug}}/{{$prod->id}}" ><i class="fa fa-fw fa-eye"></i></a>
                   <a href="{{ \App\Products::getFileUrl($prod->prod_file) }}"><i class="fa fa-fw  fa-cloud-download"></i></a></td>
-                  
+
                 </tr>
                 @endforeach
                 </tbody>
@@ -87,7 +82,7 @@
           </div>
           <!-- /.box -->
 
-          
+
         </div>
         <!-- /.col -->
       </div>
@@ -96,4 +91,103 @@
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
+@endsection
+
+@section('script')
+<script type="text/javascript">
+  $(function(){
+  //upload to knowledge center
+  $('small#activeinactivestatus').click(function(e){
+    e.preventDefault();
+    var arg = $(this).attr("data-id");
+    var classname = $(this).attr("class");
+    //arg = arg+'&sessionid='+SSID;
+    $.ajax({
+      url: '{{ URL::to('admin/activeinactiveproduct/')}}'+'/'+arg,
+      data: null,
+      type: "GET",
+      headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+      },
+      context: this,
+      success: function(responce){
+        if(classname==='label label-success')
+        {
+          $(this).removeClass('label label-success').addClass('label label-danger').text('INACTIVE');
+          $.notify("Inactive","error");
+        }
+        else{
+          $(this).removeClass('label label-danger').addClass('label label-success').text('ACTIVE');
+          $.notify("Active","success");
+        }
+      }
+    });
+
+    return false;
+  });
+
+
+});
+  $(document).ready(function(){
+    //upload to knowledge center
+    $('#example2').on('click','#featurednonfeaturedstatus',function(e){
+      e.preventDefault();
+      var arg = $(this).attr("data-id");
+      var classname = $(this).attr("class");
+      //arg = arg+'&sessionid='+SSID;
+      $.ajax({
+        url: '{{ URL::to('admin/activeinactivefeaturedproduct')}}'+'/'+arg,
+        data: null,
+        type: "GET",
+        headers: {
+          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+        context: this,
+        headers: {
+          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+        success: function(responce){
+          if(classname==='label label-success')
+           $(this).removeClass('label label-success').addClass('label label-danger').text('NO');
+          else
+           $(this).removeClass('label label-danger').addClass('label label-success').text('YES');
+        }
+      });
+
+      return false;
+    });
+
+
+
+    //upload to knowledge center
+    $('#example2').on('click','#deleteproduct',function(e){
+      e.preventDefault();
+      var arg = $(this).attr("data-id");
+      var classname = $(this).attr("class");
+      var parent = $(this).parent();
+      //arg = arg+'&sessionid='+SSID;
+      $.ajax({
+        url: '{{ URL::to('admin/deleteproduct')}}'+'/'+arg,
+        data: null,
+        type: "GET",
+        headers: {
+         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+        context: this,
+        headers: {
+          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+        success: function(responce){
+          parent.slideUp(300, function () {
+            parent.closest("tr").remove();
+          });
+        }
+      });
+
+      return false;
+    });
+
+
+  });
+</script>
 @endsection

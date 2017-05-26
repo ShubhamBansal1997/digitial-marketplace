@@ -1,0 +1,675 @@
+# Logfile created on 2017-04-21 14:03:00 +0530 by logger.rb/47272
+  INFO ---------------------------------------------------------------------------
+  INFO START 2017-04-21 14:03:00 +0530 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [dc177f48] Running /usr/bin/env mkdir -p /tmp as ubuntu@184.72.109.212
+ DEBUG [dc177f48] Command: /usr/bin/env mkdir -p /tmp
+  INFO [dc177f48] Finished in 4.500 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-Designminister-production-shubhambansal.sh 0.0%
+  INFO Uploading /tmp/git-ssh-Designminister-production-shubhambansal.sh 100.0%
+  INFO [6b126ec0] Running /usr/bin/env chmod 700 /tmp/git-ssh-Designminister-production-shubhambansal.sh as ubuntu@184.72.109.212
+ DEBUG [6b126ec0] Command: /usr/bin/env chmod 700 /tmp/git-ssh-Designminister-production-shubhambansal.sh
+  INFO [6b126ec0] Finished in 0.715 seconds with exit status 0 (successful).
+  INFO [0498a2f0] Running /usr/bin/env git ls-remote git@bitbucket.org:ShubhamBansal/designminister.git HEAD as ubuntu@184.72.109.212
+ DEBUG [0498a2f0] Command: ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-Designminister-production-shubhambansal.sh" ; /usr/bin/env git ls-remote git@bitbucket.org:ShubhamBansal/designminister.git HEAD )
+ DEBUG [0498a2f0] 	Warning: Permanently added 'bitbucket.org,104.192.143.3' (RSA) to the list of known hosts.
+ DEBUG [0498a2f0] 	Permission denied (publickey).
+ DEBUG [0498a2f0] 	fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+  INFO ---------------------------------------------------------------------------
+  INFO START 2017-04-21 14:07:53 +0530 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [cdf34480] Running /usr/bin/env mkdir -p /tmp as ubuntu@184.72.109.212
+ DEBUG [cdf34480] Command: /usr/bin/env mkdir -p /tmp
+  INFO [cdf34480] Finished in 4.849 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-Designminister-production-shubhambansal.sh 0.0%
+  INFO Uploading /tmp/git-ssh-Designminister-production-shubhambansal.sh 100.0%
+  INFO [ce946b35] Running /usr/bin/env chmod 700 /tmp/git-ssh-Designminister-production-shubhambansal.sh as ubuntu@184.72.109.212
+ DEBUG [ce946b35] Command: /usr/bin/env chmod 700 /tmp/git-ssh-Designminister-production-shubhambansal.sh
+  INFO [ce946b35] Finished in 0.785 seconds with exit status 0 (successful).
+  INFO [c5bab9c2] Running /usr/bin/env git ls-remote git@bitbucket.org:ShubhamBansal/designminister.git HEAD as ubuntu@184.72.109.212
+ DEBUG [c5bab9c2] Command: ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-Designminister-production-shubhambansal.sh" ; /usr/bin/env git ls-remote git@bitbucket.org:ShubhamBansal/designminister.git HEAD )
+ DEBUG [c5bab9c2] 	Warning: Permanently added the RSA host key for IP address '104.192.143.1' to the list of known hosts.
+ DEBUG [c5bab9c2] 	0867214e38a409a9da2e82e7ea32678048afa458	HEAD
+  INFO [c5bab9c2] Finished in 3.383 seconds with exit status 0 (successful).
+  INFO [8a298ffb] Running /usr/bin/env mkdir -p /var/www/designminister/shared /var/www/designminister/releases as ubuntu@184.72.109.212
+ DEBUG [8a298ffb] Command: /usr/bin/env mkdir -p /var/www/designminister/shared /var/www/designminister/releases
+ DEBUG [8a298ffb] 	mkdir: 
+ DEBUG [8a298ffb] 	cannot create directory ‘/var/www/designminister/shared’
+ DEBUG [8a298ffb] 	: Permission denied
+ DEBUG [8a298ffb] 	
+ DEBUG [8a298ffb] 	mkdir: 
+ DEBUG [8a298ffb] 	cannot create directory ‘/var/www/designminister/releases’
+ DEBUG [8a298ffb] 	: Permission denied
+ DEBUG [8a298ffb] 	
+  INFO ---------------------------------------------------------------------------
+  INFO START 2017-04-21 14:17:37 +0530 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [a674e782] Running /usr/bin/env mkdir -p /tmp as ubuntu@184.72.109.212
+ DEBUG [a674e782] Command: /usr/bin/env mkdir -p /tmp
+  INFO [a674e782] Finished in 4.763 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-Designminister-production-shubhambansal.sh 0.0%
+  INFO Uploading /tmp/git-ssh-Designminister-production-shubhambansal.sh 100.0%
+  INFO [905fcbfc] Running /usr/bin/env chmod 700 /tmp/git-ssh-Designminister-production-shubhambansal.sh as ubuntu@184.72.109.212
+ DEBUG [905fcbfc] Command: /usr/bin/env chmod 700 /tmp/git-ssh-Designminister-production-shubhambansal.sh
+  INFO [905fcbfc] Finished in 0.839 seconds with exit status 0 (successful).
+  INFO [6a516f85] Running /usr/bin/env git ls-remote git@bitbucket.org:ShubhamBansal/designminister.git HEAD as ubuntu@184.72.109.212
+ DEBUG [6a516f85] Command: ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-Designminister-production-shubhambansal.sh" ; /usr/bin/env git ls-remote git@bitbucket.org:ShubhamBansal/designminister.git HEAD )
+ DEBUG [6a516f85] 	Warning: Permanently added the RSA host key for IP address '104.192.143.2' to the list of known hosts.
+ DEBUG [6a516f85] 	0867214e38a409a9da2e82e7ea32678048afa458	HEAD
+  INFO [6a516f85] Finished in 0.889 seconds with exit status 0 (successful).
+  INFO [59c4273d] Running /usr/bin/env mkdir -p /var/www/designminister/shared /var/www/designminister/releases as ubuntu@184.72.109.212
+ DEBUG [59c4273d] Command: /usr/bin/env mkdir -p /var/www/designminister/shared /var/www/designminister/releases
+ DEBUG [59c4273d] 	mkdir: 
+ DEBUG [59c4273d] 	cannot create directory ‘/var/www/designminister/shared’
+ DEBUG [59c4273d] 	: Permission denied
+ DEBUG [59c4273d] 	
+ DEBUG [59c4273d] 	mkdir: 
+ DEBUG [59c4273d] 	cannot create directory ‘/var/www/designminister/releases’
+ DEBUG [59c4273d] 	: Permission denied
+ DEBUG [59c4273d] 	
+  INFO ---------------------------------------------------------------------------
+  INFO START 2017-04-21 14:52:15 +0530 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [a1a04971] Running /usr/bin/env mkdir -p /tmp as ubuntu@184.72.109.212
+ DEBUG [a1a04971] Command: /usr/bin/env mkdir -p /tmp
+  INFO [a1a04971] Finished in 12.706 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-Designminister-production-shubhambansal.sh 0.0%
+  INFO Uploading /tmp/git-ssh-Designminister-production-shubhambansal.sh 100.0%
+  INFO [a2c544cc] Running /usr/bin/env chmod 700 /tmp/git-ssh-Designminister-production-shubhambansal.sh as ubuntu@184.72.109.212
+ DEBUG [a2c544cc] Command: /usr/bin/env chmod 700 /tmp/git-ssh-Designminister-production-shubhambansal.sh
+  INFO [a2c544cc] Finished in 5.831 seconds with exit status 0 (successful).
+  INFO [1b3d6167] Running /usr/bin/env git ls-remote git@bitbucket.org:ShubhamBansal/designminister.git HEAD as ubuntu@184.72.109.212
+ DEBUG [1b3d6167] Command: ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-Designminister-production-shubhambansal.sh" ; /usr/bin/env git ls-remote git@bitbucket.org:ShubhamBansal/designminister.git HEAD )
+ DEBUG [1b3d6167] 	0867214e38a409a9da2e82e7ea32678048afa458	HEAD
+  INFO [1b3d6167] Finished in 3.015 seconds with exit status 0 (successful).
+  INFO [598412fa] Running /usr/bin/env mkdir -p /var/www/designminister/shared /var/www/designminister/releases as ubuntu@184.72.109.212
+ DEBUG [598412fa] Command: /usr/bin/env mkdir -p /var/www/designminister/shared /var/www/designminister/releases
+ DEBUG [598412fa] 	mkdir: 
+ DEBUG [598412fa] 	cannot create directory ‘/var/www/designminister/shared’
+ DEBUG [598412fa] 	: Permission denied
+ DEBUG [598412fa] 	
+ DEBUG [598412fa] 	mkdir: 
+ DEBUG [598412fa] 	cannot create directory ‘/var/www/designminister/releases’
+ DEBUG [598412fa] 	: Permission denied
+ DEBUG [598412fa] 	
+  INFO ---------------------------------------------------------------------------
+  INFO START 2017-04-21 15:02:10 +0530 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [a9737213] Running /usr/bin/env mkdir -p /tmp as ubuntu@184.72.109.212
+ DEBUG [a9737213] Command: /usr/bin/env mkdir -p /tmp
+  INFO [a9737213] Finished in 4.124 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-Designminister-production-shubhambansal.sh 0.0%
+  INFO Uploading /tmp/git-ssh-Designminister-production-shubhambansal.sh 100.0%
+  INFO [b3ed4c94] Running /usr/bin/env chmod 700 /tmp/git-ssh-Designminister-production-shubhambansal.sh as ubuntu@184.72.109.212
+ DEBUG [b3ed4c94] Command: /usr/bin/env chmod 700 /tmp/git-ssh-Designminister-production-shubhambansal.sh
+  INFO [b3ed4c94] Finished in 0.769 seconds with exit status 0 (successful).
+  INFO [d3d4799b] Running /usr/bin/env git ls-remote git@bitbucket.org:ShubhamBansal/designminister.git HEAD as ubuntu@184.72.109.212
+ DEBUG [d3d4799b] Command: ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-Designminister-production-shubhambansal.sh" ; /usr/bin/env git ls-remote git@bitbucket.org:ShubhamBansal/designminister.git HEAD )
+ DEBUG [d3d4799b] 	0867214e38a409a9da2e82e7ea32678048afa458	HEAD
+  INFO [d3d4799b] Finished in 0.903 seconds with exit status 0 (successful).
+  INFO [0c391783] Running /usr/bin/env mkdir -p /var/www/designminister/shared /var/www/designminister/releases as ubuntu@184.72.109.212
+ DEBUG [0c391783] Command: /usr/bin/env mkdir -p /var/www/designminister/shared /var/www/designminister/releases
+ DEBUG [0c391783] 	mkdir: 
+ DEBUG [0c391783] 	cannot create directory ‘/var/www/designminister/shared’
+ DEBUG [0c391783] 	: Permission denied
+ DEBUG [0c391783] 	
+ DEBUG [0c391783] 	mkdir: 
+ DEBUG [0c391783] 	cannot create directory ‘/var/www/designminister/releases’
+ DEBUG [0c391783] 	: Permission denied
+ DEBUG [0c391783] 	
+  INFO ---------------------------------------------------------------------------
+  INFO START 2017-04-21 15:06:43 +0530 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [c2fd4964] Running /usr/bin/env mkdir -p /tmp as ubuntu@184.72.109.212
+ DEBUG [c2fd4964] Command: /usr/bin/env mkdir -p /tmp
+  INFO [c2fd4964] Finished in 4.060 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-Designminister-production-shubhambansal.sh 0.0%
+  INFO Uploading /tmp/git-ssh-Designminister-production-shubhambansal.sh 100.0%
+  INFO [1c9ff97a] Running /usr/bin/env chmod 700 /tmp/git-ssh-Designminister-production-shubhambansal.sh as ubuntu@184.72.109.212
+ DEBUG [1c9ff97a] Command: /usr/bin/env chmod 700 /tmp/git-ssh-Designminister-production-shubhambansal.sh
+  INFO [1c9ff97a] Finished in 0.808 seconds with exit status 0 (successful).
+  INFO [8ded0b16] Running /usr/bin/env git ls-remote git@bitbucket.org:ShubhamBansal/designminister.git HEAD as ubuntu@184.72.109.212
+ DEBUG [8ded0b16] Command: ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-Designminister-production-shubhambansal.sh" ; /usr/bin/env git ls-remote git@bitbucket.org:ShubhamBansal/designminister.git HEAD )
+ DEBUG [8ded0b16] 	0867214e38a409a9da2e82e7ea32678048afa458	HEAD
+  INFO [8ded0b16] Finished in 0.846 seconds with exit status 0 (successful).
+  INFO [a1f1befc] Running /usr/bin/env mkdir -p /var/www/designminister/shared /var/www/designminister/releases as ubuntu@184.72.109.212
+ DEBUG [a1f1befc] Command: /usr/bin/env mkdir -p /var/www/designminister/shared /var/www/designminister/releases
+ DEBUG [a1f1befc] 	mkdir: 
+ DEBUG [a1f1befc] 	cannot create directory ‘/var/www/designminister/shared’
+ DEBUG [a1f1befc] 	: Permission denied
+ DEBUG [a1f1befc] 	
+ DEBUG [a1f1befc] 	mkdir: 
+ DEBUG [a1f1befc] 	cannot create directory ‘/var/www/designminister/releases’
+ DEBUG [a1f1befc] 	: Permission denied
+ DEBUG [a1f1befc] 	
+  INFO ---------------------------------------------------------------------------
+  INFO START 2017-04-21 15:28:59 +0530 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [2d6283de] Running /usr/bin/env mkdir -p /tmp as ubuntu@184.72.109.212
+ DEBUG [2d6283de] Command: /usr/bin/env mkdir -p /tmp
+  INFO [2d6283de] Finished in 7.608 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-Designminister-production-shubhambansal.sh 0.0%
+  INFO Uploading /tmp/git-ssh-Designminister-production-shubhambansal.sh 100.0%
+  INFO [7a59da04] Running /usr/bin/env chmod 700 /tmp/git-ssh-Designminister-production-shubhambansal.sh as ubuntu@184.72.109.212
+ DEBUG [7a59da04] Command: /usr/bin/env chmod 700 /tmp/git-ssh-Designminister-production-shubhambansal.sh
+  INFO [7a59da04] Finished in 0.741 seconds with exit status 0 (successful).
+  INFO [c0bc6be1] Running /usr/bin/env git ls-remote git@bitbucket.org:ShubhamBansal/designminister.git HEAD as ubuntu@184.72.109.212
+ DEBUG [c0bc6be1] Command: ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-Designminister-production-shubhambansal.sh" ; /usr/bin/env git ls-remote git@bitbucket.org:ShubhamBansal/designminister.git HEAD )
+ DEBUG [c0bc6be1] 	0867214e38a409a9da2e82e7ea32678048afa458	HEAD
+  INFO [c0bc6be1] Finished in 2.075 seconds with exit status 0 (successful).
+  INFO [6cd2e702] Running /usr/bin/env mkdir -p /var/www/designminister/shared /var/www/designminister/releases as ubuntu@184.72.109.212
+ DEBUG [6cd2e702] Command: /usr/bin/env mkdir -p /var/www/designminister/shared /var/www/designminister/releases
+ DEBUG [6cd2e702] 	mkdir: 
+ DEBUG [6cd2e702] 	cannot create directory ‘/var/www/designminister/shared’
+ DEBUG [6cd2e702] 	: Permission denied
+ DEBUG [6cd2e702] 	
+ DEBUG [6cd2e702] 	mkdir: 
+ DEBUG [6cd2e702] 	cannot create directory ‘/var/www/designminister/releases’
+ DEBUG [6cd2e702] 	: Permission denied
+ DEBUG [6cd2e702] 	
+  INFO ---------------------------------------------------------------------------
+  INFO START 2017-04-21 15:33:02 +0530 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [dd5344eb] Running /usr/bin/env mkdir -p /tmp as ubuntu@184.72.109.212
+ DEBUG [dd5344eb] Command: /usr/bin/env mkdir -p /tmp
+  INFO [dd5344eb] Finished in 4.464 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-Designminister-production-shubhambansal.sh 0.0%
+  INFO Uploading /tmp/git-ssh-Designminister-production-shubhambansal.sh 100.0%
+  INFO [a375c9e5] Running /usr/bin/env chmod 700 /tmp/git-ssh-Designminister-production-shubhambansal.sh as ubuntu@184.72.109.212
+ DEBUG [a375c9e5] Command: /usr/bin/env chmod 700 /tmp/git-ssh-Designminister-production-shubhambansal.sh
+  INFO [a375c9e5] Finished in 0.817 seconds with exit status 0 (successful).
+  INFO [8b6bcaa1] Running /usr/bin/env git ls-remote git@bitbucket.org:ShubhamBansal/designminister.git HEAD as ubuntu@184.72.109.212
+ DEBUG [8b6bcaa1] Command: ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-Designminister-production-shubhambansal.sh" ; /usr/bin/env git ls-remote git@bitbucket.org:ShubhamBansal/designminister.git HEAD )
+ DEBUG [8b6bcaa1] 	0867214e38a409a9da2e82e7ea32678048afa458	HEAD
+  INFO [8b6bcaa1] Finished in 1.534 seconds with exit status 0 (successful).
+  INFO [a723c603] Running /usr/bin/env mkdir -p /var/www/designminister/shared /var/www/designminister/releases as ubuntu@184.72.109.212
+ DEBUG [a723c603] Command: /usr/bin/env mkdir -p /var/www/designminister/shared /var/www/designminister/releases
+ DEBUG [a723c603] 	mkdir: 
+ DEBUG [a723c603] 	cannot create directory ‘/var/www/designminister/shared’
+ DEBUG [a723c603] 	: Permission denied
+ DEBUG [a723c603] 	
+ DEBUG [a723c603] 	mkdir: 
+ DEBUG [a723c603] 	cannot create directory ‘/var/www/designminister/releases’
+ DEBUG [a723c603] 	: Permission denied
+ DEBUG [a723c603] 	
+  INFO ---------------------------------------------------------------------------
+  INFO START 2017-04-21 15:53:13 +0530 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [98276a14] Running /usr/bin/env mkdir -p /tmp as ubuntu@184.72.109.212
+ DEBUG [98276a14] Command: /usr/bin/env mkdir -p /tmp
+  INFO [98276a14] Finished in 4.543 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-Designminister-production-shubhambansal.sh 0.0%
+  INFO Uploading /tmp/git-ssh-Designminister-production-shubhambansal.sh 100.0%
+  INFO [1e4fd4b3] Running /usr/bin/env chmod 700 /tmp/git-ssh-Designminister-production-shubhambansal.sh as ubuntu@184.72.109.212
+ DEBUG [1e4fd4b3] Command: /usr/bin/env chmod 700 /tmp/git-ssh-Designminister-production-shubhambansal.sh
+  INFO [1e4fd4b3] Finished in 0.816 seconds with exit status 0 (successful).
+  INFO [c26217fe] Running /usr/bin/env git ls-remote git@bitbucket.org:ShubhamBansal/designminister.git HEAD as ubuntu@184.72.109.212
+ DEBUG [c26217fe] Command: ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-Designminister-production-shubhambansal.sh" ; /usr/bin/env git ls-remote git@bitbucket.org:ShubhamBansal/designminister.git HEAD )
+ DEBUG [c26217fe] 	0867214e38a409a9da2e82e7ea32678048afa458	HEAD
+  INFO [c26217fe] Finished in 0.948 seconds with exit status 0 (successful).
+  INFO [024d4f50] Running /usr/bin/env mkdir -p /var/www/designminister/shared /var/www/designminister/releases as ubuntu@184.72.109.212
+ DEBUG [024d4f50] Command: /usr/bin/env mkdir -p /var/www/designminister/shared /var/www/designminister/releases
+  INFO [024d4f50] Finished in 0.688 seconds with exit status 0 (successful).
+ DEBUG [97c4b49f] Running [ -f /var/www/designminister/current/REVISION ] as ubuntu@184.72.109.212
+ DEBUG [97c4b49f] Command: [ -f /var/www/designminister/current/REVISION ]
+ DEBUG [97c4b49f] Finished in 0.717 seconds with exit status 1 (failed).
+ DEBUG [5de89472] Running [ -f /var/www/designminister/repo/HEAD ] as ubuntu@184.72.109.212
+ DEBUG [5de89472] Command: [ -f /var/www/designminister/repo/HEAD ]
+ DEBUG [5de89472] Finished in 0.652 seconds with exit status 1 (failed).
+ DEBUG [ee20f5b2] Running if test ! -d /var/www/designminister; then echo "Directory does not exist '/var/www/designminister'" 1>&2; false; fi as ubuntu@184.72.109.212
+ DEBUG [ee20f5b2] Command: if test ! -d /var/www/designminister; then echo "Directory does not exist '/var/www/designminister'" 1>&2; false; fi
+ DEBUG [ee20f5b2] Finished in 0.779 seconds with exit status 0 (successful).
+  INFO [2543bebe] Running /usr/bin/env git clone --mirror git@bitbucket.org:ShubhamBansal/designminister.git /var/www/designminister/repo as ubuntu@184.72.109.212
+ DEBUG [2543bebe] Command: cd /var/www/designminister && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-Designminister-production-shubhambansal.sh" ; /usr/bin/env git clone --mirror git@bitbucket.org:ShubhamBansal/designminister.git /var/www/designminister/repo )
+ DEBUG [2543bebe] 	Cloning into bare repository '/var/www/designminister/repo'...
+  INFO [2543bebe] Finished in 5.629 seconds with exit status 0 (successful).
+ DEBUG [7a73c99d] Running if test ! -d /var/www/designminister/repo; then echo "Directory does not exist '/var/www/designminister/repo'" 1>&2; false; fi as ubuntu@184.72.109.212
+ DEBUG [7a73c99d] Command: if test ! -d /var/www/designminister/repo; then echo "Directory does not exist '/var/www/designminister/repo'" 1>&2; false; fi
+ DEBUG [7a73c99d] Finished in 0.817 seconds with exit status 0 (successful).
+  INFO [96ba41a7] Running /usr/bin/env git remote set-url origin git@bitbucket.org:ShubhamBansal/designminister.git as ubuntu@184.72.109.212
+ DEBUG [96ba41a7] Command: cd /var/www/designminister/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-Designminister-production-shubhambansal.sh" ; /usr/bin/env git remote set-url origin git@bitbucket.org:ShubhamBansal/designminister.git )
+  INFO [96ba41a7] Finished in 0.818 seconds with exit status 0 (successful).
+  INFO [1d3f5025] Running /usr/bin/env git remote update --prune as ubuntu@184.72.109.212
+ DEBUG [1d3f5025] Command: cd /var/www/designminister/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-Designminister-production-shubhambansal.sh" ; /usr/bin/env git remote update --prune )
+ DEBUG [1d3f5025] 	Fetching origin
+  INFO [1d3f5025] Finished in 0.925 seconds with exit status 0 (successful).
+ DEBUG [8f5aa971] Running if test ! -d /var/www/designminister/repo; then echo "Directory does not exist '/var/www/designminister/repo'" 1>&2; false; fi as ubuntu@184.72.109.212
+ DEBUG [8f5aa971] Command: if test ! -d /var/www/designminister/repo; then echo "Directory does not exist '/var/www/designminister/repo'" 1>&2; false; fi
+ DEBUG [8f5aa971] Finished in 0.816 seconds with exit status 0 (successful).
+  INFO [6ea50166] Running /usr/bin/env mkdir -p /var/www/designminister/releases/20170421102323 as ubuntu@184.72.109.212
+ DEBUG [6ea50166] Command: cd /var/www/designminister/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-Designminister-production-shubhambansal.sh" ; /usr/bin/env mkdir -p /var/www/designminister/releases/20170421102323 )
+  INFO [6ea50166] Finished in 0.816 seconds with exit status 0 (successful).
+  INFO [ea353019] Running /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /var/www/designminister/releases/20170421102323 as ubuntu@184.72.109.212
+ DEBUG [ea353019] Command: cd /var/www/designminister/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-Designminister-production-shubhambansal.sh" ; /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /var/www/designminister/releases/20170421102323 )
+  INFO [ea353019] Finished in 1.022 seconds with exit status 0 (successful).
+ DEBUG [6a22a24d] Running if test ! -d /var/www/designminister/repo; then echo "Directory does not exist '/var/www/designminister/repo'" 1>&2; false; fi as ubuntu@184.72.109.212
+ DEBUG [6a22a24d] Command: if test ! -d /var/www/designminister/repo; then echo "Directory does not exist '/var/www/designminister/repo'" 1>&2; false; fi
+ DEBUG [6a22a24d] Finished in 0.818 seconds with exit status 0 (successful).
+ DEBUG [87e1cdc0] Running /usr/bin/env git rev-list --max-count=1 master as ubuntu@184.72.109.212
+ DEBUG [87e1cdc0] Command: cd /var/www/designminister/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-Designminister-production-shubhambansal.sh" ; /usr/bin/env git rev-list --max-count=1 master )
+ DEBUG [87e1cdc0] 	0867214e38a409a9da2e82e7ea32678048afa458
+ DEBUG [87e1cdc0] Finished in 0.824 seconds with exit status 0 (successful).
+ DEBUG [2b24cb35] Running if test ! -d /var/www/designminister/releases/20170421102323; then echo "Directory does not exist '/var/www/designminister/releases/20170421102323'" 1>&2; false; fi as ubuntu@184.72.109.212
+ DEBUG [2b24cb35] Command: if test ! -d /var/www/designminister/releases/20170421102323; then echo "Directory does not exist '/var/www/designminister/releases/20170421102323'" 1>&2; false; fi
+ DEBUG [2b24cb35] Finished in 0.813 seconds with exit status 0 (successful).
+  INFO [2657dfc3] Running /usr/bin/env echo "0867214e38a409a9da2e82e7ea32678048afa458" >> REVISION as ubuntu@184.72.109.212
+ DEBUG [2657dfc3] Command: cd /var/www/designminister/releases/20170421102323 && /usr/bin/env echo "0867214e38a409a9da2e82e7ea32678048afa458" >> REVISION
+  INFO [2657dfc3] Finished in 0.818 seconds with exit status 0 (successful).
+  INFO [f17f3768] Running /usr/bin/env ln -s /var/www/designminister/releases/20170421102323 /var/www/designminister/releases/current as ubuntu@184.72.109.212
+ DEBUG [f17f3768] Command: /usr/bin/env ln -s /var/www/designminister/releases/20170421102323 /var/www/designminister/releases/current
+  INFO [f17f3768] Finished in 0.927 seconds with exit status 0 (successful).
+  INFO [d0b070c9] Running /usr/bin/env mv /var/www/designminister/releases/current /var/www/designminister as ubuntu@184.72.109.212
+ DEBUG [d0b070c9] Command: /usr/bin/env mv /var/www/designminister/releases/current /var/www/designminister
+  INFO [d0b070c9] Finished in 1.040 seconds with exit status 0 (successful).
+ DEBUG [ea847ee5] Running /usr/bin/env ls -x /var/www/designminister/releases as ubuntu@184.72.109.212
+ DEBUG [ea847ee5] Command: /usr/bin/env ls -x /var/www/designminister/releases
+ DEBUG [ea847ee5] 	20170421102323
+ DEBUG [ea847ee5] Finished in 1.000 seconds with exit status 0 (successful).
+ DEBUG [d324144c] Running if test ! -d /var/www/designminister/releases; then echo "Directory does not exist '/var/www/designminister/releases'" 1>&2; false; fi as ubuntu@184.72.109.212
+ DEBUG [d324144c] Command: if test ! -d /var/www/designminister/releases; then echo "Directory does not exist '/var/www/designminister/releases'" 1>&2; false; fi
+ DEBUG [d324144c] Finished in 0.948 seconds with exit status 0 (successful).
+  INFO [8088eb60] Running /usr/bin/env echo "Branch master (at 0867214e38a409a9da2e82e7ea32678048afa458) deployed as release 20170421102323 by shubhambansal" >> /var/www/designminister/revisions.log as ubuntu@184.72.109.212
+ DEBUG [8088eb60] Command: cd /var/www/designminister/releases && /usr/bin/env echo "Branch master (at 0867214e38a409a9da2e82e7ea32678048afa458) deployed as release 20170421102323 by shubhambansal" >> /var/www/designminister/revisions.log
+  INFO [8088eb60] Finished in 0.998 seconds with exit status 0 (successful).
+  INFO ---------------------------------------------------------------------------
+  INFO START 2017-04-25 06:42:02 +0530 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [df86049b] Running /usr/bin/env mkdir -p /tmp as ubuntu@184.72.109.212
+ DEBUG [df86049b] Command: /usr/bin/env mkdir -p /tmp
+  INFO [df86049b] Finished in 3.119 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-Designminister-production-shubhambansal.sh 0.0%
+  INFO Uploading /tmp/git-ssh-Designminister-production-shubhambansal.sh 100.0%
+  INFO [161c6013] Running /usr/bin/env chmod 700 /tmp/git-ssh-Designminister-production-shubhambansal.sh as ubuntu@184.72.109.212
+ DEBUG [161c6013] Command: /usr/bin/env chmod 700 /tmp/git-ssh-Designminister-production-shubhambansal.sh
+  INFO [161c6013] Finished in 0.583 seconds with exit status 0 (successful).
+  INFO [36213d7b] Running /usr/bin/env git ls-remote git@bitbucket.org:ShubhamBansal/designminister.git HEAD as ubuntu@184.72.109.212
+ DEBUG [36213d7b] Command: ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-Designminister-production-shubhambansal.sh" ; /usr/bin/env git ls-remote git@bitbucket.org:ShubhamBansal/designminister.git HEAD )
+ DEBUG [36213d7b] 	e9a192de9825df48b1e61ca5e2dd8bbbd4846b4b	HEAD
+  INFO [36213d7b] Finished in 0.843 seconds with exit status 0 (successful).
+  INFO [708777e8] Running /usr/bin/env mkdir -p /var/www/designminister/shared /var/www/designminister/releases as ubuntu@184.72.109.212
+ DEBUG [708777e8] Command: /usr/bin/env mkdir -p /var/www/designminister/shared /var/www/designminister/releases
+  INFO [708777e8] Finished in 0.540 seconds with exit status 0 (successful).
+ DEBUG [59dc4abf] Running [ -f /var/www/designminister/current/REVISION ] as ubuntu@184.72.109.212
+ DEBUG [59dc4abf] Command: [ -f /var/www/designminister/current/REVISION ]
+ DEBUG [59dc4abf] Finished in 0.660 seconds with exit status 0 (successful).
+ DEBUG [58d0a1b3] Running /usr/bin/env cat /var/www/designminister/current/REVISION 2>/dev/null as ubuntu@184.72.109.212
+ DEBUG [58d0a1b3] Command: /usr/bin/env cat /var/www/designminister/current/REVISION 2>/dev/null
+ DEBUG [58d0a1b3] 	0867214e38a409a9da2e82e7ea32678048afa458
+ DEBUG [58d0a1b3] Finished in 0.614 seconds with exit status 0 (successful).
+ DEBUG [d2ad2a73] Running [ -f /var/www/designminister/repo/HEAD ] as ubuntu@184.72.109.212
+ DEBUG [d2ad2a73] Command: [ -f /var/www/designminister/repo/HEAD ]
+ DEBUG [d2ad2a73] Finished in 0.612 seconds with exit status 0 (successful).
+  INFO The repository mirror is at /var/www/designminister/repo
+ DEBUG [8d7de02d] Running if test ! -d /var/www/designminister/repo; then echo "Directory does not exist '/var/www/designminister/repo'" 1>&2; false; fi as ubuntu@184.72.109.212
+ DEBUG [8d7de02d] Command: if test ! -d /var/www/designminister/repo; then echo "Directory does not exist '/var/www/designminister/repo'" 1>&2; false; fi
+ DEBUG [8d7de02d] Finished in 0.613 seconds with exit status 0 (successful).
+  INFO [859b6c08] Running /usr/bin/env git remote set-url origin git@bitbucket.org:ShubhamBansal/designminister.git as ubuntu@184.72.109.212
+ DEBUG [859b6c08] Command: cd /var/www/designminister/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-Designminister-production-shubhambansal.sh" ; /usr/bin/env git remote set-url origin git@bitbucket.org:ShubhamBansal/designminister.git )
+  INFO [859b6c08] Finished in 0.614 seconds with exit status 0 (successful).
+  INFO [0235c85b] Running /usr/bin/env git remote update --prune as ubuntu@184.72.109.212
+ DEBUG [0235c85b] Command: cd /var/www/designminister/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-Designminister-production-shubhambansal.sh" ; /usr/bin/env git remote update --prune )
+ DEBUG [0235c85b] 	Fetching origin
+ DEBUG [0235c85b] 	From bitbucket.org:ShubhamBansal/designminister
+   0867214..e9a192d  master     -> master
+  INFO [0235c85b] Finished in 1.637 seconds with exit status 0 (successful).
+ DEBUG [e4dd6456] Running if test ! -d /var/www/designminister/repo; then echo "Directory does not exist '/var/www/designminister/repo'" 1>&2; false; fi as ubuntu@184.72.109.212
+ DEBUG [e4dd6456] Command: if test ! -d /var/www/designminister/repo; then echo "Directory does not exist '/var/www/designminister/repo'" 1>&2; false; fi
+ DEBUG [e4dd6456] Finished in 0.613 seconds with exit status 0 (successful).
+  INFO [1be98e2c] Running /usr/bin/env mkdir -p /var/www/designminister/releases/20170425011210 as ubuntu@184.72.109.212
+ DEBUG [1be98e2c] Command: cd /var/www/designminister/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-Designminister-production-shubhambansal.sh" ; /usr/bin/env mkdir -p /var/www/designminister/releases/20170425011210 )
+  INFO [1be98e2c] Finished in 0.614 seconds with exit status 0 (successful).
+  INFO [4da3fea8] Running /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /var/www/designminister/releases/20170425011210 as ubuntu@184.72.109.212
+ DEBUG [4da3fea8] Command: cd /var/www/designminister/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-Designminister-production-shubhambansal.sh" ; /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /var/www/designminister/releases/20170425011210 )
+  INFO [4da3fea8] Finished in 0.920 seconds with exit status 0 (successful).
+ DEBUG [346bcf89] Running if test ! -d /var/www/designminister/repo; then echo "Directory does not exist '/var/www/designminister/repo'" 1>&2; false; fi as ubuntu@184.72.109.212
+ DEBUG [346bcf89] Command: if test ! -d /var/www/designminister/repo; then echo "Directory does not exist '/var/www/designminister/repo'" 1>&2; false; fi
+ DEBUG [346bcf89] Finished in 0.536 seconds with exit status 0 (successful).
+ DEBUG [d54e532e] Running /usr/bin/env git rev-list --max-count=1 master as ubuntu@184.72.109.212
+ DEBUG [d54e532e] Command: cd /var/www/designminister/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-Designminister-production-shubhambansal.sh" ; /usr/bin/env git rev-list --max-count=1 master )
+ DEBUG [d54e532e] 	e9a192de9825df48b1e61ca5e2dd8bbbd4846b4b
+ DEBUG [d54e532e] Finished in 0.540 seconds with exit status 0 (successful).
+ DEBUG [61a8d6d0] Running if test ! -d /var/www/designminister/releases/20170425011210; then echo "Directory does not exist '/var/www/designminister/releases/20170425011210'" 1>&2; false; fi as ubuntu@184.72.109.212
+ DEBUG [61a8d6d0] Command: if test ! -d /var/www/designminister/releases/20170425011210; then echo "Directory does not exist '/var/www/designminister/releases/20170425011210'" 1>&2; false; fi
+ DEBUG [61a8d6d0] Finished in 0.668 seconds with exit status 0 (successful).
+  INFO [3b441ea3] Running /usr/bin/env echo "e9a192de9825df48b1e61ca5e2dd8bbbd4846b4b" >> REVISION as ubuntu@184.72.109.212
+ DEBUG [3b441ea3] Command: cd /var/www/designminister/releases/20170425011210 && /usr/bin/env echo "e9a192de9825df48b1e61ca5e2dd8bbbd4846b4b" >> REVISION
+  INFO [3b441ea3] Finished in 0.504 seconds with exit status 0 (successful).
+  INFO [2cf2f0f7] Running /usr/bin/env ln -s /var/www/designminister/releases/20170425011210 /var/www/designminister/releases/current as ubuntu@184.72.109.212
+ DEBUG [2cf2f0f7] Command: /usr/bin/env ln -s /var/www/designminister/releases/20170425011210 /var/www/designminister/releases/current
+  INFO [2cf2f0f7] Finished in 0.480 seconds with exit status 0 (successful).
+  INFO [4c563d6a] Running /usr/bin/env mv /var/www/designminister/releases/current /var/www/designminister as ubuntu@184.72.109.212
+ DEBUG [4c563d6a] Command: /usr/bin/env mv /var/www/designminister/releases/current /var/www/designminister
+  INFO [4c563d6a] Finished in 0.541 seconds with exit status 0 (successful).
+ DEBUG [c924329f] Running /usr/bin/env ls -x /var/www/designminister/releases as ubuntu@184.72.109.212
+ DEBUG [c924329f] Command: /usr/bin/env ls -x /var/www/designminister/releases
+ DEBUG [c924329f] 	20170421102323	20170425011210
+ DEBUG [c924329f] Finished in 0.545 seconds with exit status 0 (successful).
+ DEBUG [fec9a567] Running if test ! -d /var/www/designminister/releases; then echo "Directory does not exist '/var/www/designminister/releases'" 1>&2; false; fi as ubuntu@184.72.109.212
+ DEBUG [fec9a567] Command: if test ! -d /var/www/designminister/releases; then echo "Directory does not exist '/var/www/designminister/releases'" 1>&2; false; fi
+ DEBUG [fec9a567] Finished in 0.579 seconds with exit status 0 (successful).
+  INFO [9191b5d5] Running /usr/bin/env echo "Branch master (at e9a192de9825df48b1e61ca5e2dd8bbbd4846b4b) deployed as release 20170425011210 by shubhambansal" >> /var/www/designminister/revisions.log as ubuntu@184.72.109.212
+ DEBUG [9191b5d5] Command: cd /var/www/designminister/releases && /usr/bin/env echo "Branch master (at e9a192de9825df48b1e61ca5e2dd8bbbd4846b4b) deployed as release 20170425011210 by shubhambansal" >> /var/www/designminister/revisions.log
+  INFO [9191b5d5] Finished in 0.685 seconds with exit status 0 (successful).
+  INFO ---------------------------------------------------------------------------
+  INFO START 2017-04-26 13:08:05 +0530 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [b775808c] Running /usr/bin/env mkdir -p /tmp as ubuntu@184.72.109.212
+ DEBUG [b775808c] Command: /usr/bin/env mkdir -p /tmp
+  INFO [b775808c] Finished in 4.601 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-Designminister-production-shubhambansal.sh 0.0%
+  INFO Uploading /tmp/git-ssh-Designminister-production-shubhambansal.sh 100.0%
+  INFO [42ced8b6] Running /usr/bin/env chmod 700 /tmp/git-ssh-Designminister-production-shubhambansal.sh as ubuntu@184.72.109.212
+ DEBUG [42ced8b6] Command: /usr/bin/env chmod 700 /tmp/git-ssh-Designminister-production-shubhambansal.sh
+  INFO [42ced8b6] Finished in 0.739 seconds with exit status 0 (successful).
+  INFO [cd631071] Running /usr/bin/env git ls-remote git@bitbucket.org:ShubhamBansal/designminister.git HEAD as ubuntu@184.72.109.212
+ DEBUG [cd631071] Command: ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-Designminister-production-shubhambansal.sh" ; /usr/bin/env git ls-remote git@bitbucket.org:ShubhamBansal/designminister.git HEAD )
+ DEBUG [cd631071] 	e9a192de9825df48b1e61ca5e2dd8bbbd4846b4b	HEAD
+  INFO [cd631071] Finished in 1.350 seconds with exit status 0 (successful).
+  INFO [756a2b6b] Running /usr/bin/env mkdir -p /var/www/designminister/shared /var/www/designminister/releases as ubuntu@184.72.109.212
+ DEBUG [756a2b6b] Command: /usr/bin/env mkdir -p /var/www/designminister/shared /var/www/designminister/releases
+  INFO [756a2b6b] Finished in 0.737 seconds with exit status 0 (successful).
+ DEBUG [62d692e4] Running [ -f /var/www/designminister/current/REVISION ] as ubuntu@184.72.109.212
+ DEBUG [62d692e4] Command: [ -f /var/www/designminister/current/REVISION ]
+ DEBUG [62d692e4] Finished in 0.793 seconds with exit status 0 (successful).
+ DEBUG [ad298819] Running /usr/bin/env cat /var/www/designminister/current/REVISION 2>/dev/null as ubuntu@184.72.109.212
+ DEBUG [ad298819] Command: /usr/bin/env cat /var/www/designminister/current/REVISION 2>/dev/null
+ DEBUG [ad298819] 	e9a192de9825df48b1e61ca5e2dd8bbbd4846b4b
+ DEBUG [ad298819] Finished in 0.589 seconds with exit status 0 (successful).
+ DEBUG [8877c2fc] Running [ -f /var/www/designminister/repo/HEAD ] as ubuntu@184.72.109.212
+ DEBUG [8877c2fc] Command: [ -f /var/www/designminister/repo/HEAD ]
+ DEBUG [8877c2fc] Finished in 0.715 seconds with exit status 0 (successful).
+  INFO The repository mirror is at /var/www/designminister/repo
+ DEBUG [047932aa] Running if test ! -d /var/www/designminister/repo; then echo "Directory does not exist '/var/www/designminister/repo'" 1>&2; false; fi as ubuntu@184.72.109.212
+ DEBUG [047932aa] Command: if test ! -d /var/www/designminister/repo; then echo "Directory does not exist '/var/www/designminister/repo'" 1>&2; false; fi
+ DEBUG [047932aa] Finished in 0.587 seconds with exit status 0 (successful).
+  INFO [1cd77fa2] Running /usr/bin/env git remote set-url origin git@bitbucket.org:ShubhamBansal/designminister.git as ubuntu@184.72.109.212
+ DEBUG [1cd77fa2] Command: cd /var/www/designminister/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-Designminister-production-shubhambansal.sh" ; /usr/bin/env git remote set-url origin git@bitbucket.org:ShubhamBansal/designminister.git )
+  INFO [1cd77fa2] Finished in 0.738 seconds with exit status 0 (successful).
+  INFO [7c7e97ef] Running /usr/bin/env git remote update --prune as ubuntu@184.72.109.212
+ DEBUG [7c7e97ef] Command: cd /var/www/designminister/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-Designminister-production-shubhambansal.sh" ; /usr/bin/env git remote update --prune )
+ DEBUG [7c7e97ef] 	Fetching origin
+  INFO [7c7e97ef] Finished in 1.187 seconds with exit status 0 (successful).
+ DEBUG [72d07583] Running if test ! -d /var/www/designminister/repo; then echo "Directory does not exist '/var/www/designminister/repo'" 1>&2; false; fi as ubuntu@184.72.109.212
+ DEBUG [72d07583] Command: if test ! -d /var/www/designminister/repo; then echo "Directory does not exist '/var/www/designminister/repo'" 1>&2; false; fi
+ DEBUG [72d07583] Finished in 0.871 seconds with exit status 0 (successful).
+  INFO [84849e32] Running /usr/bin/env mkdir -p /var/www/designminister/releases/20170426073815 as ubuntu@184.72.109.212
+ DEBUG [84849e32] Command: cd /var/www/designminister/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-Designminister-production-shubhambansal.sh" ; /usr/bin/env mkdir -p /var/www/designminister/releases/20170426073815 )
+  INFO [84849e32] Finished in 0.706 seconds with exit status 0 (successful).
+  INFO [2921c27d] Running /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /var/www/designminister/releases/20170426073815 as ubuntu@184.72.109.212
+ DEBUG [2921c27d] Command: cd /var/www/designminister/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-Designminister-production-shubhambansal.sh" ; /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /var/www/designminister/releases/20170426073815 )
+  INFO [2921c27d] Finished in 1.139 seconds with exit status 0 (successful).
+ DEBUG [eb90b255] Running if test ! -d /var/www/designminister/repo; then echo "Directory does not exist '/var/www/designminister/repo'" 1>&2; false; fi as ubuntu@184.72.109.212
+ DEBUG [eb90b255] Command: if test ! -d /var/www/designminister/repo; then echo "Directory does not exist '/var/www/designminister/repo'" 1>&2; false; fi
+ DEBUG [eb90b255] Finished in 0.789 seconds with exit status 0 (successful).
+ DEBUG [d1ab8765] Running /usr/bin/env git rev-list --max-count=1 master as ubuntu@184.72.109.212
+ DEBUG [d1ab8765] Command: cd /var/www/designminister/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-Designminister-production-shubhambansal.sh" ; /usr/bin/env git rev-list --max-count=1 master )
+ DEBUG [d1ab8765] 	e9a192de9825df48b1e61ca5e2dd8bbbd4846b4b
+ DEBUG [d1ab8765] Finished in 0.841 seconds with exit status 0 (successful).
+ DEBUG [caae24d2] Running if test ! -d /var/www/designminister/releases/20170426073815; then echo "Directory does not exist '/var/www/designminister/releases/20170426073815'" 1>&2; false; fi as ubuntu@184.72.109.212
+ DEBUG [caae24d2] Command: if test ! -d /var/www/designminister/releases/20170426073815; then echo "Directory does not exist '/var/www/designminister/releases/20170426073815'" 1>&2; false; fi
+ DEBUG [caae24d2] Finished in 0.639 seconds with exit status 0 (successful).
+  INFO [3d6bf2d2] Running /usr/bin/env echo "e9a192de9825df48b1e61ca5e2dd8bbbd4846b4b" >> REVISION as ubuntu@184.72.109.212
+ DEBUG [3d6bf2d2] Command: cd /var/www/designminister/releases/20170426073815 && /usr/bin/env echo "e9a192de9825df48b1e61ca5e2dd8bbbd4846b4b" >> REVISION
+  INFO [3d6bf2d2] Finished in 0.842 seconds with exit status 0 (successful).
+  INFO [d432c619] Running /usr/bin/env ln -s /var/www/designminister/releases/20170426073815 /var/www/designminister/releases/current as ubuntu@184.72.109.212
+ DEBUG [d432c619] Command: /usr/bin/env ln -s /var/www/designminister/releases/20170426073815 /var/www/designminister/releases/current
+  INFO [d432c619] Finished in 0.658 seconds with exit status 0 (successful).
+  INFO [9e8efcdf] Running /usr/bin/env mv /var/www/designminister/releases/current /var/www/designminister as ubuntu@184.72.109.212
+ DEBUG [9e8efcdf] Command: /usr/bin/env mv /var/www/designminister/releases/current /var/www/designminister
+  INFO [9e8efcdf] Finished in 0.771 seconds with exit status 0 (successful).
+ DEBUG [4f39f093] Running /usr/bin/env ls -x /var/www/designminister/releases as ubuntu@184.72.109.212
+ DEBUG [4f39f093] Command: /usr/bin/env ls -x /var/www/designminister/releases
+ DEBUG [4f39f093] 	20170421102323	20170425011210	20170426073815
+ DEBUG [4f39f093] Finished in 0.873 seconds with exit status 0 (successful).
+ DEBUG [406d8e34] Running if test ! -d /var/www/designminister/releases; then echo "Directory does not exist '/var/www/designminister/releases'" 1>&2; false; fi as ubuntu@184.72.109.212
+ DEBUG [406d8e34] Command: if test ! -d /var/www/designminister/releases; then echo "Directory does not exist '/var/www/designminister/releases'" 1>&2; false; fi
+ DEBUG [406d8e34] Finished in 0.708 seconds with exit status 0 (successful).
+  INFO [7ae47b55] Running /usr/bin/env echo "Branch master (at e9a192de9825df48b1e61ca5e2dd8bbbd4846b4b) deployed as release 20170426073815 by shubhambansal" >> /var/www/designminister/revisions.log as ubuntu@184.72.109.212
+ DEBUG [7ae47b55] Command: cd /var/www/designminister/releases && /usr/bin/env echo "Branch master (at e9a192de9825df48b1e61ca5e2dd8bbbd4846b4b) deployed as release 20170426073815 by shubhambansal" >> /var/www/designminister/revisions.log
+  INFO [7ae47b55] Finished in 0.613 seconds with exit status 0 (successful).
+  INFO ---------------------------------------------------------------------------
+  INFO START 2017-04-26 13:11:15 +0530 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [8620612c] Running /usr/bin/env mkdir -p /tmp as ubuntu@184.72.109.212
+ DEBUG [8620612c] Command: /usr/bin/env mkdir -p /tmp
+  INFO [8620612c] Finished in 3.284 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-Designminister-production-shubhambansal.sh 0.0%
+  INFO Uploading /tmp/git-ssh-Designminister-production-shubhambansal.sh 100.0%
+  INFO [6aaa2d48] Running /usr/bin/env chmod 700 /tmp/git-ssh-Designminister-production-shubhambansal.sh as ubuntu@184.72.109.212
+ DEBUG [6aaa2d48] Command: /usr/bin/env chmod 700 /tmp/git-ssh-Designminister-production-shubhambansal.sh
+  INFO [6aaa2d48] Finished in 0.593 seconds with exit status 0 (successful).
+  INFO [3ff4d932] Running /usr/bin/env git ls-remote git@bitbucket.org:ShubhamBansal/designminister.git HEAD as ubuntu@184.72.109.212
+ DEBUG [3ff4d932] Command: ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-Designminister-production-shubhambansal.sh" ; /usr/bin/env git ls-remote git@bitbucket.org:ShubhamBansal/designminister.git HEAD )
+ DEBUG [3ff4d932] 	e9a192de9825df48b1e61ca5e2dd8bbbd4846b4b	HEAD
+  INFO [3ff4d932] Finished in 1.055 seconds with exit status 0 (successful).
+  INFO [579021b7] Running /usr/bin/env mkdir -p /var/www/designminister/shared /var/www/designminister/releases as ubuntu@184.72.109.212
+ DEBUG [579021b7] Command: /usr/bin/env mkdir -p /var/www/designminister/shared /var/www/designminister/releases
+  INFO [579021b7] Finished in 0.614 seconds with exit status 0 (successful).
+ DEBUG [986dc547] Running [ -f /var/www/designminister/current/REVISION ] as ubuntu@184.72.109.212
+ DEBUG [986dc547] Command: [ -f /var/www/designminister/current/REVISION ]
+ DEBUG [986dc547] Finished in 0.613 seconds with exit status 0 (successful).
+ DEBUG [52e25335] Running /usr/bin/env cat /var/www/designminister/current/REVISION 2>/dev/null as ubuntu@184.72.109.212
+ DEBUG [52e25335] Command: /usr/bin/env cat /var/www/designminister/current/REVISION 2>/dev/null
+ DEBUG [52e25335] 	e9a192de9825df48b1e61ca5e2dd8bbbd4846b4b
+ DEBUG [52e25335] Finished in 0.714 seconds with exit status 0 (successful).
+ DEBUG [a334521e] Running [ -f /var/www/designminister/repo/HEAD ] as ubuntu@184.72.109.212
+ DEBUG [a334521e] Command: [ -f /var/www/designminister/repo/HEAD ]
+ DEBUG [a334521e] Finished in 0.718 seconds with exit status 0 (successful).
+  INFO The repository mirror is at /var/www/designminister/repo
+ DEBUG [b5ef3a0a] Running if test ! -d /var/www/designminister/repo; then echo "Directory does not exist '/var/www/designminister/repo'" 1>&2; false; fi as ubuntu@184.72.109.212
+ DEBUG [b5ef3a0a] Command: if test ! -d /var/www/designminister/repo; then echo "Directory does not exist '/var/www/designminister/repo'" 1>&2; false; fi
+ DEBUG [b5ef3a0a] Finished in 0.613 seconds with exit status 0 (successful).
+  INFO [e42d3032] Running /usr/bin/env git remote set-url origin git@bitbucket.org:ShubhamBansal/designminister.git as ubuntu@184.72.109.212
+ DEBUG [e42d3032] Command: cd /var/www/designminister/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-Designminister-production-shubhambansal.sh" ; /usr/bin/env git remote set-url origin git@bitbucket.org:ShubhamBansal/designminister.git )
+  INFO [e42d3032] Finished in 0.525 seconds with exit status 0 (successful).
+  INFO [3c665368] Running /usr/bin/env git remote update --prune as ubuntu@184.72.109.212
+ DEBUG [3c665368] Command: cd /var/www/designminister/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-Designminister-production-shubhambansal.sh" ; /usr/bin/env git remote update --prune )
+ DEBUG [3c665368] 	Fetching origin
+  INFO [3c665368] Finished in 0.807 seconds with exit status 0 (successful).
+ DEBUG [ae48249e] Running if test ! -d /var/www/designminister/repo; then echo "Directory does not exist '/var/www/designminister/repo'" 1>&2; false; fi as ubuntu@184.72.109.212
+ DEBUG [ae48249e] Command: if test ! -d /var/www/designminister/repo; then echo "Directory does not exist '/var/www/designminister/repo'" 1>&2; false; fi
+ DEBUG [ae48249e] Finished in 0.609 seconds with exit status 0 (successful).
+  INFO [7cab1217] Running /usr/bin/env mkdir -p /var/www/designminister/releases/20170426074123 as ubuntu@184.72.109.212
+ DEBUG [7cab1217] Command: cd /var/www/designminister/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-Designminister-production-shubhambansal.sh" ; /usr/bin/env mkdir -p /var/www/designminister/releases/20170426074123 )
+  INFO [7cab1217] Finished in 0.755 seconds with exit status 0 (successful).
+  INFO [c3dfe2ab] Running /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /var/www/designminister/releases/20170426074123 as ubuntu@184.72.109.212
+ DEBUG [c3dfe2ab] Command: cd /var/www/designminister/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-Designminister-production-shubhambansal.sh" ; /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /var/www/designminister/releases/20170426074123 )
+  INFO [c3dfe2ab] Finished in 0.934 seconds with exit status 0 (successful).
+ DEBUG [ae732151] Running if test ! -d /var/www/designminister/repo; then echo "Directory does not exist '/var/www/designminister/repo'" 1>&2; false; fi as ubuntu@184.72.109.212
+ DEBUG [ae732151] Command: if test ! -d /var/www/designminister/repo; then echo "Directory does not exist '/var/www/designminister/repo'" 1>&2; false; fi
+ DEBUG [ae732151] Finished in 0.659 seconds with exit status 0 (successful).
+ DEBUG [477a858a] Running /usr/bin/env git rev-list --max-count=1 master as ubuntu@184.72.109.212
+ DEBUG [477a858a] Command: cd /var/www/designminister/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-Designminister-production-shubhambansal.sh" ; /usr/bin/env git rev-list --max-count=1 master )
+ DEBUG [477a858a] 	e9a192de9825df48b1e61ca5e2dd8bbbd4846b4b
+ DEBUG [477a858a] Finished in 0.569 seconds with exit status 0 (successful).
+ DEBUG [076a729d] Running if test ! -d /var/www/designminister/releases/20170426074123; then echo "Directory does not exist '/var/www/designminister/releases/20170426074123'" 1>&2; false; fi as ubuntu@184.72.109.212
+ DEBUG [076a729d] Command: if test ! -d /var/www/designminister/releases/20170426074123; then echo "Directory does not exist '/var/www/designminister/releases/20170426074123'" 1>&2; false; fi
+ DEBUG [076a729d] Finished in 0.561 seconds with exit status 0 (successful).
+  INFO [e8a3b6e8] Running /usr/bin/env echo "e9a192de9825df48b1e61ca5e2dd8bbbd4846b4b" >> REVISION as ubuntu@184.72.109.212
+ DEBUG [e8a3b6e8] Command: cd /var/www/designminister/releases/20170426074123 && /usr/bin/env echo "e9a192de9825df48b1e61ca5e2dd8bbbd4846b4b" >> REVISION
+  INFO [e8a3b6e8] Finished in 0.621 seconds with exit status 0 (successful).
+  INFO [3ca1eec7] Running /usr/bin/env ln -s /var/www/designminister/releases/20170426074123 /var/www/designminister/releases/current as ubuntu@184.72.109.212
+ DEBUG [3ca1eec7] Command: /usr/bin/env ln -s /var/www/designminister/releases/20170426074123 /var/www/designminister/releases/current
+  INFO [3ca1eec7] Finished in 0.599 seconds with exit status 0 (successful).
+  INFO [912c0196] Running /usr/bin/env mv /var/www/designminister/releases/current /var/www/designminister as ubuntu@184.72.109.212
+ DEBUG [912c0196] Command: /usr/bin/env mv /var/www/designminister/releases/current /var/www/designminister
+  INFO [912c0196] Finished in 0.613 seconds with exit status 0 (successful).
+ DEBUG [396ead9a] Running /usr/bin/env ls -x /var/www/designminister/releases as ubuntu@184.72.109.212
+ DEBUG [396ead9a] Command: /usr/bin/env ls -x /var/www/designminister/releases
+ DEBUG [396ead9a] 	20170421102323	20170425011210	20170426073815	20170426074123
+ DEBUG [396ead9a] Finished in 0.614 seconds with exit status 0 (successful).
+ DEBUG [ae7845a3] Running if test ! -d /var/www/designminister/releases; then echo "Directory does not exist '/var/www/designminister/releases'" 1>&2; false; fi as ubuntu@184.72.109.212
+ DEBUG [ae7845a3] Command: if test ! -d /var/www/designminister/releases; then echo "Directory does not exist '/var/www/designminister/releases'" 1>&2; false; fi
+ DEBUG [ae7845a3] Finished in 0.614 seconds with exit status 0 (successful).
+  INFO [1d361248] Running /usr/bin/env echo "Branch master (at e9a192de9825df48b1e61ca5e2dd8bbbd4846b4b) deployed as release 20170426074123 by shubhambansal" >> /var/www/designminister/revisions.log as ubuntu@184.72.109.212
+ DEBUG [1d361248] Command: cd /var/www/designminister/releases && /usr/bin/env echo "Branch master (at e9a192de9825df48b1e61ca5e2dd8bbbd4846b4b) deployed as release 20170426074123 by shubhambansal" >> /var/www/designminister/revisions.log
+  INFO [1d361248] Finished in 0.486 seconds with exit status 0 (successful).
+  INFO ---------------------------------------------------------------------------
+  INFO START 2017-04-26 13:24:29 +0530 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [76b032af] Running /usr/bin/env mkdir -p /tmp as ubuntu@184.72.109.212
+ DEBUG [76b032af] Command: /usr/bin/env mkdir -p /tmp
+  INFO [76b032af] Finished in 3.425 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-Designminister-production-shubhambansal.sh 0.0%
+  INFO Uploading /tmp/git-ssh-Designminister-production-shubhambansal.sh 100.0%
+  INFO [39ca8555] Running /usr/bin/env chmod 700 /tmp/git-ssh-Designminister-production-shubhambansal.sh as ubuntu@184.72.109.212
+ DEBUG [39ca8555] Command: /usr/bin/env chmod 700 /tmp/git-ssh-Designminister-production-shubhambansal.sh
+  INFO [39ca8555] Finished in 0.490 seconds with exit status 0 (successful).
+  INFO [f63d4e8c] Running /usr/bin/env git ls-remote git@bitbucket.org:ShubhamBansal/designminister.git HEAD as ubuntu@184.72.109.212
+ DEBUG [f63d4e8c] Command: ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-Designminister-production-shubhambansal.sh" ; /usr/bin/env git ls-remote git@bitbucket.org:ShubhamBansal/designminister.git HEAD )
+ DEBUG [f63d4e8c] 	e9a192de9825df48b1e61ca5e2dd8bbbd4846b4b	HEAD
+  INFO [f63d4e8c] Finished in 0.940 seconds with exit status 0 (successful).
+  INFO [4b3b1bdf] Running /usr/bin/env mkdir -p /var/www/designminister/shared /var/www/designminister/releases as ubuntu@184.72.109.212
+ DEBUG [4b3b1bdf] Command: /usr/bin/env mkdir -p /var/www/designminister/shared /var/www/designminister/releases
+  INFO [4b3b1bdf] Finished in 0.617 seconds with exit status 0 (successful).
+ DEBUG [5f952a0f] Running [ -f /var/www/designminister/current/REVISION ] as ubuntu@184.72.109.212
+ DEBUG [5f952a0f] Command: [ -f /var/www/designminister/current/REVISION ]
+ DEBUG [5f952a0f] Finished in 0.613 seconds with exit status 0 (successful).
+ DEBUG [75275c6a] Running /usr/bin/env cat /var/www/designminister/current/REVISION 2>/dev/null as ubuntu@184.72.109.212
+ DEBUG [75275c6a] Command: /usr/bin/env cat /var/www/designminister/current/REVISION 2>/dev/null
+ DEBUG [75275c6a] 	e9a192de9825df48b1e61ca5e2dd8bbbd4846b4b
+ DEBUG [75275c6a] Finished in 0.652 seconds with exit status 0 (successful).
+ DEBUG [96b3a291] Running [ -f /var/www/designminister/repo/HEAD ] as ubuntu@184.72.109.212
+ DEBUG [96b3a291] Command: [ -f /var/www/designminister/repo/HEAD ]
+ DEBUG [96b3a291] Finished in 0.533 seconds with exit status 0 (successful).
+  INFO The repository mirror is at /var/www/designminister/repo
+ DEBUG [36f348c1] Running if test ! -d /var/www/designminister/repo; then echo "Directory does not exist '/var/www/designminister/repo'" 1>&2; false; fi as ubuntu@184.72.109.212
+ DEBUG [36f348c1] Command: if test ! -d /var/www/designminister/repo; then echo "Directory does not exist '/var/www/designminister/repo'" 1>&2; false; fi
+ DEBUG [36f348c1] Finished in 0.494 seconds with exit status 0 (successful).
+  INFO [af43746e] Running /usr/bin/env git remote set-url origin git@bitbucket.org:ShubhamBansal/designminister.git as ubuntu@184.72.109.212
+ DEBUG [af43746e] Command: cd /var/www/designminister/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-Designminister-production-shubhambansal.sh" ; /usr/bin/env git remote set-url origin git@bitbucket.org:ShubhamBansal/designminister.git )
+  INFO [af43746e] Finished in 0.735 seconds with exit status 0 (successful).
+  INFO [62885be1] Running /usr/bin/env git remote update --prune as ubuntu@184.72.109.212
+ DEBUG [62885be1] Command: cd /var/www/designminister/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-Designminister-production-shubhambansal.sh" ; /usr/bin/env git remote update --prune )
+ DEBUG [62885be1] 	Fetching origin
+  INFO [62885be1] Finished in 1.336 seconds with exit status 0 (successful).
+ DEBUG [d232acb0] Running if test ! -d /var/www/designminister/repo; then echo "Directory does not exist '/var/www/designminister/repo'" 1>&2; false; fi as ubuntu@184.72.109.212
+ DEBUG [d232acb0] Command: if test ! -d /var/www/designminister/repo; then echo "Directory does not exist '/var/www/designminister/repo'" 1>&2; false; fi
+ DEBUG [d232acb0] Finished in 0.550 seconds with exit status 0 (successful).
+  INFO [b9b4d8d7] Running /usr/bin/env mkdir -p /var/www/designminister/releases/20170426075438 as ubuntu@184.72.109.212
+ DEBUG [b9b4d8d7] Command: cd /var/www/designminister/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-Designminister-production-shubhambansal.sh" ; /usr/bin/env mkdir -p /var/www/designminister/releases/20170426075438 )
+  INFO [b9b4d8d7] Finished in 0.606 seconds with exit status 0 (successful).
+  INFO [3e02485b] Running /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /var/www/designminister/releases/20170426075438 as ubuntu@184.72.109.212
+ DEBUG [3e02485b] Command: cd /var/www/designminister/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-Designminister-production-shubhambansal.sh" ; /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /var/www/designminister/releases/20170426075438 )
+  INFO [3e02485b] Finished in 0.780 seconds with exit status 0 (successful).
+ DEBUG [6cbcdb08] Running if test ! -d /var/www/designminister/repo; then echo "Directory does not exist '/var/www/designminister/repo'" 1>&2; false; fi as ubuntu@184.72.109.212
+ DEBUG [6cbcdb08] Command: if test ! -d /var/www/designminister/repo; then echo "Directory does not exist '/var/www/designminister/repo'" 1>&2; false; fi
+ DEBUG [6cbcdb08] Finished in 0.584 seconds with exit status 0 (successful).
+ DEBUG [6fe702c6] Running /usr/bin/env git rev-list --max-count=1 master as ubuntu@184.72.109.212
+ DEBUG [6fe702c6] Command: cd /var/www/designminister/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-Designminister-production-shubhambansal.sh" ; /usr/bin/env git rev-list --max-count=1 master )
+ DEBUG [6fe702c6] 	e9a192de9825df48b1e61ca5e2dd8bbbd4846b4b
+ DEBUG [6fe702c6] Finished in 0.527 seconds with exit status 0 (successful).
+ DEBUG [01ef87de] Running if test ! -d /var/www/designminister/releases/20170426075438; then echo "Directory does not exist '/var/www/designminister/releases/20170426075438'" 1>&2; false; fi as ubuntu@184.72.109.212
+ DEBUG [01ef87de] Command: if test ! -d /var/www/designminister/releases/20170426075438; then echo "Directory does not exist '/var/www/designminister/releases/20170426075438'" 1>&2; false; fi
+ DEBUG [01ef87de] Finished in 0.561 seconds with exit status 0 (successful).
+  INFO [b6a07543] Running /usr/bin/env echo "e9a192de9825df48b1e61ca5e2dd8bbbd4846b4b" >> REVISION as ubuntu@184.72.109.212
+ DEBUG [b6a07543] Command: cd /var/www/designminister/releases/20170426075438 && /usr/bin/env echo "e9a192de9825df48b1e61ca5e2dd8bbbd4846b4b" >> REVISION
+  INFO [b6a07543] Finished in 0.553 seconds with exit status 0 (successful).
+  INFO [4b44046e] Running /usr/bin/env ln -s /var/www/designminister/releases/20170426075438 /var/www/designminister/releases/current as ubuntu@184.72.109.212
+ DEBUG [4b44046e] Command: /usr/bin/env ln -s /var/www/designminister/releases/20170426075438 /var/www/designminister/releases/current
+  INFO [4b44046e] Finished in 0.780 seconds with exit status 0 (successful).
+  INFO [d38f3728] Running /usr/bin/env mv /var/www/designminister/releases/current /var/www/designminister as ubuntu@184.72.109.212
+ DEBUG [d38f3728] Command: /usr/bin/env mv /var/www/designminister/releases/current /var/www/designminister
+  INFO [d38f3728] Finished in 0.479 seconds with exit status 0 (successful).
+ DEBUG [971ab903] Running /usr/bin/env ls -x /var/www/designminister/releases as ubuntu@184.72.109.212
+ DEBUG [971ab903] Command: /usr/bin/env ls -x /var/www/designminister/releases
+ DEBUG [971ab903] 	20170421102323	20170425011210	20170426073815	20170426074123	20170426075438
+ DEBUG [971ab903] Finished in 0.479 seconds with exit status 0 (successful).
+  INFO Keeping 5 of 5 deployed releases on 184.72.109.212
+  INFO No old releases (keeping newest 5) on 184.72.109.212
+ DEBUG [9f399f43] Running if test ! -d /var/www/designminister/releases; then echo "Directory does not exist '/var/www/designminister/releases'" 1>&2; false; fi as ubuntu@184.72.109.212
+ DEBUG [9f399f43] Command: if test ! -d /var/www/designminister/releases; then echo "Directory does not exist '/var/www/designminister/releases'" 1>&2; false; fi
+ DEBUG [9f399f43] Finished in 0.583 seconds with exit status 0 (successful).
+  INFO [957b69c7] Running /usr/bin/env echo "Branch master (at e9a192de9825df48b1e61ca5e2dd8bbbd4846b4b) deployed as release 20170426075438 by shubhambansal" >> /var/www/designminister/revisions.log as ubuntu@184.72.109.212
+ DEBUG [957b69c7] Command: cd /var/www/designminister/releases && /usr/bin/env echo "Branch master (at e9a192de9825df48b1e61ca5e2dd8bbbd4846b4b) deployed as release 20170426075438 by shubhambansal" >> /var/www/designminister/revisions.log
+  INFO [957b69c7] Finished in 0.608 seconds with exit status 0 (successful).
+  INFO ---------------------------------------------------------------------------
+  INFO START 2017-04-26 18:34:48 +0530 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [9085d051] Running /usr/bin/env mkdir -p /tmp as ubuntu@184.72.109.212
+ DEBUG [9085d051] Command: /usr/bin/env mkdir -p /tmp
+  INFO ---------------------------------------------------------------------------
+  INFO START 2017-04-26 18:35:10 +0530 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [06c4eb73] Running /usr/bin/env mkdir -p /tmp as ubuntu@184.72.109.212
+ DEBUG [06c4eb73] Command: /usr/bin/env mkdir -p /tmp
+  INFO [06c4eb73] Finished in 4.992 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-Designminister-production-shubhambansal.sh 0.0%
+  INFO Uploading /tmp/git-ssh-Designminister-production-shubhambansal.sh 100.0%
+  INFO [95818939] Running /usr/bin/env chmod 700 /tmp/git-ssh-Designminister-production-shubhambansal.sh as ubuntu@184.72.109.212
+ DEBUG [95818939] Command: /usr/bin/env chmod 700 /tmp/git-ssh-Designminister-production-shubhambansal.sh
+  INFO [95818939] Finished in 1.101 seconds with exit status 0 (successful).
+  INFO [c358d392] Running /usr/bin/env git ls-remote git@bitbucket.org:ShubhamBansal/designminister.git HEAD as ubuntu@184.72.109.212
+ DEBUG [c358d392] Command: ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-Designminister-production-shubhambansal.sh" ; /usr/bin/env git ls-remote git@bitbucket.org:ShubhamBansal/designminister.git HEAD )
+ DEBUG [c358d392] 	e9a192de9825df48b1e61ca5e2dd8bbbd4846b4b	HEAD
+  INFO [c358d392] Finished in 0.749 seconds with exit status 0 (successful).
+  INFO [9d68b0ce] Running /usr/bin/env mkdir -p /var/www/designminister/shared /var/www/designminister/releases as ubuntu@184.72.109.212
+ DEBUG [9d68b0ce] Command: /usr/bin/env mkdir -p /var/www/designminister/shared /var/www/designminister/releases
+  INFO [9d68b0ce] Finished in 0.549 seconds with exit status 0 (successful).
+ DEBUG [1b2353db] Running [ -f /var/www/designminister/current/REVISION ] as ubuntu@184.72.109.212
+ DEBUG [1b2353db] Command: [ -f /var/www/designminister/current/REVISION ]
+ DEBUG [1b2353db] Finished in 1.403 seconds with exit status 0 (successful).
+ DEBUG [64a93272] Running /usr/bin/env cat /var/www/designminister/current/REVISION 2>/dev/null as ubuntu@184.72.109.212
+ DEBUG [64a93272] Command: /usr/bin/env cat /var/www/designminister/current/REVISION 2>/dev/null
+ DEBUG [64a93272] 	e9a192de9825df48b1e61ca5e2dd8bbbd4846b4b
+ DEBUG [64a93272] Finished in 1.966 seconds with exit status 0 (successful).
+ DEBUG [ab1e68a3] Running [ -f /var/www/designminister/repo/HEAD ] as ubuntu@184.72.109.212
+ DEBUG [ab1e68a3] Command: [ -f /var/www/designminister/repo/HEAD ]
+ DEBUG [ab1e68a3] Finished in 1.823 seconds with exit status 0 (successful).
+  INFO The repository mirror is at /var/www/designminister/repo
+ DEBUG [c53bea21] Running if test ! -d /var/www/designminister/repo; then echo "Directory does not exist '/var/www/designminister/repo'" 1>&2; false; fi as ubuntu@184.72.109.212
+ DEBUG [c53bea21] Command: if test ! -d /var/www/designminister/repo; then echo "Directory does not exist '/var/www/designminister/repo'" 1>&2; false; fi
+ DEBUG [c53bea21] Finished in 0.552 seconds with exit status 0 (successful).
+  INFO [edfbf896] Running /usr/bin/env git remote set-url origin git@bitbucket.org:ShubhamBansal/designminister.git as ubuntu@184.72.109.212
+ DEBUG [edfbf896] Command: cd /var/www/designminister/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-Designminister-production-shubhambansal.sh" ; /usr/bin/env git remote set-url origin git@bitbucket.org:ShubhamBansal/designminister.git )
+  INFO [edfbf896] Finished in 0.571 seconds with exit status 0 (successful).
+  INFO [9b65cf12] Running /usr/bin/env git remote update --prune as ubuntu@184.72.109.212
+ DEBUG [9b65cf12] Command: cd /var/www/designminister/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-Designminister-production-shubhambansal.sh" ; /usr/bin/env git remote update --prune )
+ DEBUG [9b65cf12] 	Fetching origin
+  INFO [9b65cf12] Finished in 0.884 seconds with exit status 0 (successful).
+ DEBUG [47703d24] Running if test ! -d /var/www/designminister/repo; then echo "Directory does not exist '/var/www/designminister/repo'" 1>&2; false; fi as ubuntu@184.72.109.212
+ DEBUG [47703d24] Command: if test ! -d /var/www/designminister/repo; then echo "Directory does not exist '/var/www/designminister/repo'" 1>&2; false; fi
+ DEBUG [47703d24] Finished in 0.484 seconds with exit status 0 (successful).
+  INFO [8a288444] Running /usr/bin/env mkdir -p /var/www/designminister/releases/20170426130523 as ubuntu@184.72.109.212
+ DEBUG [8a288444] Command: cd /var/www/designminister/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-Designminister-production-shubhambansal.sh" ; /usr/bin/env mkdir -p /var/www/designminister/releases/20170426130523 )
+  INFO [8a288444] Finished in 1.018 seconds with exit status 0 (successful).
+  INFO [5313d029] Running /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /var/www/designminister/releases/20170426130523 as ubuntu@184.72.109.212
+ DEBUG [5313d029] Command: cd /var/www/designminister/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-Designminister-production-shubhambansal.sh" ; /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /var/www/designminister/releases/20170426130523 )
+  INFO [5313d029] Finished in 1.223 seconds with exit status 0 (successful).
+ DEBUG [e45cc7ad] Running if test ! -d /var/www/designminister/repo; then echo "Directory does not exist '/var/www/designminister/repo'" 1>&2; false; fi as ubuntu@184.72.109.212
+ DEBUG [e45cc7ad] Command: if test ! -d /var/www/designminister/repo; then echo "Directory does not exist '/var/www/designminister/repo'" 1>&2; false; fi
+ DEBUG [e45cc7ad] Finished in 2.752 seconds with exit status 0 (successful).
+ DEBUG [b9f9dc0b] Running /usr/bin/env git rev-list --max-count=1 master as ubuntu@184.72.109.212
+ DEBUG [b9f9dc0b] Command: cd /var/www/designminister/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-Designminister-production-shubhambansal.sh" ; /usr/bin/env git rev-list --max-count=1 master )
+ DEBUG [b9f9dc0b] 	e9a192de9825df48b1e61ca5e2dd8bbbd4846b4b
+ DEBUG [b9f9dc0b] Finished in 0.922 seconds with exit status 0 (successful).
+ DEBUG [faf67e0f] Running if test ! -d /var/www/designminister/releases/20170426130523; then echo "Directory does not exist '/var/www/designminister/releases/20170426130523'" 1>&2; false; fi as ubuntu@184.72.109.212
+ DEBUG [faf67e0f] Command: if test ! -d /var/www/designminister/releases/20170426130523; then echo "Directory does not exist '/var/www/designminister/releases/20170426130523'" 1>&2; false; fi
+ DEBUG [faf67e0f] Finished in 0.611 seconds with exit status 0 (successful).
+  INFO [3a533f06] Running /usr/bin/env echo "e9a192de9825df48b1e61ca5e2dd8bbbd4846b4b" >> REVISION as ubuntu@184.72.109.212
+ DEBUG [3a533f06] Command: cd /var/www/designminister/releases/20170426130523 && /usr/bin/env echo "e9a192de9825df48b1e61ca5e2dd8bbbd4846b4b" >> REVISION
+  INFO [3a533f06] Finished in 0.811 seconds with exit status 0 (successful).
+  INFO [0b3ab5f3] Running /usr/bin/env ln -s /var/www/designminister/releases/20170426130523 /var/www/designminister/releases/current as ubuntu@184.72.109.212
+ DEBUG [0b3ab5f3] Command: /usr/bin/env ln -s /var/www/designminister/releases/20170426130523 /var/www/designminister/releases/current
+  INFO [0b3ab5f3] Finished in 0.660 seconds with exit status 0 (successful).
+  INFO [21e81b0c] Running /usr/bin/env mv /var/www/designminister/releases/current /var/www/designminister as ubuntu@184.72.109.212
+ DEBUG [21e81b0c] Command: /usr/bin/env mv /var/www/designminister/releases/current /var/www/designminister
+  INFO [21e81b0c] Finished in 0.824 seconds with exit status 0 (successful).
+ DEBUG [80396876] Running /usr/bin/env ls -x /var/www/designminister/releases as ubuntu@184.72.109.212
+ DEBUG [80396876] Command: /usr/bin/env ls -x /var/www/designminister/releases
+ DEBUG [80396876] 	20170421102323	20170425011210	20170426073815	20170426074123	20170426075438
+20170426130523
+ DEBUG [80396876] Finished in 0.539 seconds with exit status 0 (successful).
+  INFO Keeping 5 of 6 deployed releases on 184.72.109.212
+  INFO [21abda03] Running /usr/bin/env rm -rf /var/www/designminister/releases/20170421102323 as ubuntu@184.72.109.212
+ DEBUG [21abda03] Command: /usr/bin/env rm -rf /var/www/designminister/releases/20170421102323
+  INFO [21abda03] Finished in 1.670 seconds with exit status 0 (successful).
+ DEBUG [4b285f3a] Running if test ! -d /var/www/designminister/releases; then echo "Directory does not exist '/var/www/designminister/releases'" 1>&2; false; fi as ubuntu@184.72.109.212
+ DEBUG [4b285f3a] Command: if test ! -d /var/www/designminister/releases; then echo "Directory does not exist '/var/www/designminister/releases'" 1>&2; false; fi
+ DEBUG [4b285f3a] Finished in 2.174 seconds with exit status 0 (successful).
+  INFO [edc6dee0] Running /usr/bin/env echo "Branch master (at e9a192de9825df48b1e61ca5e2dd8bbbd4846b4b) deployed as release 20170426130523 by shubhambansal" >> /var/www/designminister/revisions.log as ubuntu@184.72.109.212
+ DEBUG [edc6dee0] Command: cd /var/www/designminister/releases && /usr/bin/env echo "Branch master (at e9a192de9825df48b1e61ca5e2dd8bbbd4846b4b) deployed as release 20170426130523 by shubhambansal" >> /var/www/designminister/revisions.log
+  INFO [edc6dee0] Finished in 0.982 seconds with exit status 0 (successful).

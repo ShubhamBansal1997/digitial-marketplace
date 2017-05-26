@@ -5,3 +5,9 @@
 Homestead.json
 Homestead.yaml
 .env
+composer.json
+.DS_STORE
+Capfile
+.env.example
+composer.lock
+config/

@@ -40,6 +40,7 @@
   <!-- bootstrap wysihtml5 - text editor -->
   <link rel="stylesheet" href="{{ asset('admin_asset/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css') }}">
   <script src="{{URL::asset('templateEditor/ckeditor/ckeditor.js')}}"></script>
+  <meta name="csrf-token" content="{{ csrf_token() }}">
   
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -544,10 +545,12 @@ $(function () {
 
 <!-- AdminLTE for demo purposes -->
 <script src="{{ asset('admin_asset/dist/js/demo.js') }}"></script>
-<script type="text/javascript">  
-     CKEDITOR.replace( 'editor' );  
-</script>
+
+<!-- Notify Js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/notify.min.js"></script>
+
 <script>
+
   $(function () {
     
   
@@ -617,17 +620,11 @@ $(function () {
     $("#tagging").select2({
       tags: true
     });
-    $("#example1").DataTable();
-    $("#example2").DataTable()({
-      "paging": true,
-      "lengthChange": false,
-      "searching": false,
-      "ordering": true,
-      "info": true,
-      "autowidth": false
-    });
+    $("#example2").DataTable();
+    
     
   });
 </script>
+@yield('script')
 </body>
 </html>

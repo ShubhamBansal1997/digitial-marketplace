@@ -145,11 +145,7 @@
                       @endif > {{ $customization->customization_name }}</option>
                     @endforeach
                   </select>
-                </div>              
-                <div class="form-group">
-                  <label>Current Price</label>
-                  <input type="text" class="form-control" name="prod_price" placeholder="Enter Price" value="{{ isset($prod->id)?$prod->prod_price: null}}" required>
-                </div>
+                </div>             
                 <div class="form-group">
                   <label>Vendor</label>
                   <select class="form-control select2" style="width: 100%;" name="prod_vendor_id" required>
@@ -166,7 +162,7 @@
                 </div>
                 <div class="form-group">
                   <label>Featured</label>
-                  <select class="form-control select2" style="width: 100%;" name="prod_featured">
+                  <select class="form-control select2" style="width: 100%;" name="prod_featured" required>
                     @if(isset($prod->id))
                     {
                       <option selected="selected" value="{{ $prod->prod_featured}}">
@@ -190,7 +186,7 @@
                 </div>
                 <div class="form-group">
                   <label>Service</label>
-                  <select class="form-control select2" style="width: 100%;" name="is_service">
+                  <select class="form-control select2" style="width: 100%;" name="is_service" required>
                     @if(isset($prod->id))
                     
                       <option selected="selected" value="{{ $prod->is_service}}">
@@ -214,7 +210,7 @@
                 </div>
                 <div class="form-group">
                   <label for="exampleInputFile12">Upload Product</label>
-                  <input type="file" id="exampleInputFile12" name="prod_file">
+                  <input type="file" id="exampleInputFile12" name="prod_file" required>
                 </div>
                 
               <div class="box-footer">
@@ -236,3 +232,9 @@
   </div>
   <!-- /.content-wrapper -->
   @endsection
+
+  @section('script');
+    <script type="text/javascript">  
+     CKEDITOR.replace( 'editor' );  
+</script>
+@endsection

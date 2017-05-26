@@ -59,8 +59,8 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'admi
 		Route::get('/service',function() {
 			return view('admin.pages.service');
 		});
-		Route::get('/activeinactiveproduct/{id}','ProductController@activeinactiveproduct');
-		Route::get('/activeinactivefeaturedproduct/{id}','ProductController@activeinactivefeaturedproduct');
+		Route::get('/activeinactiveproduct/{id}','ProductController@activeinactiveproduct')->middleware('web');
+		Route::get('/activeinactivefeaturedproduct/{id}','ProductController@activeinactivefeaturedproduct')->middleware('web');
 		Route::get('/addeditproduct/{id?}','ProductController@viewaddeditproduct');
 		Route::get('/deleteproduct/{id}','ProductController@deleteproduct');
 		Route::post('/addeditproduct','ProductController@addeditproduct')->middleware('web');

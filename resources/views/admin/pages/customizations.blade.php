@@ -47,16 +47,16 @@
                   <td>{{ $customization->customization_price }}</td>
                   <td>{{ $customization->customizations_time }}</td>
                   <td>
-                  <a href="{{ URL::to('admin/activeinactivecustomization')}}/{{ $customization->id }}">
                   @if($customization->customization_active==TRUE)
-                    <small class="label label-success">ACTIVE</small>
+                    <small id="activeinactivestatus" data-id="{{ $customization->id }}" class="label label-success">ACTIVE</small>
                   @else
                   
-                    <small class="label label-danger">INACTIVE</small>
+                    <small id="activeinactivestatus" data-id="{{ $customization->id }}" class="label label-danger">INACTIVE</small>
                   
                   @endif
-                  </a>
-                  <td> <a href="{{ URL::to('admin/addeditcustomization')}}/{{ $customization->id }}"><i class="fa fa-fw fa-edit"></i><a href="{{ URL::to('admin/deletecustomization')}}/{{ $customization->id }}"><i class="fa fa-fw fa-remove"></i></a><i class="fa fa-fw fa-eye"></i></td>
+                  <td> <a href="{{ URL::to('admin/addeditcustomization')}}/{{ $customization->id }}"><i class="fa fa-fw fa-edit"></i></a>
+                  <i id="deletecategory" data-id="{{ $customization->id }}" class="fa fa-fw fa-remove"></i>
+                  <i class="fa fa-fw fa-eye"></i></td>
                   
                 </tr>
                 @endforeach
@@ -76,4 +76,74 @@
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
+@endsection
+
+@section('script')
+<script type="text/javascript">
+  $(document).ready(function(){
+  //upload to knowledge center
+  $('small#activeinactivestatus').click(function(e){
+    e.preventDefault();
+    var arg = $(this).attr("data-id");
+    var classname = $(this).attr("class");
+    //arg = arg+'&sessionid='+SSID;
+    $.ajax({
+      url: '{{ URL::to('admin/activeinactivecustomization/')}}'+'/'+arg,
+      data: null,
+      type: "GET",
+      headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+      },
+      context: this,
+      success: function(responce){
+        if(classname==='label label-success')
+        {
+          $(this).removeClass('label label-success').addClass('label label-danger').text('INACTIVE');
+          $.notify("Customization Inactive","error");
+        }
+        else{
+          $(this).removeClass('label label-danger').addClass('label label-success').text('ACTIVE');
+          $.notify("Customization Active","success");
+        }
+      }
+    });
+    
+    return false;
+  });
+  
+         
+});
+  $(function(){
+  //upload to knowledge center
+  $('i#deletecategory').click(function(e){
+    e.preventDefault();
+    var arg = $(this).attr("data-id");
+    var classname = $(this).attr("class");
+    var parent = $(this).parent();
+    //arg = arg+'&sessionid='+SSID;
+    $.ajax({
+      url: '{{ URL::to('admin/deletecustomization')}}'+'/'+arg,
+      data: null,
+      type: "GET",
+      headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+      },
+      context: this,
+      headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+      },
+      success: function(responce){
+        parent.slideUp(300, function () {
+                    parent.closest("tr").remove();
+                });
+
+      }
+    });
+    
+    return false;
+  });
+  
+         
+});
+</script>
 @endsection
