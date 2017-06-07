@@ -21,7 +21,7 @@ Route::get('/', function () {
 Route::post('/login','LoginRegisterController@login')->middleware('web');
 
 Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'admin'], function () {
-	
+
 		Route::get('/dashboard',function() {
 			return view('admin.pages.home');
 		});
@@ -81,7 +81,7 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'admi
 		Route::get('/deletecoupon/{id}','PaymentController@deletecoupon');
 		Route::post('/addeditcoupon','PaymentController@addeditcoupon')->middleware('web');
 
-		
+
 
 		Route::post('/makepayout','PaymentController@makepayout');
 		Route::get('/sale',function() {
@@ -136,11 +136,11 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'admi
 		});
 		Route::get('/settings','SettingController@setting');
 		Route::post('/settings','SettingController@postsetting')->middleware('web');
-		
 
 
-	
-	
+
+
+
 });
 Route::get('search/{searchterm}','HomeController@search');
 Route::post('searchterm','HomeController@searchterm')->middleware('web');
@@ -149,7 +149,7 @@ Route::post('user/updateprofile','HomeController@updateprofile')->middleware(['w
 Route::post('user/updatepassword','HomeController@updatepassword')->middleware(['web','user']);
 
 
-//Route to display the single product 
+//Route to display the single product
 Route::get('/product/{productnameslug}/{productid}','HomeController@product');
 
 // Route to display the single service
@@ -207,10 +207,10 @@ Route::get('service/{categoryname}','HomeController@servicecategory');
 /** Route to buy product directly  */
 Route::get('buynowproduct/{id}','HomeController@buynowproduct')->middleware('login');
 
-// Route to display and product and services of a vendor 
+// Route to display and product and services of a vendor
 Route::get('/vendor/{vendorname}/{id}','HomeController@vendor');
 
-// Route to add the uncustomized product from the cart 
+// Route to add the uncustomized product from the cart
 Route::get('/addtocart/{id}','HomeController@addtocart');
 // Route to remove the uncustomized product  from the cart
 Route::get('/removefromcart/{id}','HomeController@removefromcart');
@@ -229,6 +229,10 @@ Route::get('/checkout',function(){
 Route::get('/logout',function(){
 	Session::flush();
 	return redirect('/');
+});
+Route::get('/testing',function(){
+  $msg = array('status' => 'suucess');
+  return response()->json($msg, 200);
 });
 
 

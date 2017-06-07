@@ -43,7 +43,7 @@ class HomeController extends Controller
 
     public function uploadfile($file)
     {
-        
+
         if($file!=NULL)
         {
             if ($file->isValid()) {
@@ -108,7 +108,7 @@ class HomeController extends Controller
         {
             return Redirect::back();
         }
-        else 
+        else
         {
             $user = Users::where('user_email',Session::get('email'))->first();
             if(\Hash::check($request->input('old_password'), $user->user_pwd)==FALSE)
@@ -127,7 +127,7 @@ class HomeController extends Controller
     /** end of the function  */
 
 
-    /** function to display the single product 
+    /** function to display the single product
     Route linked ==> /product/{productnameslug}/{productid}
     */
     public function product($productnameslug, $productid)
@@ -138,7 +138,7 @@ class HomeController extends Controller
     /** end of the function */
 
 
-    /** function to display the single service 
+    /** function to display the single service
     Route linked ==> /service/{productnameslug}/{productid}
     */
     public function service($servicenameslug, $serviceid)
@@ -154,17 +154,17 @@ class HomeController extends Controller
         $vendor = Users::where('user_slug',$vendorname)->where('id',$id)->first();
         if($vendor==NULL)
             return Redirect::back();
-        $products = Products::where('prod_vendor_id',$id)->orderBy('prod_price','DESC')->get(); 
+        $products = Products::where('prod_vendor_id',$id)->orderBy('prod_price','DESC')->get();
         return view('pages.vendorproduct',compact('vendor','products'));
-        
+
     }
     /** end of the function  */
 
     /** function to add product without customization to cart */
     public function addtocart($id)
-    {   
+    {
         $product = Products::where('id',$id)->first();
-        
+
             $url = Products::getFileUrl($product->prod_image);
             $vendor_name = Users::username($product->prod_vendor_id);
             //dd(Cart::content());
@@ -176,8 +176,8 @@ class HomeController extends Controller
 
             Cart::add(['id' => $product->id, 'name' => $product->prod_name, 'qty' => 1, 'price' => $product->prod_price, 'options' => ['pic' => $url, 'vendor_name' => $vendor_name,'is_service' => $product->is_service, 'prod_slug' => $product->prod_slug ]]);
 
-        
-            return Redirect::back();     
+
+            return Redirect::back();
 
 
     }
@@ -186,13 +186,13 @@ class HomeController extends Controller
     /** function to order a service */
     public function orderservice($serviceid)
     {
-        
+
             if(Session::get('login')!=true)
                 return Redirect::back();
             $service = Products::where('id',$serviceid)->first();
             //dd($service);
-            return view('pages.serviceorder',compact('service'));    
-        
+            return view('pages.serviceorder',compact('service'));
+
     }
     /** end of the function */
 
@@ -203,7 +203,7 @@ class HomeController extends Controller
             'name' => 'required',
             'reference_file' => 'file',
             ]);
-        //$service = 
+        //$service =
         $service_order = new Service_Order;
         $email = Session::get('email');
         //dd($email);
@@ -216,7 +216,7 @@ class HomeController extends Controller
             $custom_order->order_sample_file = $this->uploadfile($request->file('order_sample_file'));
         $service_order->service_completed = false;
         $service_order->save();
-        return redirect('/checkout'); 
+        return redirect('/checkout');
     }
     /** end of the function */
 
@@ -227,7 +227,7 @@ class HomeController extends Controller
             'name' => 'required',
             'reference_file' => 'file',
             ]);
-        //$service = 
+        //$service =
         $service_order = new Product_Custom_Order;
         $email = Session::get('email');
         //dd($email);
@@ -241,7 +241,7 @@ class HomeController extends Controller
         $service_order->product_completed = false;
         $service_order->product_customizations = $request->input('custom');
         $service_order->save();
-        return redirect('/checkout'); 
+        return redirect('/checkout');
     }
     /** end of the function */
 
@@ -269,17 +269,17 @@ class HomeController extends Controller
     /** function to display the products of a category  */
     public function productcategory($categoryname)
     {
-        
+
         $catname = str_replace('-', ' ', $categoryname);
         //$array = array();
         $cat = Category::where('category_name',$catname)->first();
-        
+
         //$array = array($cat->id);
         if($cat==NULL)
             return Redirect::back();
 
         $id = $cat->id;
-        
+
         $products = Products::where('prod_categories', 'LIKE', "%$id%")->where('prod_delete',false)->where('prod_status',true)->where('is_service',false)->get();
         // dd("shubham");
         // dd($products);
@@ -292,17 +292,17 @@ class HomeController extends Controller
     /** function to display the services of a category  */
     public function servicecategory($categoryname)
     {
-        
+
         $catname = str_replace('-', ' ', $categoryname);
         //$array = array();
         $cat = Category::where('category_name',$catname)->first();
-        
+
         //$array = array($cat->id);
         if($cat==NULL)
             return Redirect::back();
 
         $id = $cat->id;
-        
+
         $products = Products::where('prod_categories', 'LIKE', "%$id%")->where('prod_delete',false)->where('prod_status',true)->where('is_service',true)->get();
         // dd("shubham");
         // dd($products);
@@ -332,7 +332,7 @@ class HomeController extends Controller
             $sum = 0;
             $customs = implode(",", $request->input('customizations'));
             foreach($request->input('customizations') as $customization)
-            {   
+            {
                 $custom = Customizations::where('id',$customization)->first();
                 $sum = $sum + $custom->customization_price;
             }
@@ -363,5 +363,10 @@ class HomeController extends Controller
             $name = $searchterm;
         return view('pages.search',compact('products','name'));
     }
-    
+    public function showWelcome()
+    {
+      $msg = array('status' => 'suucess', );
+      return reponse()->json($msg,200);
+    }
+
 }
