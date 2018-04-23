@@ -1,27 +1,24 @@
-# Laravel PHP Framework
+# Digital MarketPlace
 
-[![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
-[![Total Downloads](https://poser.pugx.org/laravel/framework/d/total.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Stable Version](https://poser.pugx.org/laravel/framework/v/stable.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Unstable Version](https://poser.pugx.org/laravel/framework/v/unstable.svg)](https://packagist.org/packages/laravel/framework)
-[![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
-
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as authentication, routing, sessions, queueing, and caching.
+Digital Marketplace is a web application built on the top of Laravel framework which is kind a alike of themeforest.com or creativetim.com in terms of functionality i.e. a marketplace to sell themes and other digital products.
 
 Laravel is accessible, yet powerful, providing tools needed for large, robust applications. A superb inversion of control container, expressive migration system, and tightly integrated unit testing support give you the tools you need to build any application with which you are tasked.
 
-## Official Documentation
+## Technologies used
+* Laravel (php)
+* MySQl/PostgreSQL
 
-Documentation for the framework can be found on the [Laravel website](http://laravel.com/docs).
+## How to run
+1. Edit the .env file and set the db paramaters
+2. Now run the command to make db schema and populate basic db feilds
+```
+php artisan migrate --seed
+```
+3. To run the website
+```
+php artisan serve
+```
 
 ## Contributing
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](http://laravel.com/docs/contributions).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
+Thank you for considering contributing to the Digital MarketPlace! Please raise issue before submitting the PR. Feel free to contribute towards the code and documentation.
